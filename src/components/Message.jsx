@@ -16,21 +16,28 @@ function useChatScroll(dep) {
   return ref;
 }
 const MessageWrapper = styled.section`
-background-color: orange;
+border-radius: .5em;
+background-color: #414a4c;
 display: flex;
 flex-direction: column;
 position: fixed;
 bottom: 5%;
 padding-bottom: 2%;
 right: 0%;
-width: 30%;
-height: 40%;
+width: 50vw;
+height: 19em;
 overflow-y:scroll;
 overflow-x: hidden !important;
 input {
   position: fixed;
   bottom: 5%;
   width: 100%
+}
+.bot-message {
+  background-color: green;
+}
+.human-message {
+  background-color: blue;
 }
 `;
 const Message = () => {
@@ -46,22 +53,22 @@ const Message = () => {
   const submitMessage = (e) => {
     e.preventDefault();
     const humanRes = input;
-    dispatch(addMessage({ user: "Human", text: input }))
+    dispatch(addMessage({ user: "human", text: input }))
     dispatch(changeInput(""));
     dispatch(addMessage({ user: "bot", text: bot(humanRes, count) }));
     dispatch(increment());
   }
   return (
     <MessageWrapper className="content-container" ref={ref}>
-      <div className='messages'>
+      <section className='messages'>
 {messages.length > 0 && messages.map((eachmsg)=> {
         return (
-          <div key={nanoid()}>
+          <section className={eachmsg.user ==='bot' ? 'bot-message' : 'human-message'} key={nanoid()}>
             <p>{eachmsg.text}</p>
-          </div>
+          </section>
         )
       })}
-      </div>
+      </section>
       <form onSubmit={submitMessage}>
         <input
           type="text"
@@ -73,4 +80,4 @@ const Message = () => {
   )
 }
 
-export default Message
+export default Message;

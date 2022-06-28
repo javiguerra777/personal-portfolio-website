@@ -12,9 +12,17 @@ bottom: 0;
 height: 5%;
 width: 100%;
 justify-content:space-between;
+.copyright {
+  display: flex;
+  flex-direction: row;
+  align-self:center;
+}
+button {
+  border-radius: 3em;
+}
 `;
 const Footer = () => {
-  const [displayComponent, setDisplayComponent] = useState(true);
+  const [displayComponent, setDisplayComponent] = useState(false);
   const toggleDisplay = () => {
     if (displayComponent) {
       setDisplayComponent(false);
@@ -24,10 +32,10 @@ const Footer = () => {
   }
   return (
     <FooterWrapper>
-      <div>
+      <section className='copyright'>
         <p>Copyright 2022. All Rights Reserved</p>
-      </div>
-        <button type='button' onClick={toggleDisplay}>Display Bot</button>
+      </section>
+        <button type='button' onClick={toggleDisplay}>MSG</button>
       {displayComponent && <Message />}
     </FooterWrapper>
   )

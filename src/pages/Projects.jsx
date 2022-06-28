@@ -1,10 +1,29 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
+const ProjectWrapper = styled.section`
+h1 {
+  text-align: center;
+}
+header{
+  background-color: yellow;
+}
+a {
+  text-decoration: none;
+  display: flex;
+  justify-items: center;
+}
+`;
 const Projects = () => {
   return (
-    <div>
-      <h1>Here are the projects I have worked on, if you are interested in testing them out, read the description and then check out the Github Repo</h1>
-    </div>
+    <ProjectWrapper>
+      <header>
+      <h1>Here are a few of my projects from my github <br /> Checkout the description and checkout my github
+        </h1>
+      <a href="https://github.com/dashboard" target="blank">My Github Portfolio</a>
+      </header>
+      
+    </ProjectWrapper>
   )
 }
 

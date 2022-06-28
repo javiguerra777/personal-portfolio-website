@@ -6,9 +6,12 @@ const NavWrapper = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-evenly;
-width: 60%;
+width: 100%;
 height: 100%;
 a {
+  display: flex;
+  flex-direction: row;
+  align-text: center;
   color: white;
   text-decoration: none;
 }
