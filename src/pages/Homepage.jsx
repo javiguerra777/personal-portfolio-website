@@ -1,10 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const HomeWrapper = styled.section`
+h1 {
+  text-align center
+}
+`;
 
 const Homepage = () => {
   return (
-    <section>
-      <h1>Welcome to my personal website</h1>
-    </section>
+    <HomeWrapper>
+      <h1>Javi Guerra's Website</h1>
+    </HomeWrapper>
   );
 };
 

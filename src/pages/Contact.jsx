@@ -5,6 +5,7 @@ import { validateEmail } from '../utils/functions';
 const ContentWrapper = styled.section`
 display: flex;
 flex-direction: row;
+height: 100vh;
 .contact-me-msg {
   width: 40vw;
   margin-left: 1em;
@@ -14,14 +15,15 @@ h1 {
 }
 `;
 const FormWrapper = styled.form`
-background-color: whitesmoke;
+background-color: #333333;
+color: white;
 border-radius: 1em;
 padding: 1em;
 display: flex;
 flex-direction: column;
 align-self: center;
 width: 50vw;
-margin-left: 2em;
+margin-left: 1em;
 margin-top 2vw;
 .btn-container {
   display: flex;
@@ -35,7 +37,7 @@ p {
 }
 input {
   border: none;
-  border-bottom: teal 1px solid;
+  border-bottom: teal .2em solid;
   margin-bottom: 1em;
 }
 textarea {
@@ -45,24 +47,28 @@ textarea {
 button {
   width: 15em;
   border-radius: 2em;
-  border: 1px solid blue;
+  border: 1px solid #00BFFF;
+  background-color: white;
+  cursor: pointer;
 }
 .button {
   width: 15em;
   border-radius: 2em;
-  border: 1px solid blue;
-  color: blue;
+  border: 1px solid #00BFFF;
+  color: #00BFFF;
 }
 .button:hover {
-  background-color: blue;
+  background-color: #00BFFF;
   color: white;
+  -webkit-box-shadow: 16px 7px 5px 1px #A63DFF; 
+box-shadow: 16px 7px 5px 1px #A63DFF;
 }
 `;
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const minRequired = 20;
+  const minRequired = 30;
   const sendEmail = (e) => {
     e.preventDefault();
     setName("");
@@ -80,11 +86,11 @@ const Contact = () => {
   formValidation();
   return (
     <ContentWrapper>
-      <div className='contact-me-msg'>
+      <section className='contact-me-msg'>
         <h1>Contact Me</h1>
-        <p>If you are interested in any of my projects, have a question, or want to collaborate with me please leave your contact information and a message below and I will get back to you as soon as I can</p>
-      </div>
-      <div>
+        <p>If you are interested in any of my projects, have a question, or want to collaborate with me please leave your contact information and a message below and I will get back to you as soon as I can.</p>
+      </section>
+      <section>
         <FormWrapper onSubmit={sendEmail}>
           <p>Enter Information</p>
           <input
@@ -93,6 +99,7 @@ const Contact = () => {
             placeholder='Name'
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
           <input
             className="bottom-border-teal"
@@ -100,20 +107,21 @@ const Contact = () => {
             placeholder='Email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <textarea
             name="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder='Message'
-            rows="5" cols="10"
+            rows="5" cols="10" required
           ></textarea>
-          {minRequired - message.length > 0 && <p> Minimum Characters for message:{minRequired - message.length}</p>}
+          {minRequired - message.length > 0 && <p> Minimum Characters:{minRequired - message.length}</p>}
           <div className='btn-container'>
             <button type='submit' className={!formValidation() ? 'button' : ''} disabled={formValidation()}>Send Message</button>
           </div>
         </FormWrapper>
-      </div>
+      </section>
     </ContentWrapper>
   );
 };

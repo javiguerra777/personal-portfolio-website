@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import styled from 'styled-components';
 
 const AppWrapper = styled.main`
+background-color: #FCFFE7;
 height: 100vh;
 width: 100vw;
 display: flex;

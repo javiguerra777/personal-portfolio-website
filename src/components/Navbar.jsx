@@ -11,13 +11,14 @@ height: 100%;
 a {
   display: flex;
   flex-direction: row;
-  align-text: center;
+  align-self: center;
   color: white;
   text-decoration: none;
 }
 a:hover {
-  background-color: purple;
-  color: yellow;
+  background-color: #CE9461;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+  padding: 1em;
 }
 `;
 const Navbar = () => {

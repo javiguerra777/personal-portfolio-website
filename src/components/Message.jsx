@@ -17,12 +17,12 @@ function useChatScroll(dep) {
 }
 const MessageWrapper = styled.section`
 border-radius: .5em;
-background-color: #414a4c;
+background-color: #242124;
 display: flex;
 flex-direction: column;
 position: fixed;
 bottom: 5%;
-padding-bottom: 2%;
+padding-bottom: 4%;
 right: 0%;
 width: 50vw;
 height: 19em;
@@ -34,10 +34,30 @@ input {
   width: 100%
 }
 .bot-message {
-  background-color: green;
+  background-color: #3b3c36;
+  width: 75%;
+  margin-left: .5em;
 }
 .human-message {
-  background-color: blue;
+  align-self: flex-end;
+  background-color: #1E90FF;
+  margin-right: .5em;
+}
+.one-message {
+  margin-top: 1em;
+  width: 75%;
+  border-radius: 1em;
+  word-wrap: break-word;
+}
+.one-message p {
+  margin-left .5em;
+}
+.messages {
+  display: flex;
+  flex-direction: column;
+}
+a {
+  color: white;
 }
 `;
 const Message = () => {
@@ -47,8 +67,10 @@ const Message = () => {
   const count = useSelector((state) => state.count.value);
   const ref = useChatScroll(messages);
   useEffect(() => {
-    dispatch(addMessage({ user: "bot", text: bot('', count) }));
-    dispatch(increment());
+    if (count === 0) {
+      dispatch(addMessage({ user: "bot", text: bot('', count) }));
+      dispatch(increment());
+    }
   }, []);
   const submitMessage = (e) => {
     e.preventDefault();
@@ -63,7 +85,7 @@ const Message = () => {
       <section className='messages'>
 {messages.length > 0 && messages.map((eachmsg)=> {
         return (
-          <section className={eachmsg.user ==='bot' ? 'bot-message' : 'human-message'} key={nanoid()}>
+          <section className={eachmsg.user ==='bot' ? 'bot-message one-message' : 'human-message one-message'} key={nanoid()}>
             <p>{eachmsg.text}</p>
           </section>
         )

@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.nav`
-background-color: #333333;
+background-color: #CE9461;
 display: flex;
 flex-direction: row;
 height: 2em;
