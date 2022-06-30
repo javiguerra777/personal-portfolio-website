@@ -1,0 +1,36 @@
+[
+  {
+    "id": 0,
+    "link": "/",
+    "to": "Home",
+    "path":"/"
+  },
+  {
+    "id": 1,
+    "link": "about",
+    "to": "About",
+    "path":"/about"
+
+  },
+  {
+    "id": 2,
+    "link": "projects",
+    "to": "Projects",
+    "path":"/projects"
+
+  },
+  {
+    "id": 3,
+    "link": "works",
+    "to": "Works",
+    "path":"/works"
+
+  },
+  {
+    "id": 4,
+    "link": "contact",
+    "to": "Contact",
+    "path":"/contact"
+
+  }
+]

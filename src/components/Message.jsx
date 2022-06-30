@@ -6,7 +6,10 @@ import { increment } from '../store/countSlice';
 import { bot } from '../utils/functions';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
 import '../styles/message.css';
+
 function useChatScroll(dep) {
   const ref = useRef();
   useEffect(() => {
@@ -16,7 +19,7 @@ function useChatScroll(dep) {
   }, [dep]);
   return ref;
 }
-const MessageWrapper = styled.section`
+const MessageWrapper = styled(motion.section)`
 border-radius: .5em;
 background-color: #242124;
 display: flex;
@@ -99,7 +102,7 @@ const Message = () => {
           onChange={(e)=> dispatch(changeInput(e.target.value))}
         />
       </form>
-    </MessageWrapper>
+      </MessageWrapper>
   )
 }
 

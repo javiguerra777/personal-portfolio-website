@@ -9,7 +9,7 @@ export function bot(response, count) {
     return "Welcome to Javi's page, ask me any questions you have about this website and I will be glad to assist, here are some phrases to get you started: 'How can I contact Javi?, tell me more about this website, or what project is Javi currently working on?'";
   }
   if (response.toLowerCase().includes("contact javi")) {
-    return (<p>Click here to go to the contact form page<br/> <Link to="/contact">Contact Page</Link></p>);
+    return (<p>Click here to go to the contact form page<br /> <Link to="/contact">Contact Page</Link></p>);
   } 
   if (response.toLowerCase().includes("this website")) {
     return "This is Javi's personal website currently it is a small and basic site. This site showcases his github projects, his work experience and who he is. Javi aims to eventually become a software engineer and he enjoys his job as a React Apprentice";

@@ -12,6 +12,12 @@ ul {
 h1, h3 {
   text-align: center;
 }
+h3 {
+  
+}
+.accordion-body {
+  background-color: #E0D8B0; 
+}
 .date {
   text-decoration: line;
 }
@@ -48,7 +54,7 @@ button:hover {
 header {
   background-color: #333333;
   color: white;
-  height: 3em;
+  height: auto;
   margin-bottom: 1em;
   padding-top: .1em;
   padding-bottom: .5em;
@@ -76,7 +82,7 @@ const Works = () => {
               <Accordion>
                 <Accordion.Item eventKey={job.id}>
                   <Accordion.Header>More Info</Accordion.Header>
-                  <Accordion.Body>
+                  <Accordion.Body className="accordion-body">
                     <h3>Job Description</h3>
                     <p>{job.jobDescription}</p>
                   </Accordion.Body>

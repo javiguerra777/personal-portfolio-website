@@ -45,14 +45,14 @@ textarea {
   margin-bottom: .5em;
 }
 button {
-  width: 15em;
+  width: auto;
   border-radius: 2em;
   border: 1px solid #00BFFF;
   background-color: white;
   cursor: pointer;
 }
 .button {
-  width: 15em;
+  width: auto;
   border-radius: 2em;
   border: 1px solid #00BFFF;
   color: #00BFFF;
@@ -116,7 +116,7 @@ const Contact = () => {
             placeholder='Message'
             rows="5" cols="10" required
           ></textarea>
-          {minRequired - message.length > 0 && <p> Minimum Characters:{minRequired - message.length}</p>}
+          {minRequired - message.length > 0 && <p>Minimum Characters:{minRequired - message.length}</p>}
           <div className='btn-container'>
             <button type='submit' className={!formValidation() ? 'button' : ''} disabled={formValidation()}>Send Message</button>
           </div>

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import Message from './Message';
 import { TiMessages } from 'react-icons/ti';
+
 const FooterWrapper = styled.footer`
 background-color: #CE9461;
 color: white;
@@ -41,10 +42,10 @@ const Footer = () => {
       <section className='copyright'>
         <p>Copyright 2022. All Rights Reserved</p>
       </section>
-        <button type='button' onClick={toggleDisplay}><TiMessages/></button>
-      {displayComponent && <Message />}
+      <button type='button' onClick={toggleDisplay}><TiMessages /></button>
+      {displayComponent && <Message displayComponent={displayComponent} />}
     </FooterWrapper>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
