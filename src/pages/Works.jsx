@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import jobs from "../data/jobs.json";
 import styled from 'styled-components';
 import { nanoid } from 'nanoid';
-import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai';
+import { Accordion } from 'react-bootstrap';
 
 const JobWrapper = styled.section`
 margin-bottom: 5%;
@@ -11,6 +11,9 @@ ul {
 }
 h1, h3 {
   text-align: center;
+}
+.date {
+  text-decoration: line;
 }
 .experiences {
   width: 75%;
@@ -27,6 +30,7 @@ h1, h3 {
   border-top: black 1px solid;
   border-bottom: black 1px solid;
   margin-bottom: 1em;
+  padding-bottom: 1em;
 }
 .jobImage {
   margin-top 1em;
@@ -34,12 +38,9 @@ h1, h3 {
   width: 10em;
 }
 button {
-  margin-bottom: 1em;
   background-color: white;
-  border-radius: 14em;
-  width: 3em;
-  height: 3em;
   cursor: pointer;
+  width: 100vw;
 }
 button:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -53,46 +54,34 @@ header {
   padding-bottom: .5em;
 }
 `;
-const Works = () => {
-  const [display, setDisplay] = useState(false);
-  const toggleCardDisplay =(firstid, id) => {
-    if (firstid === id) {
-      if (!display) {
-        setDisplay(true);
-      } else {
-        setDisplay(false);
-      }
-    }
-  }
+const Works = () => {  
   return (
     <JobWrapper>
       <header>
-        <h1>Work History Since Graduating From Pacific in 2020</h1>
+        <h3>Work History Since Graduating From Pacific in 2020</h3>
       </header>
       <section>
-        {jobs.map((job, index) => {
+        {jobs.map((job) => {
           return (
             <section className='job-desc' key={nanoid()}>
               <section className='imgContainer'>
                 <img className='jobImage' src={job.img} alt={`The logo of ${job.company}`} />
               <ul>
-                <li>Company: {job.company}</li>
-                <li>Job Title: {job.role}</li>
-                <li>Type of job: {job.type}</li>
-                <li>Dates of Employment: {job.startDate} - {job.endDate}</li>
+                <li><strong>Company:</strong> {job.company}</li>
+                <li><strong>Job Title:</strong> {job.role}</li>
+                <li><strong>Type of job:</strong> {job.type}</li>
+                <li><strong>Dates of Employment:</strong> <u>{job.startDate} - {job.endDate}</u></li>
               </ul>
               </section>
-              <section>
-                <button type='button' onClick={() => toggleCardDisplay(job.id, job.id, job)}>{display ? <AiOutlineUp/> : <AiOutlineDown/>}</button>
-              </section>
-              {display && (
-                <section className='experiences'>
-                  <div>
+              <Accordion>
+                <Accordion.Item eventKey={job.id}>
+                  <Accordion.Header>More Info</Accordion.Header>
+                  <Accordion.Body>
                     <h3>Job Description</h3>
                     <p>{job.jobDescription}</p>
-                  </div>
-                </section>)
-              }
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
             </section>
           );
         })}

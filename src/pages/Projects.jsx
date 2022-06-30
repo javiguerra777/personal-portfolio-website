@@ -55,8 +55,8 @@ const Projects = () => {
   return (
     <ProjectWrapper>
       <header>
-        <h1>Here are a few of my projects from my github! <br /> Checkout the description and checkout my github!
-        </h1>
+        <h2>Here are a few of my projects from my github! <br /> Checkout the description and checkout my github!
+        </h2>
         <a href="https://github.com/dashboard" target="blank">My Github Portfolio</a>
       </header>
       <section className='body'>
