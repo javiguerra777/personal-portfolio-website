@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { validateEmail } from '../utils/functions';
-
+import emailjs from '@emailjs/browser';
 const ContentWrapper = styled.section`
 display: flex;
 flex-direction: row;
@@ -71,6 +71,14 @@ const Contact = () => {
   const minRequired = 30;
   const sendEmail = (e) => {
     e.preventDefault();
+    emailjs.send(process.env.REACT_APP_EMAIL_SERVICE_KEYS, process.env.REACT_APP_EMAIL_TEMPLATE_KEYS, {
+      "from_name": name,
+      message,
+      "to_name": "Javier Guerra",
+      "reply_to": email
+    }, process.env.REACT_APP_EMAIL_JS_KEYS)
+      .then((res) => console.log('Success ', res.status, res.text))
+      .catch((err)=> console.log("Failed... ", err))
     setName("");
     setEmail("");
     setMessage("");
