@@ -39,8 +39,7 @@ h3 {
   padding-bottom: 1em;
 }
 .jobImage {
-  margin-top 1em;
-  height: 5em;
+  height: auto;
   width: 10em;
 }
 button {

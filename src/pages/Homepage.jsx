@@ -4,10 +4,34 @@ import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 
 const HomeWrapper = styled.section`
-background-color: white;
-height: 100vh;
+background-color: #333333;
+color: white;
+height: 95vh;
+display: flex;
+flex-direction: column;
+align-items: center;
 h1 {
   text-align center
+}
+section {
+  background-color: #FFFAFA;
+  color: black;
+  position: relative;
+  margin-top: 2em;
+  padding-left: 1em;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  width: 70vw;
+  z-index: 2;
+  div {
+    width: 50%;
+    margin-right: .5em;
+    overflow-y: scroll;
+  }
+  img {
+    width: 50%;
+  }
 }
 `;
 
@@ -18,7 +42,13 @@ const Homepage = () => {
   return (
     
     <HomeWrapper>
-      <h1>Javi Guerra's Website</h1>     
+      <h1>Welcome to my Website</h1>
+      <section className='introduction-content'>
+        <div>
+          <p>Hello my name is Javier Guerra. This is my personal website. I am interested in software development and video game development. I like to attend hack-a-thon's whenever I have the time. Please take a look around my website. I built a simple chat bot, if you click on the button in the bottom right corner you can chat with the bot. Check out the about me page, and if you have questions or want to collaborate on a video game project, there is a contact form you can fill out, thank you.</p>
+        </div>
+        <img src="/images/professional.jpg" alt="" />
+      </section>
       <Particles
       id="tsparticles"
       init={particlesInit}
@@ -30,19 +60,19 @@ const Homepage = () => {
         },
         "particles": {
             "number": {
-                "value": 10,
+                "value": 20,
                 "density": {
                     "enable": false,
-                    "value_area": 800
+                    "value_area": 700
                 }
             },
             "color": {
-                "value": "random"
+                "value": "#FFFAFA"
             },
             "shape": {
                 "type": "star",
                 "options": {
-                    "sides": 5
+                    "sides": 0
                 }
             },
             "opacity": {
@@ -76,21 +106,21 @@ const Homepage = () => {
                 }
             },
             "line_linked": {
-                "enable": true,
+                "enable": false,
                 "distance": 600,
                 "color": "#111",
-                "opacity": 0.4,
+                "opacity": 0.2,
                 "width": 2
             },
             "move": {
                 "enable": true,
-                "speed": 2,
+                "speed": 3,
                 "direction": "none",
                 "random": false,
                 "straight": false,
                 "out_mode": "out",
                 "attract": {
-                    "enable": false,
+                    "enable": true,
                     "rotateX": 600,
                     "rotateY": 1200
                 }
@@ -100,7 +130,7 @@ const Homepage = () => {
             "events": {
                 "onhover": {
                     "enable": true,
-                    "mode": ["grab"]
+                    "mode": ["none"]
                 },
                 "onclick": {
                     "enable": false,

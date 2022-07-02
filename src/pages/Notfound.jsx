@@ -1,10 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Wrapper = styled.section`
+h1 {
+  text-align: center;
+}
+`;
 
 const Notfound = () => {
   return (
-    <div>
+    <Wrapper>
       <h1>Page Not Found</h1>
-    </div>
+    </Wrapper>
   )
 }
 

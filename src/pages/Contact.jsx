@@ -5,7 +5,7 @@ import { validateEmail } from '../utils/functions';
 const ContentWrapper = styled.section`
 display: flex;
 flex-direction: row;
-height: 100vh;
+height: 95vh;
 .contact-me-msg {
   width: 40vw;
   margin-left: 1em;

@@ -9,7 +9,7 @@ flex-direction: row;
 height: 2em;
 width: 100%;
 position: relative;
-z-index: 1;
+z-index: 999;
 `;
 const Header = () => {
   return (

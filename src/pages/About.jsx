@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 const AboutWrapper = styled.section`
 background-color: #FCFFE7;
 display: flex;
@@ -11,6 +10,8 @@ const BodyWrapper = styled.section`
 display: flex;
 flex-direction: column;
 align-items: center;
+position: relative;
+margin-top: 1em;
 section {
   border-radius: 1em;
   width: 90%;
@@ -27,9 +28,16 @@ p {
 }
 .images{
   display: flex;
-  justify-self: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: space-evenly;
+  flex-wrap: wrap;
   img {
-    height: 50px;
+    background-color: white;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    height: 5em;
+    width: 10em;
   }
 }
 .professional {
@@ -50,13 +58,23 @@ p {
 const HeaderWrapper = styled.header`
 display: flex;
 flex-direction: row;
-margin-left: 2em;
+height: 12em;
+position: relative;
 .header-content {
+  margin-left: .5em;
+  overflow-y: scroll;
   width: 60%;
-  margin-right: 4em;
+  margin-right: 1em;
 }
 h1 {
   border-bottom: .1em solid #EE82EE;
+}
+.selfie {
+  width: 30%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 `;
 
@@ -68,8 +86,8 @@ const About = () => {
           <h1>About</h1>
           <p>My name is Javier Guerra, but I go by Javi Guerra. I graduated with my Bachelor's Degree in Business Administration in 2020 from the University of the Pacific. I also graduated in 2022 from California State University, Stanislaus. I obtained Master's Degree in Finance. In 2021 I got back into programming after taking a small break, and now I work as a React Developer because I am passionate about writing programs and software. </p>
         </div>
-        <div>
-          <img src="" alt="headshot" />
+        <div className="selfie">
+          <img src="/images/selfie.JPG" alt="headshot" />
         </div>
       </HeaderWrapper>
       <BodyWrapper>
@@ -105,7 +123,7 @@ const About = () => {
           </header>
           <div className="images">
             <img src="https://www.teahub.io/photos/full/21-217981_java-logo-wallpaper-java-logo.jpg" alt="java logo" />
-            <img src="https://banner2.kisspng.com/20180205/qzw/kisspng-facebook-logo-icon-cool-transparent-background-5a781e597ae5f7.0747285315178215295034.jpg" alt="Facebook Logo" />
+            <img src="https://th.bing.com/th/id/R.5f716f71c7083e7ee4bdcaa349977956?rik=3UV0c4%2fGHRE%2fAg&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2fdc7%2f6aR%2fdc76aRnpi.png&ehk=UtDzHW0xntOSi%2bPBMw1%2fyrBGoIZR%2fFQVSs2qkBe%2f9qM%3d&risl=&pid=ImgRaw&r=0" alt="Facebook Logo" />
           </div>
           <div>
             <h3>2015 - 2016</h3>
@@ -127,7 +145,7 @@ const About = () => {
           </div>
           <div className='images'>
             <img src="https://th.bing.com/th/id/OIP.c2GcuVaCRFhgRmpqlPISBAHaEi?pid=ImgDet&rs=1" alt="c++ logo" />
-            <img src="https://pluspng.com/img-png/python-logo-png-python-logo-png-img-1000-1000-free-transparent-python-png-900x900.jpg" alt="python logo" />
+            <img src="https://gss-technology.com/wp-content/uploads/2021/07/04.png" alt="python logo" />
             <img src="https://snap-tech.com/wp-content/uploads/2021/08/bay-valley-tech-logo-2021.jpeg" alt="bayvalley tech logo" />
             <img src="https://www.britefish.net/wp-content/uploads/2019/06/logo-javascript-2.png" alt="javascript logo" />
           </div>
@@ -164,7 +182,7 @@ const About = () => {
           </header>
           <div>
             <ul>
-              <li>First to graduate college with a Bachelor's Degree and a Master's Degree.</li>
+              <li>First in my family to graduate college with a Bachelor's Degree and a Master's Degree.</li>
               <li>I won some SpiderMan shoes from "The Professor", The Professor was the creator of the SpiderMan basketball series.</li>
               <li>In 2019 I got to see the NBA defending champions in person.</li>
               <li>I have traveled outside of the country.</li>
