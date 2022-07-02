@@ -63,18 +63,26 @@ position: relative;
 .header-content {
   margin-left: .5em;
   overflow-y: scroll;
-  width: 60%;
+  width: 85%;
   margin-right: 1em;
 }
 h1 {
   border-bottom: .1em solid #EE82EE;
 }
 .selfie {
-  width: 30%;
+  width: 10%;
   img {
     width: 100%;
     height: 100%;
   }
+}
+@media (max-width: 700px){
+  .header-content {
+    width: 75%;
+  }
+  .selfie {
+    width: 20%;
+  }    
 }
 `;
 
