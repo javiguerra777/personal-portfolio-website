@@ -28,6 +28,15 @@ padding-bottom: 3em;
     box-shadow: 3px 6px 27px 18px #000000;
   }
 }
+.header-github {
+  img {
+    height: 5em;
+    border-radius: 15em;
+  }
+  img:hover {
+    box-shadow: 10px 5px 5px red;
+  }
+}
 .project-container {
   color: white;
   background-color: #DEA057;
@@ -46,17 +55,6 @@ header {
   align-items: center;
   padding-bottom: 1em;
 }
-header a {
-  text-decoration: none;
-  color: #FFFAF0;
-  background-color: #353839;
-  border-radius: 1em;
-  padding: .5em;
-}
-header a:hover {
-  color: #2F4F4F;
-  background-color: silver;
-}
 ul {
   border-top: black solid 1px;
   list-style-type: none;
@@ -72,7 +70,7 @@ const Projects = () => {
       <header>
         <h2>Here are a few of my projects from my github! <br /> Checkout the description and checkout my github!
         </h2>
-        <a href="https://github.com/dashboard" target="blank">My Github Portfolio</a>
+        <a className='header-github' href="https://github.com/dashboard" target="blank"><img src="https://1000logos.net/wp-content/uploads/2018/11/GitHub-logo.jpg" alt="github portfolio logo"/></a>
       </header>
       <section className='body'>
         {projects.map((project) => {

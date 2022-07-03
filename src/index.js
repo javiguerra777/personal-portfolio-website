@@ -21,6 +21,9 @@ bay valley tech logo: snap-tech.com
 javascript logo: www.britefish.net
 vectorstock.com for multiple images
 dreamstime.com for the numbers image and the school photo
+1000logos.net for the github icon
+github.githubassets.com for the github logo
+image.siilarpng.com for the twitter logo
 */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
