@@ -19,6 +19,8 @@ c++ logo: th.bing.com
 python logo: gss-technology.com
 bay valley tech logo: snap-tech.com
 javascript logo: www.britefish.net
+vectorstock.com for multiple images
+dreamstime.com for the numbers image and the school photo
 */
 import React from 'react';
 import ReactDOM from 'react-dom/client';

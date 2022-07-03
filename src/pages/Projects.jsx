@@ -13,6 +13,21 @@ padding-bottom: 3em;
   flex-direction: column;
   align-items:center;
 }
+.image-link {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 1em;
+  img {
+    justify-self: center;
+    height: 10em;
+    border-radius: 1em;
+  }
+  img:hover {
+    -webkit-box-shadow: 3px 6px 27px 18px #000000; 
+    box-shadow: 3px 6px 27px 18px #000000;
+  }
+}
 .project-container {
   color: white;
   background-color: #DEA057;
@@ -22,7 +37,7 @@ padding-bottom: 3em;
   border-radius: 1em;
   width 80%;
   height: auto;
-  margin-bottom: 1em;
+  margin-bottom: 1em;  
 }
 header {
   background-color: #E0D8B0;
