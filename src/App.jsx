@@ -5,8 +5,9 @@ import Homepage from './pages/Homepage';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
-import Works from './pages/Works';
+import Skills from './pages/Skills';
 import Notfound from './pages/Notfound';
+import './styles/global.css';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route index element={<Homepage />} />
         <Route path="about" element={<About />} />
         <Route path="projects" element={<Projects />} />
-        <Route path="works" element={<Works />} />
+        <Route path="works" element={<Skills />} />
         <Route path="contact" element={<Contact/>} />
         <Route path="*" element={<Notfound />} />
       </Route>

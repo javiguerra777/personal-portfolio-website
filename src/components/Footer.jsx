@@ -4,7 +4,7 @@ import Message from './Message';
 import { TiMessages } from 'react-icons/ti';
 
 const FooterWrapper = styled.footer`
-background-color: #CE9461;
+background-color: #081448;
 color: white;
 display: flex;
 flex-direction: row;
@@ -32,13 +32,11 @@ justify-content:space-between;
   }
 }
 button {
-  background-color: #FCFFE7;
+  background-color: #4a478a;
+  color: white;
   width: 4em;
   border-radius: 3em;
   cursor: pointer;
-}
-button: hover {
-  background-color: white;
 }
 `;
 const Footer = () => {

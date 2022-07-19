@@ -5,7 +5,8 @@ import Footer from '../components/Footer';
 import styled from 'styled-components';
 
 const AppWrapper = styled.main`
-background-color: #FCFFE7;
+background: url(https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg);
+background-size: cover;
 height: 100vh;
 width: 100vw;
 display: flex;

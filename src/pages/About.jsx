@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 const AboutWrapper = styled.section`
-background-color: #FCFFE7;
+background: url(https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg);
+background-size: cover;
 display: flex;
 flex-direction: column;
 padding-bottom: 5%;
@@ -56,6 +57,8 @@ p {
 }
 `;
 const HeaderWrapper = styled.header`
+background: #282157;
+color: white;
 display: flex;
 flex-direction: row;
 height: 12em;
@@ -90,7 +93,7 @@ const About = () => {
   return (
     <AboutWrapper>
       <HeaderWrapper>
-        <div className='header-content'>
+        <div className='header-content webkit'>
           <h1>About</h1>
           <p>My name is Javier Guerra, but I go by Javi Guerra. I graduated with my Bachelor's Degree in Business Administration in 2020 from the University of the Pacific. I also graduated in 2022 from California State University, Stanislaus. I obtained Master's Degree in Finance. In 2021 I got back into programming after taking a small break, and now I work as a React Developer because I am passionate about writing programs and software. </p>
         </div>

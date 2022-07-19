@@ -5,7 +5,7 @@ import projects from '../data/projects.json';
 import { nanoid } from '@reduxjs/toolkit';
 
 const ProjectWrapper = styled.section`
-background-color: #FCFFE7;
+background: url(https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg);
 padding-bottom: 3em;
 .body {
   margin-top: 2em;
@@ -28,18 +28,9 @@ padding-bottom: 3em;
     box-shadow: 3px 6px 27px 18px #000000;
   }
 }
-.header-github {
-  img {
-    height: 5em;
-    border-radius: 15em;
-  }
-  img:hover {
-    box-shadow: 10px 5px 5px red;
-  }
-}
 .project-container {
   color: white;
-  background-color: #DEA057;
+  background-color: #1a2c80;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +40,8 @@ padding-bottom: 3em;
   margin-bottom: 1em;  
 }
 header {
-  background-color: #E0D8B0;
+  background-color: #282157;
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,9 +60,8 @@ const Projects = () => {
   return (
     <ProjectWrapper>
       <header>
-        <h2>Here are a few of my projects from my github! <br /> Checkout the description and checkout my github!
+        <h2>Here are a few of my projects from my github!
         </h2>
-        <a className='header-github' href="https://github.com/dashboard" target="blank"><img src="https://1000logos.net/wp-content/uploads/2018/11/GitHub-logo.jpg" alt="github portfolio logo"/></a>
       </header>
       <section className='body'>
         {projects.map((project) => {

@@ -1,0 +1,64 @@
+// I followed a tutorial on youtube for the 2d sprite animation: checkout https: //www.youtube.com/watch?v=ekI7vjkFrGA&t=86s the tutorial was good and i used the placeholder sprite sheet for testing until i created my own 2d sprite sheet
+:root {
+  --pixel-size: 6;
+}
+
+.Character {
+  width: calc(3.5em * var(--pixel-size));
+  height: calc(2em * var(--pixel-size));
+  overflow: hidden;
+  position: relative;
+  margin-right: .5em;
+  margin-left: 4em auto;
+  background: white;
+}
+
+.Character_spritesheet {
+  animation: moveSpritesheet 1s steps(5) infinite;
+  width: calc(8em * var(--pixel-size));
+  position: absolute;
+}
+.Character_spritesheet2 {
+  animation: moveSpritesheet .9s steps(3) infinite;
+  width: calc(8em * var(--pixel-size));
+  position: absolute;
+}
+
+// .Character_shadow {
+//   position: absolute;
+//   animation: moveSpritesheet 1s steps(3) infinite;
+//   width: calc(2em * var(--pixel-size));
+//   height: calc(2em * var(--pixel-size));
+// }
+
+.pixelart {
+  image-rendering: pixelated;
+}
+
+.face-right {
+  top: calc(-2em * var(--pixel-size));
+}
+
+.face-up {
+  top: calc(-4em * var(--pixel-size));
+}
+
+.face-left {
+  top: calc(-6em * var(--pixel-size));
+}
+
+
+@keyframes moveSpritesheet {
+  from {
+    transform: translate3d(0px, 0, 0)
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0)
+  }
+}
+@media screen and (max-width: 400px){
+  .Character {
+    width: 14em;
+  }
+}

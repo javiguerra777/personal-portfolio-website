@@ -24,6 +24,7 @@ dreamstime.com for the numbers image and the school photo
 1000logos.net for the github icon
 github.githubassets.com for the github logo
 image.siilarpng.com for the twitter logo
+https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg for the galaxy background image
 */
 import React from 'react';
 import ReactDOM from 'react-dom/client';

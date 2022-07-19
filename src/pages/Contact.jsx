@@ -7,7 +7,10 @@ display: flex;
 flex-direction: row;
 height: 95vh;
 .contact-me-msg {
+  background: #4a478a;
+  color: white;
   width: 40vw;
+  height: 90vh;
   margin-left: 1em;
 }
 h1 {

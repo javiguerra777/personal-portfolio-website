@@ -1,55 +1,68 @@
 import React from 'react';
 import styled from 'styled-components';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
+// import Particles from 'react-tsparticles';
+// import { loadFull } from 'tsparticles';
+import '../styles/home.scss';
 
 const HomeWrapper = styled.section`
-background-color: #333333;
 color: white;
 height: 95vh;
 display: flex;
 flex-direction: column;
 align-items: center;
-h1 {
+h1, h3 {
   text-align center
 }
-section {
-  background-color: #FFFAFA;
-  color: black;
+.introduction-content {
+  background-color: #011307;
+  color: white;
   position: relative;
   margin-top: 2em;
   padding-left: 1em;
   height: 70vh;
   display: flex;
   flex-direction: row;
-  width: 70vw;
+  width: 100vw;
   z-index: 2;
-  div {
-    width: 50%;
+  .about-me {
+    width: 75%;
     margin-right: .5em;
     overflow-y: scroll;
-  }
-  img {
-    width: 50%;
   }
 }
 `;
 
+
 const Homepage = () => {
-  const particlesInit = async (main) => {
-    await loadFull(main)
-  }
+  // const particlesInit = async (main) => {
+  //   await loadFull(main)
+  // }
   return (
     
-    <HomeWrapper>
-      <h1>Welcome to my Website</h1>
-      <section className='introduction-content'>
-        <div>
+    <HomeWrapper >
+      <header className='terminal'>
+        <h1>Hello World!</h1>
+      </header>
+      <section className='introduction-content webkit'>
+        <div className='about-me webkit'>
           <p>Hello my name is Javier Guerra. This is my personal website. I am interested in software development and video game development. I like to attend hack-a-thon's whenever I have the time. Please take a look around my website. I built a simple chat bot, if you click on the button in the bottom right corner you can chat with the bot. Check out the about me page, and if you have questions or want to collaborate on a video game project, there is a contact form you can fill out, thank you.</p>
         </div>
-        <img src="/images/professional.jpg" alt="" />
+        <div className='webkit'>
+          <section>
+            <h3>Moon Walk</h3>
+          </section>
+          <section className='Character'>  
+          {/* <img className="Character_shadow pixelart" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/DemoRpgCharacterShadow.png" alt="Shadow" /> */}
+          <img className="Character_spritesheet pixelart face-left" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/DemoRpgCharacter.png" alt="Character" />
+          
+          </section>
+          <section className='Character'>  
+          {/* <img className="Character_shadow pixelart" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/DemoRpgCharacterShadow.png" alt="Shadow" /> */}
+          <img className="Character_spritesheet2 pixelart face-left" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/DemoRpgCharacter.png" alt="Character" />
+        </section>
+        </div>
       </section>
-      <Particles
+      {/* <Particles
       id="tsparticles"
       init={particlesInit}
 
@@ -173,7 +186,7 @@ const Homepage = () => {
           "opacity": 0.1
         }
     }}
-    />
+    /> */}
     </HomeWrapper>
   );
 };
