@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
+color: white;
 h1 {
   text-align: center;
 }

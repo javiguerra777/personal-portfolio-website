@@ -12,7 +12,7 @@ position: fixed;
 bottom: 0;
 height: 5%;
 width: 100%;
-z-index: 999;
+z-index: 2;
 justify-content:space-between;
 .copyright {
   display: flex;

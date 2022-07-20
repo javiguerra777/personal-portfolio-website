@@ -45,24 +45,25 @@ li {
   }
 }
 .professional {
-  color: white;
+  color: #F0FFF0;
   background-color: #7118C4;
 }
 .programming {
-  background-color: #EE82EE;
+  background-color: #6CC417;
   color: #F0FFF0;
 }
 .personal {
-  background-color: #333333;
+  background-color: #f53501;
   color: #F0FFFF;
 }
 .fun-facts {
-  background-color: #D2B48C;;
+  background-color: #f53501;
+  color: #F0FFF0;
 }
 `;
 const HeaderWrapper = styled.header`
 background: #282157;
-color: white;
+color: #F0FFF0;
 display: flex;
 flex-direction: row;
 height: 12em;
