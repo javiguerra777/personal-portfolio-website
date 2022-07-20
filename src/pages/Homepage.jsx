@@ -58,7 +58,7 @@ const Homepage = () => {
   // }
   return (
     
-    <HomeWrapper >
+    <HomeWrapper className='info' >
       <header className='terminal'>
         <h1>Hello World!</h1>
       </header>

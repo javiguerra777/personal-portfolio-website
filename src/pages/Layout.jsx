@@ -15,15 +15,9 @@ flex-direction: column;
 const Layout = () => {
   return (
     <AppWrapper>
-      <section>
         <Header />
-      </section>
-      <section>
         <Outlet />
-      </section>
-      <section>
         <Footer />
-      </section>
    </AppWrapper>
   )
 }

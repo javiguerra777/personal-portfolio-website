@@ -6,8 +6,6 @@ import { displayActiveProject } from '../store/projectSlice';
 import Marquee from 'react-fast-marquee';
 
 const ProjectWrapper = styled.section`
-background: url(https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg);
-background-size: cover;
 height: 95vh;
 padding-bottom: 3em;
 .body{
@@ -63,7 +61,7 @@ const Projects = () => {
     setMainProject(projects[id]);
   }
   return (
-    <ProjectWrapper>
+    <ProjectWrapper className='info'>
       <header>
         <h2>Here are a few of my projects from my github!
         </h2>

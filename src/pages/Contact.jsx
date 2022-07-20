@@ -565,7 +565,7 @@ const Contact = () => {
   }
   formValidation();
   return (
-    <ContactWrapper>
+    <ContactWrapper className='info'>
       <ContentWrapper>
       <section className='contact-me-msg'>
         <h1>Contact Me</h1>

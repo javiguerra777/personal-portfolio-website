@@ -11,7 +11,6 @@ const BodyWrapper = styled.section`
 display: flex;
 flex-direction: column;
 align-items: center;
-position: relative;
 margin-top: 1em;
 section {
   border-radius: 1em;
@@ -67,7 +66,6 @@ color: #F0FFF0;
 display: flex;
 flex-direction: row;
 height: 12em;
-position: relative;
 .header-content {
   margin-left: .5em;
   overflow-y: scroll;
@@ -96,7 +94,7 @@ h1 {
 
 const About = () => {
   return (
-    <AboutWrapper>
+    <AboutWrapper className='info'>
       <HeaderWrapper>
         <div className='header-content webkit'>
           <h1>About</h1>

@@ -16,3 +16,7 @@ body::-webkit-scrollbar {
 .webkit::-webkit-scrollbar {
   display: none;
 }
+.info {
+  position: relative;
+  top: 2em;
+}
