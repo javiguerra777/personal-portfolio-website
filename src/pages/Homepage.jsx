@@ -5,8 +5,10 @@ import styled from 'styled-components';
 import '../styles/home.scss';
 
 const HomeWrapper = styled.section`
-color: white;
+background-color: RGBA(0,0,0, 0.4);
 height: 95vh;
+width: 100vw;
+color: white;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -14,24 +16,41 @@ h1, h3 {
   text-align center
 }
 .introduction-content {
-  background-color: #011307;
+  background-image: url(https://i.pinimg.com/originals/4b/da/a2/4bdaa23b06619736e31ffa9aef065b5f.jpg);
+  background-size: cover;
+  background-color: RGBA(0,0,0, 0.4);
   color: white;
   position: relative;
   margin-top: 2em;
-  padding-left: 1em;
-  height: 70vh;
   display: flex;
   flex-direction: row;
   width: 100vw;
   z-index: 2;
   .about-me {
-    width: 75%;
-    margin-right: .5em;
+    background-color: RGBA(0,0,0, 0.4);
+    color: white;
+    width: 65%;
     overflow-y: scroll;
+  }
+  .character-container {
+    background-color: RGBA(0,0,0, 0.4);
+    width: auto;
+    min-width: 35%;
+  }
+}
+@media (max-width: 400px){
+  .introduction-content{
+    flex-direction: column;
+  }
+  .about-me {
+     min-width: 100vw;
+  }
+  .character-container {
+     margin-bottom: 10vh;
+    width: 100vw;
   }
 }
 `;
-
 
 const Homepage = () => {
   // const particlesInit = async (main) => {
@@ -47,7 +66,7 @@ const Homepage = () => {
         <div className='about-me webkit'>
           <p>Hello my name is Javier Guerra. This is my personal website. I am interested in software development and video game development. I like to attend hack-a-thon's whenever I have the time. Please take a look around my website. I built a simple chat bot, if you click on the button in the bottom right corner you can chat with the bot. Check out the about me page, and if you have questions or want to collaborate on a video game project, there is a contact form you can fill out, thank you.</p>
         </div>
-        <div className='webkit'>
+        <div className='character-container webkit'>
           <section>
             <h3>Moon Walk</h3>
           </section>
@@ -58,7 +77,7 @@ const Homepage = () => {
           </section>
           <section className='Character'>  
           {/* <img className="Character_shadow pixelart" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/DemoRpgCharacterShadow.png" alt="Shadow" /> */}
-          <img className="Character_spritesheet2 pixelart face-left" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/DemoRpgCharacter.png" alt="Character" />
+          <img className="Character_spritesheet2 pixelart face-right" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/DemoRpgCharacter.png" alt="Character" />
         </section>
         </div>
       </section>

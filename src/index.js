@@ -25,6 +25,7 @@ dreamstime.com for the numbers image and the school photo
 github.githubassets.com for the github logo
 image.siilarpng.com for the twitter logo
 https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg for the galaxy background image
+https://i.pinimg.com/originals/4b/da/a2/4bdaa23b06619736e31ffa9aef065b5f.jpg for the moon background
 */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -32,7 +33,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import App from './App';
-import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

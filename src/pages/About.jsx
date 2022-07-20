@@ -27,6 +27,9 @@ h4 {
 p {
   margin: 0 1em 1em 1em;
 }
+li {
+  margin-right: 1em;
+}
 .images{
   display: flex;
   flex-direction: row;
@@ -42,7 +45,8 @@ p {
   }
 }
 .professional {
-  background-color: white;
+  color: white;
+  background-color: #7118C4;
 }
 .programming {
   background-color: #EE82EE;
@@ -112,20 +116,10 @@ const About = () => {
             <img src="https://th.bing.com/th/id/R.a1519f830de1a21bed95b66ad9212f66?rik=JNApxLQk0bPMgw&riu=http%3a%2f%2fwww.ventureacademyca.org%2fuploads%2f2%2f2%2f8%2f7%2f22875116%2f18-vafs-logo-words_1_orig.jpeg&ehk=haxey741ejrQAaEH7r8GzP%2b5Ouajzn4uUWQp9aNpWeo%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="Venture Academy Mustangs Logo" />
           </div>
           <div>
-            <h3>2016-2018</h3>
-            <p>I began working in 2016 as a film coordinator for Venture Academy's Basketball Team. I enjoyed this position and I did it for about 2 years. I helped the players and coaches study and prepare for their opponents. After that I was working independently until 2019 editing film for professional basketball players. The goal was to help these players get recruited and improve their careers.</p>
-          </div>
-          <div>
-            <h3>2019</h3>
-            <p>After my film coordinator roles, I worked at Best Western during the summer of 2019 to get some real world work experience. I also worked at Amazon for a few months in 2019.</p>
-          </div>
-          <div>
-            <h3>2020</h3>
-            <p>I graduated with my Bachelor's from the University of the Pacific in 2020. My first job out of college was with staffing agency called Robert Half. I did that until December of 2020. I got offered a full time position at Diversified Products where I worked there until June of 2021.</p>
-          </div>
-          <div>
-            <h3>2021 - Current</h3>
-            <p> My next stint was at Robert Half again until I got a job at Grower Direct Nut in December of 2021, through a staffing agency in Turlock. I then got offered a really good position at Cash Offers LLC in January of 2022. During March of 2022, I got an opportunity as a React Developer at Bitwise in March of 2022, and I am still with the company because the opportunity is a year long apprenticeship and it is an amazing job.</p>
+            <h3>Brief Work History</h3>
+            <p>
+              After graduating Venture Academy high school in 2016, I enrolled at the University of the Pacific. I worked as a film coordinator and coach for Venture Academy for about 2 years. I then started my own film editing side business to help my friends get scouted to play professional basketball. Afterwards I worked for Best Western for a few months, and then Amazon for a few months. I obtained my Bachelor's Degree in 2020. <br />
+              I began an MBA program at CSU, Stanislaus in the fall of 2020. I worked at Robert Half until December of 2020. I started working for a company called Diversified Products. I left DPM and eventually found a job through Robert Half again. I then found a job through Recruit Gigs for a few months. I left Recruit Gigs and started working for Cash Offers LLC. But once I received an offer letter to work for Bitwise I left Cash Offers and began working for Bitwise/Alpha Works. I currently work at Alpha Works as a React Apprentice.  </p>
           </div>
         </section>
         <section className="programming">
@@ -135,34 +129,19 @@ const About = () => {
           <div className="images">
             <img src="https://www.teahub.io/photos/full/21-217981_java-logo-wallpaper-java-logo.jpg" alt="java logo" />
             <img src="https://th.bing.com/th/id/R.5f716f71c7083e7ee4bdcaa349977956?rik=3UV0c4%2fGHRE%2fAg&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2fdc7%2f6aR%2fdc76aRnpi.png&ehk=UtDzHW0xntOSi%2bPBMw1%2fyrBGoIZR%2fFQVSs2qkBe%2f9qM%3d&risl=&pid=ImgRaw&r=0" alt="Facebook Logo" />
-          </div>
-          <div>
-            <h3>2015 - 2016</h3>
-            <p>I first began how to program in 2015, I was a senior at Venture Academy High School. The first language I ever learned was Java. At first I was intimidated because of what I was told about programming. But I had an amazing teacher named Ms.Donahue, she somehow got Facebook to sponsor our class and we learned Java through CodeHS. CodeHS was very beginner-friendly, so I didn't have any issue learning Java.<br/> I had fun programming, and then the class I Was in took a field trip to Facebook's HQ in the Bay Area. I had a great time because the staff was friendly, and the staff described Facebook as being a fun company to work for. I could tell that the staff enjoyed their jobs because everyone was so happy at work. I later then attended my first hack-a-thon, which was hosted by Facebook and held at Facebook's HQ. My friends and I created a Pac-Man like clone and I learned a lot about programming through that experience. </p>
-          </div>
-          <div className='images'>
             <img src="https://www.logolynx.com/images/logolynx/79/7994348fe469949fbc5ebc15b543d56d.jpeg" alt="html and css logo" />
-          </div>
-          <div>
-            <h3>2017/2018</h3>
-            <p>During my sophomore year in College I took an introduction to Computer Science course. We learned about the basics of html and css. I found it interested because I was so used to developing programs in Java, I never knew how webpages were generated.</p>
-          </div>
-          <div className='images'>
             <img src="https://pdnchen.weebly.com/uploads/9/3/1/8/93182418/scratch-logo_orig.png" alt="scratch io logo" />
-          </div>
-          <div>
-            <h3>2019</h3>
-            <p>My friend wanted to make a video game using scratch.io and he convinced me to assist him in making a video game. I made a few small video games, but I didn't make any big games. I thought it was interesting to see how scratch worked, plus it keep my coding skills polished.</p>
-          </div>
-          <div className='images'>
             <img src="https://th.bing.com/th/id/OIP.c2GcuVaCRFhgRmpqlPISBAHaEi?pid=ImgDet&rs=1" alt="c++ logo" />
             <img src="https://gss-technology.com/wp-content/uploads/2021/07/04.png" alt="python logo" />
             <img src="https://snap-tech.com/wp-content/uploads/2021/08/bay-valley-tech-logo-2021.jpeg" alt="bayvalley tech logo" />
             <img src="https://www.britefish.net/wp-content/uploads/2019/06/logo-javascript-2.png" alt="javascript logo" />
           </div>
           <div>
-            <h3>2021 - Current</h3>
-            <p>The same friend who convinced me to make a video game with him, also then convinced me to learn c++ to make video games in the unreal engine. I ended up learning about c++, and I also started to learn a bit of Python due to how popular the language was. I applied for this coding boot camp at BayValley Tech because I read an article saying they teach people how to code, and I wanted to learn more about code. I ended up getting accepted into the coding academy. <br/>I learned more about html, css, and I started to learn javascript. At first it was kind of difficult because I was a little rusty and I never made any type of user interface before. But eventually I started to get the hang of things and writing code in javascript got easier and easier over time. After the boot camp ended I continued to work in non-related tech jobs until I got an opportunity to work as a React Apprentice for Bitwise.</p>
+            <h3>Programming History and Experience</h3>
+            <p>
+              I began to learn how to write code in 2015 during my senior year of high school. My first language was Java. I just want to give a shout out to Ms.Donahue because she was very supportive, she was able to get Facebook to sponsor our class, she even took our class on a field trip to Facebook. She was also able to take the top 4 students to a hack-a-thon at Facebook as well, which I took a part of.
+              <br />
+              In college I spent a semester learning about HTML and CSS, and then I took another semester learning more about computer information systems. I worked with scratch.io to help my friend make video games for fun. Afterwards I took a small break from coding because I had a lot going on in life. But I started learning python because my friend convinced me to get back into programming. I also learned c++ because I eventually want to learn about Unreal Engine and make a video game. I did a coding bootcamp at Bay Valley where I learned more about fullstack development. Then I eventually ended up working at Bitwise where I am learning how to use React. </p>
           </div>
         </section>
         <section className="personal">
@@ -172,7 +151,7 @@ const About = () => {
           <div>
             <h4>Family:</h4>
             <p>My mother and father are still a part of my life and I have a good relationship with both of them. I also have a younger brother. Those are the individuals who are a part of my immediate family. <br/>
-            Last year I got engaged to the love of my life and we plan to get married soon. Me and my wife had our first child on May 19, 2022. Our first born child was a boy, and we named him Axel. Those are the five most important people in my life.
+            Last year I got engaged to the love of my life and we plan to get married soon. Me and my wife had our first child on May 19, 2022. Our first born child was a boy, and we named him Axel.
             </p>
           </div>
           <div>
@@ -182,7 +161,6 @@ const About = () => {
               <li>Movies: I enjoy watching movies with my wife and son. We pretty much watch any movie because we are open to new experiences.</li>
               <li>Video games: I like to play Mario, Zelda, Pokemon, and Metroid. My favorite type of game is the JRPG turn based games. My favorite video game of all time is Paper Mario The Thousand Year Door.</li>
               <li>Yu-Gi-Oh: I like to play the Yu-Gi-Oh trading card game for fun and I enjoy watching the TV show as well.</li>
-              <li>Being Active: I also like working out and staying active because I want to live a long life for myself and loved ones.</li>
               <li>Traveling: I enjoy traveling when I have the time and money. My favorite place to go is Disneyland, and I want to take a trip to Disney World eventually.</li>
             </ul>
           </div>

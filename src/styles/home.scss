@@ -4,13 +4,12 @@
 }
 
 .Character {
-  width: calc(3.5em * var(--pixel-size));
+  // width: calc(3.5em * var(--pixel-size));
+  width: 100%;
   height: calc(2em * var(--pixel-size));
   overflow: hidden;
   position: relative;
-  margin-right: .5em;
-  margin-left: 4em auto;
-  background: white;
+  padding-right: .5em;
 }
 
 .Character_spritesheet {
@@ -55,10 +54,5 @@
 
   to {
     transform: translate3d(-100%, 0, 0)
-  }
-}
-@media screen and (max-width: 400px){
-  .Character {
-    width: 14em;
   }
 }
