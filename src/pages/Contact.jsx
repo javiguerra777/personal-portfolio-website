@@ -496,7 +496,8 @@ flex-direction: column;
 align-self: center;
 width: 50vw;
 margin-left: 2.5em;
-
+position: relative;
+z-index:2;
 .btn-container {
   display: flex;
   flex-direction: column;
@@ -511,10 +512,13 @@ input {
   border: none;
   border-bottom: teal .2em solid;
   margin-bottom: 1em;
+  width: 45.5vw;
 }
 textarea {
   border: none;
   margin-bottom: .5em;
+  width: 45.5vw;
+
 }
 button {
   width: auto;
@@ -540,9 +544,17 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [response, setResponse] = useState("");
   const minRequired = 30;
   const sendEmail = (e) => {
     e.preventDefault();
+    if (response !== "B$U3") {
+      setName("");
+      setEmail("");
+      setMessage("");
+      setResponse("");
+      throw Error("You did not write the correct word try again");
+    }
     emailjs.send(process.env.REACT_APP_EMAIL_SERVICE_KEYS, process.env.REACT_APP_EMAIL_TEMPLATE_KEYS, {
       "from_name": name,
       message,
@@ -550,10 +562,11 @@ const Contact = () => {
       "reply_to": email
     }, process.env.REACT_APP_EMAIL_JS_KEYS)
       .then((res) => console.log('Success ', res.status, res.text))
-      .catch((err)=> console.log("Failed... ", err))
+      .catch((err) => console.log("Failed... ", err));
     setName("");
     setEmail("");
     setMessage("");
+    setResponse("");
   };
   const formValidation = () => {
     //form validation
@@ -562,7 +575,7 @@ const Contact = () => {
     } else {
       return false;
     }
-  }
+  };
   formValidation();
   return (
     <ContactWrapper className='info'>
@@ -597,7 +610,15 @@ const Contact = () => {
             placeholder='Message'
             rows="5" cols="10" required
           ></textarea>
-          {minRequired - message.length > 0 && <p>Minimum Characters:{minRequired - message.length}</p>}
+            {minRequired - message.length > 0 && <p>Minimum Characters:{minRequired - message.length}</p>}
+            <label htmlFor='captcha'>
+              Type this word B$U3<br/>
+              <input
+                id='captcha'
+                value={response}
+                onChange={(e)=> setResponse(e.target.value)}
+              />
+          </label>
           <div className='btn-container'>
             <button type='submit' className={!formValidation() ? 'button' : ''} disabled={formValidation()}>Send Message</button>
           </div>
@@ -605,72 +626,72 @@ const Contact = () => {
       </section>
       </ContentWrapper>
       <section className='astronaught-container'>
-        <div class="backg">
-		<div class="planet">
-			<div class="r1"></div>
-			<div class="r2"></div>
-			<div class="r3"></div>
-			<div class="r4"></div>
-			<div class="r5"></div>
-			<div class="r6"></div>
-			<div class="r7"></div>
-			<div class="r8"></div>
-			<div class="shad"></div>
+        <div className="backg">
+		<div className="planet">
+			<div className="r1"></div>
+			<div className="r2"></div>
+			<div className="r3"></div>
+			<div className="r4"></div>
+			<div className="r5"></div>
+			<div className="r6"></div>
+			<div className="r7"></div>
+			<div className="r8"></div>
+			<div className="shad"></div>
 		</div>
-		<div class="stars">
-			<div class="s1"></div>
-			<div class="s2"></div>
-			<div class="s3"></div>
-			<div class="s4"></div>
-			<div class="s5"></div>
-			<div class="s6"></div>
+		<div className="stars">
+			<div className="s1"></div>
+			<div className="s2"></div>
+			<div className="s3"></div>
+			<div className="s4"></div>
+			<div className="s5"></div>
+			<div className="s6"></div>
 		</div>
-		<div class="an">
-			<div class="tank"></div>
-			<div class="astro">
+		<div className="an">
+			<div className="tank"></div>
+			<div className="astro">
 					
-					<div class="helmet">
-						<div class="glass">
-							<div class="shine"></div>
+					<div className="helmet">
+						<div className="glass">
+							<div className="shine"></div>
 						</div>
 					</div>
-					<div class="dress">
-						<div class="c">
-							<div class="btn1"></div>
-							<div class="btn2"></div>
-							<div class="btn3"></div>
-							<div class="btn4"></div>
+					<div className="dress">
+						<div className="c">
+							<div className="btn1"></div>
+							<div className="btn2"></div>
+							<div className="btn3"></div>
+							<div className="btn4"></div>
 						</div>
 					</div>
-					<div class="handl">
-						<div class="handl1">
-							<div class="glovel">
-								<div class="thumbl"></div>
-								<div class="b2"></div>
+					<div className="handl">
+						<div className="handl1">
+							<div className="glovel">
+								<div className="thumbl"></div>
+								<div className="b2"></div>
 							</div>
 						</div>
 					</div>
-					<div class="handr">
-						<div class="handr1">
-							<div class="glover">
-								<div class="thumbr"></div>
-								<div class="b1"></div>
+					<div className="handr">
+						<div className="handr1">
+							<div className="glover">
+								<div className="thumbr"></div>
+								<div className="b1"></div>
 							</div>
 						</div>
 					</div>
-					<div class="legl">
-						<div class="bootl1">
-							<div class="bootl2"></div>
+					<div className="legl">
+						<div className="bootl1">
+							<div className="bootl2"></div>
 						</div>
 					</div>
-					<div class="legr">
-						<div class="bootr1">
-							<div class="bootr2"></div>
+					<div className="legr">
+						<div className="bootr1">
+							<div className="bootr2"></div>
 						</div>
 					</div>
-					<div class="pipe">
-						<div class="pipe2">
-							<div class="pipe3"></div>
+					<div className="pipe">
+						<div className="pipe2">
+							<div className="pipe3"></div>
 						</div>
 					</div>
 				</div>
