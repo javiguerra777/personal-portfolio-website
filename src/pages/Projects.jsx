@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { displayActiveProject } from '../store/projectSlice';
 import Marquee from 'react-fast-marquee';
+import { nanoid } from 'nanoid';
 
 const ProjectWrapper = styled.section`
 height: 95vh;
@@ -78,7 +79,7 @@ const Projects = () => {
       >
         {projects.map((project, index) => {
           return (
-            <section className='project-container'>
+            <section key={nanoid()} className='project-container'>
               <h3>{project.project}</h3>
               <a className='image-link' href={project.url} target="blank">
                 <img src={project.image} alt={`${project.project} project`} />

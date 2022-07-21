@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CanvasSection from '../components/CanvasSection';
+import GameComponent from '../components/GameComponent';
 
 const SkillsWrapper = styled.section`
 margin-bottom: 5%;
@@ -19,7 +19,7 @@ header {
 const Skills = () => {  
   return (
     <SkillsWrapper className='info'>
-      <CanvasSection/>
+      <GameComponent/>
     </SkillsWrapper>
   )
 };
