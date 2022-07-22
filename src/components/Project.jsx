@@ -76,7 +76,7 @@ li {
 const Project = ({ project }) => {
   const dispatch = useDispatch();
   const returnToProjects = () => {
-    dispatch(displayActiveProject(-1))
+    dispatch(displayActiveProject({}))
   }
   return (
     <ProjectWrapper key={nanoid()}>

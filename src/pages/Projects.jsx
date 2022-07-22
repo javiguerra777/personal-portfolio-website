@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Project from '../components/Project';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
@@ -54,12 +54,10 @@ header {
 } 
 `;
 const Projects = () => {
-  const [mainProject, setMainProject] = useState({});
-  const { projects, displayProject, play } = useSelector((state) => state.project);
+  const { projects, displayProject, activeProject } = useSelector((state) => state.project);
   const dispatch = useDispatch();
   const showActiveProject = (id) => {
-    dispatch(displayActiveProject(id));
-    setMainProject(projects[id]);
+    dispatch(displayActiveProject(projects[id]));
   }
   return (
     <ProjectWrapper className='info'>
@@ -71,10 +69,10 @@ const Projects = () => {
         className='body'
         gradient={false}
         speed={70}
-        pauseOnHover={true}
-        pauseOnClick={true}
+        pauseOnHover={false}
+        pauseOnClick={false}
         delay={0}
-        play={play}
+        play={true}
         direction="left"
       >
         {projects.map((project, index) => {
@@ -91,7 +89,7 @@ const Projects = () => {
         })}
       </Marquee>
         {displayProject &&
-        <Project project={mainProject}/>}      
+        <Project project={activeProject}/>}      
     </ProjectWrapper>
   )
 };

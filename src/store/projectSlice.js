@@ -2,9 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import projects from "../data/projects.json";
 const initialState = {
   projects,
-  activeProject : -1,
+  activeProject : {},
   displayProject: false,
-  play: true
 }
 export const projectSlice = createSlice({
   name: 'project',
@@ -13,7 +12,6 @@ export const projectSlice = createSlice({
     displayActiveProject(state, { payload }) {
       state.activeProject = payload;
       state.displayProject = !state.displayProject;
-      state.play = !state.play;
     }
   }
 });
