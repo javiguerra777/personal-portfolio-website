@@ -5,11 +5,19 @@ const initialState = {
     height: 500
   },
   player: {
-    x: 10,
-    y: 10,
+    x: 300,
+    y: 300,
     height: 30,
     width: 30,
-  }
+    direction: "down"
+  },
+  npc: {
+    x: 30,
+    y: 30,
+    height: 30,
+    width: 30,
+    direction: "down"
+  },
 }
 export const gameSlice = createSlice({
   name: 'game',
@@ -20,10 +28,13 @@ export const gameSlice = createSlice({
     },
     changeY(state, { payload }) {
       state.player.y += payload;
+    },
+    changeDirection(state, { payload }) {
+      state.player.direction = payload;
     }
   }
 });
 
-export const { changeX, changeY } = gameSlice.actions;
+export const { changeX, changeY, changeDirection } = gameSlice.actions;
 
 export default gameSlice.reducer;
