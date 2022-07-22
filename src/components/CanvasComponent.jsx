@@ -10,11 +10,12 @@ const CanvasComponent = () => {
   const { player, canvasDetails, npc } = useSelector((state) => state.game);
   
   const draw = (context) => {
+    // helps clear the player movement
   context.clearRect(0, 0, canvasDetails.width,canvasDetails.height);
   context.fillStyle = "rgb(200, 0, 0)";
   context.fillRect(player.x, player.y, player.height, player.width);
 
-  context.fillStyle = "rgba(0, 0, 200, 0.5)";
+  context.fillStyle = "rgb(0, 0, 200)";
   context.fillRect(npc.x, npc.y, npc.width, npc.height);
   };
   useEffect(() => {
@@ -40,6 +41,7 @@ const CanvasComponent = () => {
         dispatch(changeDirection("left"));
       }
       if (event.key === "w") {
+        // y starts at 0 so to move up you input a negative number
         dispatch(changeY((-5)));
         dispatch(changeDirection("up"));
       }
@@ -59,6 +61,7 @@ const CanvasComponent = () => {
     // document.addEventListener('keydown', keyDownHandler);
     document.addEventListener('keypress', keyPressHandler);
     // document.addEventListener('keyup', keyUpHandler);
+    // clean up useEffect
     return () => {
       // document.removeEventListener('keydown', keyDownHandler);
       document.removeEventListener('keypress', keyPressHandler);
