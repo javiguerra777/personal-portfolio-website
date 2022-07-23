@@ -35,21 +35,19 @@ const Skills = () => {
   return (
     <SkillsWrapper className='info'>
       <header>
-      <h2>Programming Skills RPG</h2>
+      <h2>My Programming Skills</h2>
       </header>
       <CanvasComponent />
       <footer>
         <h2>Game Description</h2>
-        <p>This game was put together by me.</p>
-        <h3>Instructions on how to play</h3>
+        <p>This game was put together by me, I made this game using the canvas element. I combined react and canvas to make this interactive game. The game just describes my programming skills, the languages I know, and what technologies I am experienced with. I wanted to make my portfolio website interactive and fun.</p>
+        <h3>Game Instructions</h3>
         <p>Player Movement:</p>
         <ul>
           <li>Move Up: W Key</li>
           <li>Move Down: S Key</li>
           <li>Move Left: A Key</li>
           <li>Move Right: D Key</li>
-          {/* <li>Run: Hold Space Bar</li> */}
-          <li>Jump: X Key</li>
         </ul>
       </footer>
     </SkillsWrapper>

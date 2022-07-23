@@ -12,8 +12,8 @@ const initialState = {
     direction: "down"
   },
   npc: {
-    x: 30,
-    y: 30,
+    x: 50,
+    y: 50,
     height: 30,
     width: 30,
     direction: "down"
