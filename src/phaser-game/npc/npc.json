@@ -1,0 +1,22 @@
+[
+  {
+    "x": 700,
+    "dialogue": "This portfolio was build with React and Phaser, which is a Javascript library used to build video games, talk to other NPC's and enter the buildings in this town to learn more about Javi"
+  },
+  {
+    "x": 1500,
+    "dialogue": "Javi knows Javascript/Typescript, the libraries and frameworks he knows are: React, a little bit of Angular, Phaser, express, and socket.io"
+  },
+  {
+    "x": 200,
+    "dialogue": "Enter this house to access the library and use the computer"
+  },
+  {
+    "x": 1000,
+    "dialogue": "Enter this house to learn more about the languages and frameworks that Javi has worked with"
+  },
+  {
+    "x": 1700,
+    "dialogue": "Enter Javi's house and learn more about him"
+  }
+]
