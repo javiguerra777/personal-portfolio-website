@@ -1,8 +1,14 @@
 import Phaser from 'phaser';
-import loadCharacters, { loadImages } from '../utils/loadAssets';
+import loadCharacters, {
+  loadImages,
+  loadRoomTiles,
+} from '../utils/loadAssets';
 import Data from '../../module';
 import Player from '../game-objects/Player';
 import GroupObj from '../game-objects/Group';
+import physicsWorld from '../utils/physicsWorld';
+import followPlayer, { cameraWorld } from '../utils/camera';
+import { SCALE_WORLD } from '../utils/constants';
 
 export default class RoomTwo extends Phaser.Scene {
   player!: Player;
@@ -14,15 +20,39 @@ export default class RoomTwo extends Phaser.Scene {
   preload() {
     loadCharacters(this);
     loadImages(this);
+    loadRoomTiles(this);
+    this.load.tilemapTiledJSON('room2', '/assets/map/room.json');
   }
 
   create({ startingX, startingY }: Data) {
     console.log(startingX, startingY);
+    const map = this.make.tilemap({ key: 'room2' });
+    physicsWorld(this, map);
+    const tileSet = map.addTilesetImage('inside', 'roomSet');
+    const floor = map.createLayer('Floor', tileSet, 0, 0);
+    const backgroundTile = map.createLayer(
+      'Background',
+      tileSet,
+      0,
+      0,
+    );
+    floor.setScale(SCALE_WORLD);
+    backgroundTile.setScale(SCALE_WORLD);
+    cameraWorld(this.cameras, map);
+
     const group = new GroupObj(this);
-    const door = this.add.image(200, 400, 'doors');
-    door.setScale(4);
+    const door = this.add.image(
+      85,
+      (map.heightInPixels * SCALE_WORLD) / 1.3 + 10,
+      'doors',
+    );
+    door.setScale(5);
     group.addObj(door);
-    this.player = new Player(this, 400, 400);
+    this.player = new Player(
+      this,
+      400,
+      (map.heightInPixels * SCALE_WORLD) / 1.3 + 20,
+    );
 
     this.physics.add.overlap(
       this.player,
@@ -36,6 +66,7 @@ export default class RoomTwo extends Phaser.Scene {
   }
 
   update() {
+    followPlayer(this.cameras, this.player);
     this.player.movePlayer();
   }
 }

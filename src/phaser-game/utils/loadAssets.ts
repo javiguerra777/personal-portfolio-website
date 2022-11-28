@@ -23,4 +23,8 @@ export const loadImages = (scene: Phaser.Scene) => {
   scene.load.image('town', '/assets/images/town.jpg');
 };
 
+export const loadRoomTiles = (scene: Phaser.Scene) => {
+  scene.load.image('roomSet', '/assets/tileset/4 BigSet.png');
+};
+
 export default loadCharacters;

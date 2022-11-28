@@ -1,6 +1,9 @@
 import Phaser from 'phaser';
 import Player from '../game-objects/Player';
-import loadCharacters, { loadImages } from '../utils/loadAssets';
+import loadCharacters, {
+  loadImages,
+  loadRoomTiles,
+} from '../utils/loadAssets';
 import followPlayer, { cameraWorld } from '../utils/camera';
 // import GroupObj from '../game-objects/Group';
 import TextBox from '../game-objects/DialogueBox';
@@ -27,7 +30,7 @@ export default class RoomOne extends Phaser.Scene {
   preload() {
     loadCharacters(this);
     loadImages(this);
-    this.load.image('roomSet', '/assets/tileset/4 BigSet.png');
+    loadRoomTiles(this);
     this.load.tilemapTiledJSON('room', '/assets/map/roomone.json');
   }
 
