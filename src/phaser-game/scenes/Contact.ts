@@ -15,6 +15,8 @@ export default class Contact extends Phaser.Scene {
 
   background!: Phaser.GameObjects.Image;
 
+  returnBtn!: TextBox;
+
   constructor() {
     super('ContactMe');
   }
@@ -27,15 +29,15 @@ export default class Contact extends Phaser.Scene {
   create({ roomX, roomY, startingX, startingY }: any) {
     const { width, height } = this.sys.canvas;
     this.background = this.add.image(width, height, 'formBkg');
-    const returnBtn = new TextBox(
+    this.returnBtn = new TextBox(
       this,
-      0,
+      width - 50,
       0,
       'button',
-      'margin-left: 3em; margin-top: 1.5em; background-color: red; color: white; border: solid 1px white;',
+      'margin-top: 2em; background-color: red; color: white; border: solid 1px white;',
       'X',
     );
-    returnBtn.addListener('click').on('click', () => {
+    this.returnBtn.addListener('click').on('click', () => {
       this.scene.start('Room1', {
         roomX,
         roomY,
@@ -71,13 +73,13 @@ export default class Contact extends Phaser.Scene {
 
   update() {
     const { width, height } = this.sys.canvas;
+    this.returnBtn.setX(width - 30);
     this.element.x = width / 2;
     this.element.y = height / 2;
     this.text?.setX(width / 2);
     this.background.width = width;
     this.background.height = height;
     if (this.message && this.count === 0) {
-      console.log('msg');
       this.text = new TextBox(
         this,
         width / 2,

@@ -2,6 +2,16 @@
 <html>
 <head>
   <style>
+    h1 {
+      color: white;
+    }
+    label {
+      color: white;
+      margin-bottom: 0.5em;
+    }
+    .orange {
+      color: orange;
+    }
     #input-form {
       padding: 20px 15px 15px 15px;
       background-color: #8458b3;
@@ -44,9 +54,13 @@
 </head>
 
 <body>
+  <h1>Send Me a Message</h1>
   <form id="input-form">
+    <label for="name">Full Name</label>
     <input type="text" name="name" placeholder="Full Name (optional)" id="text" />
+    <label for="email">Email <span class="orange">*</span></label>
     <input type="email" name="email" placeholder="Email*" id="email" required>
+    <label for="message">Message <span class="orange">*</span></label>
     <textarea name="message" id="message" cols="30" rows="10" placeholder="Message must be 10 characters long*" required></textarea>
     <button type="submit" id="button">Send Message</button>
   </form>

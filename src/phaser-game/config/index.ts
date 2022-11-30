@@ -28,12 +28,12 @@ const config = {
   title: 'My Portfolio',
   parent: 'main-game',
   scene: [
+    MainGame,
+    RoomOne,
     RoomTwo,
     RoomThree,
     Contact,
     Description,
-    MainGame,
-    RoomOne,
   ],
 };
 export default config;
