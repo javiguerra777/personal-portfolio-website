@@ -27,4 +27,13 @@ export const loadRoomTiles = (scene: Phaser.Scene) => {
   scene.load.image('roomSet', '/assets/tileset/4 BigSet.png');
 };
 
+export const loadProjectImages = (scene: Phaser.Scene) => {
+  scene.load.image('backendFinal', '/images/backendFinal.JPEG');
+  scene.load.image('brewery', '/images/brewery.JPEG');
+  scene.load.image('number', '/images/numberGuesser.JPEG');
+  scene.load.image('weather', '/images/reactWeather.JPEG');
+  scene.load.image('media', '/images/socialMedia.JPEG');
+  scene.load.image('directory', '/images/studentDirectory.JPEG');
+};
+
 export default loadCharacters;

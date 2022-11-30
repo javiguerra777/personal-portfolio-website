@@ -57,7 +57,7 @@ export default class RoomOne extends Phaser.Scene {
     foreGroundTile.setScale(SCALE_WORLD);
     this.startingX = startingX;
     this.startingY = startingY;
-    // geoup object
+    // group object
     const collidableObjects = this.physics.add.group({
       immovable: true,
     });
@@ -132,6 +132,7 @@ export default class RoomOne extends Phaser.Scene {
           'background-color: #fffafa; color: black; width: auto; max-width: 300px; border: solid 5px #faebd7; border-radius: 5px; padding: 3px; font: Arial; margin-top: 75px; text-align: center;',
           'Press the SpaceBar to open contact form',
         );
+        this.text.setScrollFactorZero();
       }
       if (this.player.spaceIsDown()) {
         this.scene.start('ContactMe', {

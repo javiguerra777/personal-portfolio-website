@@ -8,12 +8,12 @@
     "dialogue": "Javi knows Javascript/Typescript, the libraries and frameworks he knows are: React, a little bit of Angular, Phaser, express, and socket.io"
   },
   {
-    "x": 200,
-    "dialogue": "Enter this house to access the library and use the computer"
+    "x": 300,
+    "dialogue": "Enter this house to access the library and use the computer. you can press the up key to use the doors in this game"
   },
   {
     "x": 1000,
-    "dialogue": "Enter this house to learn more about the languages and frameworks that Javi has worked with"
+    "dialogue": "Enter this house to learn more about the projects Javi has worked on"
   },
   {
     "x": 1700,

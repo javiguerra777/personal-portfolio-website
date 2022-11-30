@@ -25,7 +25,6 @@ export default class RoomThree extends Phaser.Scene {
   }
 
   create({ startingX, startingY }: Data) {
-    console.log(startingX, startingY);
     const map = this.make.tilemap({ key: 'room3' });
     physicsWorld(this, map);
     const tileSet = map.addTilesetImage('inside', 'roomSet');

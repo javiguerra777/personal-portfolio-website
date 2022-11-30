@@ -10,9 +10,13 @@ class TextBox extends Phaser.GameObjects.DOMElement {
     text: string,
   ) {
     super(scene, x, y, element, style, text);
+    this.setDepth(4);
+    this.scene.add.existing(this);
+  }
+
+  setScrollFactorZero() {
     this.scrollFactorX = 0;
     this.scrollFactorY = 0;
-    this.scene.add.existing(this);
   }
 }
 

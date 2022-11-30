@@ -6,6 +6,7 @@ import RoomOne from '../scenes/RoomOne';
 import RoomTwo from '../scenes/RoomTwo';
 import RoomThree from '../scenes/RoomThree';
 import Contact from '../scenes/Contact';
+import Description from '../scenes/Description';
 
 const config = {
   type: Phaser.AUTO,
@@ -26,6 +27,13 @@ const config = {
   },
   title: 'My Portfolio',
   parent: 'main-game',
-  scene: [MainGame, RoomOne, RoomTwo, RoomThree, Contact],
+  scene: [
+    RoomTwo,
+    RoomThree,
+    Contact,
+    Description,
+    MainGame,
+    RoomOne,
+  ],
 };
 export default config;

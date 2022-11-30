@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../game-objects/Player';
 import TextBox from '../game-objects/DialogueBox';
-import npcData from '../npc/npc.json';
+import npcData from '../json/npc.json';
 import NPC from '../game-objects/Npc';
 import GroupObj from '../game-objects/Group';
 import loadCharacters, { loadImages } from '../utils/loadAssets';
@@ -29,8 +29,6 @@ class MainGame extends Phaser.Scene {
   doors!: GroupObj;
 
   activeDoor = 0;
-
-  message!: TextBox;
 
   background!: Phaser.GameObjects.Image;
 
@@ -118,32 +116,19 @@ class MainGame extends Phaser.Scene {
   }
 
   update() {
-    const { width } = this.sys.game.canvas;
     this.player.movePlayer();
     followPlayer(this.cameras, this.player);
     this.npcGroup?.children?.entries?.forEach((npc: any) => {
       npc.playAnims(this.player);
     });
-    this.dialogue?.setX(width / 2);
     if (!this.player.body.embedded) {
       this.player.ableToSpeak = false;
       this.player.canEnterRoom = false;
       this.count = 0;
       this.activeNpc = null;
       this.exclamation?.destroy();
-      this.message?.destroy();
     }
     if (this.player.canEnterRoom) {
-      if (this.count < 2) {
-        this.message = new TextBox(
-          this,
-          width / 2,
-          0,
-          'div',
-          'background-color: #fffafa; color: black; width: auto; max-width: 300px; border: solid 5px #faebd7; border-radius: 5px; padding: 3px; font: Arial; margin-top: 75px; text-align: center;',
-          'Press Up to enter the room',
-        );
-      }
       if (this.player.upIsDown()) {
         this.scene.start(`Room${this.activeDoor}`, {
           startingX: this.player.x,
@@ -155,8 +140,8 @@ class MainGame extends Phaser.Scene {
       if (this.dialogueCount === 0 && !this.player.isMoving) {
         this.dialogue = new TextBox(
           this,
-          width / 2,
-          0,
+          this.activeNpc.x + 100,
+          this.activeNpc.y - 200,
           'div',
           'background-color: #fffafa; color: black; width: auto; max-width: 300px; border: solid 5px #faebd7; border-radius: 5px; padding: 3px; font: Arial; margin-top: 75px; text-align: center;',
           this.activeNpc.dialogue,
@@ -169,6 +154,7 @@ class MainGame extends Phaser.Scene {
         this.dialogueCount = 0;
       }
     }
+    // exclamation image
     if (this.player.ableToSpeak && this.count <= 1) {
       this.exclamation = this.physics.add
         .image(
