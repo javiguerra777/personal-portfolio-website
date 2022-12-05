@@ -1,3 +1,10 @@
 [
-  
+  {
+    "x": 500,
+    "dialogue": "there is a computer at the end where you can send emails from"
+  },
+  {
+    "x": 1040,
+    "dialogue":"I love this library it has amazing books to read"
+  }
 ]

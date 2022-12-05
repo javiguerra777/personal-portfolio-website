@@ -4,7 +4,7 @@
     "dialogue": "This portfolio was build with React and Phaser, which is a Javascript library used to build video games, talk to other NPC's and enter the buildings in this town to learn more about Javi"
   },
   {
-    "x": 1500,
+    "x": 1300,
     "dialogue": "Javi knows Javascript/Typescript, the libraries and frameworks he knows are: React, a little bit of Angular, Phaser, express, and socket.io"
   },
   {

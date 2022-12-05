@@ -2,26 +2,31 @@
   {
     "name":"backendFinal",
     "description": "I had to use express, mySQL, and node for a backend final project when I was studying at Bay Valley Tech. I learned how to use middleware in Express such as cors and JWT",
-    "link": "https://google.com"
+    "link": "https://github.com/javiguerra777/Backend-Final-Javier-Guerra"
   },
   {
     "name":"brewery",
-    "description": "Casey Reyes and I worked on a brewery locator app during our React Apprenticeship, we used React, React Router, Pigeon maps and a brewery API to do so."
+    "description": "Casey Reyes and I worked on a brewery locator app during our React Apprenticeship, we used React, React Router, Pigeon maps and a brewery API to do so.",
+    "link": "https://github.com/javiguerra777/brewery-locator"
   },
   {
     "name":"number",
-    "description": "For my first project in the React Apprenticeship, I made a number guessing game. I learned how to pass props and map through arrays to create buttons and other Html items with JSX."
+    "description": "For my first project in the React Apprenticeship, I made a number guessing game. I learned how to pass props and map through arrays to create buttons and other Html items with JSX.",
+    "link": "https://github.com/javiguerra777/React-Game-Project"
   },
   {
     "name":"weather",
-    "description": "I used React in my React Apprenticeship to create a weather app, I used the open weather api. In this project I learned about Context, Redux, Styled Components, Error Handling, and Prop Types in React."
+    "description": "I used React in my React Apprenticeship to create a weather app, I used the open weather api. In this project I learned about Context, Redux, Styled Components, Error Handling, and Prop Types in React.",
+    "link": "https://github.com/javiguerra777/weather-app-apprenticeship"
   },
   {
     "name":"media",
-    "description": "During the React Apprenticeship we had a month or two of free time between projects, so I wanted to work on creating a Facebook clone, I used React and Firebase to do so. I added Redux into my project, React Router, Styled Components to get the project working, I was able to let users create, delete, update posts, comment under posts, and I was working on a messaging system as well."
+    "description": "During the React Apprenticeship we had a month or two of free time between projects, so I wanted to work on creating a Facebook clone, I used React and Firebase to do so. I added Redux into my project, React Router, Styled Components to get the project working, I was able to let users create, delete, update posts, comment under posts, and I was working on a messaging system as well.",
+    "link": "https://github.com/javiguerra777/social-media-app"
   },
   {
     "name":"directory",
-    "description": "Ermias and I worked together in our React Apprenticeship to create a student directory. We learned how to filter through arrays, add objects to arrays, and we were working on trying to implement Firebase as well, but we used local storage temporarily."
+    "description": "Ermias and I worked together in our React Apprenticeship to create a student directory. We learned how to filter through arrays, add objects to arrays, and we were working on trying to implement Firebase as well, but we used local storage temporarily.",
+    "link": "https://github.com/javiguerra777/React-Student-Directory"
   }
 ]

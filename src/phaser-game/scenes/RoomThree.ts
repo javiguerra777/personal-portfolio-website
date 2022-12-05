@@ -9,9 +9,12 @@ import GroupObj from '../game-objects/Group';
 import physicsWorld from '../utils/physicsWorld';
 import followPlayer, { cameraWorld } from '../utils/camera';
 import { SCALE_WORLD } from '../utils/constants';
+import TextBox from '../game-objects/DialogueBox';
 
 export default class RoomThree extends Phaser.Scene {
   player!: Player;
+
+  text!: TextBox;
 
   constructor() {
     super('Room3');
@@ -51,7 +54,16 @@ export default class RoomThree extends Phaser.Scene {
       400,
       (map.heightInPixels * SCALE_WORLD) / 1.3 + 20,
     );
-
+    // text in scene
+    this.text = new TextBox(
+      this,
+      500,
+      200,
+      'div',
+      'color: red; background: white; border: double black 5px; padding: 10px; font-size: 3em;',
+      'Still in progress, come back later to see the final version',
+    );
+    // physics in scene
     this.physics.add.overlap(
       this.player,
       door,
