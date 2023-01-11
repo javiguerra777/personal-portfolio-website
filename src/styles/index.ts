@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
-const GameWrapper = styled.main`
-  height: 100vh;
-  width: 100vw;
+export const GameWrapper = styled.section`
+  height: 100%;
+  width: 100%;
   p: hover {
     cursor: pointer;
   }
 `;
-export default GameWrapper;
+
+const AppWrapper = styled.main`
+  height: 100vh;
+  width: 100vw;
+`;
+export default AppWrapper;

@@ -4,7 +4,7 @@ import loadCharacters, {
   loadProjectImages,
   loadRoomTiles,
 } from '../utils/loadAssets';
-import Data from '../../module';
+import Data from '../module';
 import Player from '../game-objects/Player';
 import GroupObj from '../game-objects/Group';
 import physicsWorld from '../utils/physicsWorld';

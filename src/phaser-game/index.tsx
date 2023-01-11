@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Phaser from 'phaser';
-import GameWrapper from './styles';
-import config from './phaser-game/config';
+import config from './config';
+import { GameWrapper } from '../styles';
 
-function App() {
+function PortfolioGame() {
   useEffect(() => {
     const phaserGame = new Phaser.Game(config);
     return () => {
@@ -17,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export default PortfolioGame;

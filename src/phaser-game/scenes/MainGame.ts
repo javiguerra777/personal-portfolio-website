@@ -7,7 +7,7 @@ import GroupObj from '../game-objects/Group';
 import loadCharacters, { loadImages } from '../utils/loadAssets';
 import { SCALE_WORLD } from '../utils/constants';
 import followPlayer, { cameraWorld } from '../utils/camera';
-import Data from '../../module';
+import Data from '../module';
 
 class MainGame extends Phaser.Scene {
   player!: Player;

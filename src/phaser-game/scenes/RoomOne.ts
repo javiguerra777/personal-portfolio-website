@@ -7,7 +7,7 @@ import loadCharacters, {
 import followPlayer, { cameraWorld } from '../utils/camera';
 import GroupObj from '../game-objects/Group';
 import TextBox from '../game-objects/DialogueBox';
-import { RoomData } from '../../module';
+import { RoomData } from '../module';
 import physicsWorld from '../utils/physicsWorld';
 import { SCALE_WORLD } from '../utils/constants';
 import distanceBetweenObjs from '../utils/physics';
