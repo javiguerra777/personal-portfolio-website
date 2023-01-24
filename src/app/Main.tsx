@@ -6,6 +6,7 @@ import AppWrapper from '../styles';
 function Main() {
   const [isLaptop, setIsLaptop] = useState(true);
   useEffect(() => {
+    // console.log(window.navigator);
     setIsLaptop(false);
   }, []);
   return (

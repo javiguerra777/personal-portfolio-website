@@ -68,10 +68,10 @@
 }
 .nav {
   background-color: #28282B;
-  width: 8em;
+  width: 9em;
 }
 .close-btn {
-  right: 2px;
+  right: 5px;
   top: 0.5rem;
   padding: 0;
 }

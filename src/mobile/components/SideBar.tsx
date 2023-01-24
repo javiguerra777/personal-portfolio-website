@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BurgerMenu from '../icons/BurgerMenu';
 import Close from '../icons/Close';
+import ArrowUp from '../icons/ArrowUp';
 
 function SideBar() {
   const [open, setOpen] = useState(false);
@@ -33,6 +34,9 @@ function SideBar() {
                 <a href="#contact">Contact</a>
               </div>
             </div>
+            <a href="#top" className="text-decoration-none">
+              Return To Top <ArrowUp />
+            </a>
           </div>
         </nav>
       ) : (
