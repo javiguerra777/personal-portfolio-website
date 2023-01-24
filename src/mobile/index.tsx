@@ -65,7 +65,7 @@ function MobileView() {
         </button>
       )}
       <Card className="text-dark mt-4 p-2" id="top">
-        <Card.Title>Javier Guerra portfolio</Card.Title>
+        <Card.Title>Javier Guerra Portfolio</Card.Title>
       </Card>
       <ReusableCard id="header">
         <Card.Title>This is the mobile friendly version</Card.Title>
@@ -85,7 +85,6 @@ function MobileView() {
       </ReusableCard>
       <AboutMe />
       <Experience />
-
       <ContactInfo />
       <Footer />
     </div>
