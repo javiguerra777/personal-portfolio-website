@@ -28,6 +28,8 @@
       "react-hooks"
   ],
   "rules": {
+    "@typescript-eslint/no-var-requires": "off",
+    "no-unused-expressions": "off",
     "linebreak-style": 0,
     "no-lonely-if":"off",
     "no-underscore-dangle": "off",
@@ -44,7 +46,10 @@
       "warn",
       {
         "extensions": [
-          ".tsx"
+          ".tsx",
+          ".ts",
+          ".js",
+          ".jsx"
         ]
       }
     ],

@@ -8,20 +8,20 @@ function SideBar() {
     setOpen(!open);
   };
   return (
-    <aside className="aside">
+    <aside className="aside rounded">
       {open ? (
         <nav className="nav text-white d-flex flex-column rounded">
-          <div className="align-self-end">
+          <div className="d-flex align-items-center justify-content-center pt-1">
+            <small>Contents</small>
             <button
               type="button"
               onClick={toggle}
-              className="bg-transparent border-0 text-white"
+              className="bg-transparent position-absolute border-0 text-white close-btn d-flex align-items-center justify-content-center"
             >
               <Close />
             </button>
           </div>
           <div className="d-flex flex-column w-100 mb-2 align-items-center">
-            <u>Contents</u>
             <div>
               <div>
                 <a href="#about">About</a>
