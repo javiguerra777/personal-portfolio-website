@@ -86,6 +86,78 @@ function Experience() {
               from parent components to children components in React.
             </div>
           </ReusableItem>
+          <ReusableItem>
+            <strong className="align-self-center mb-2">
+              Student Directory Project
+            </strong>
+            <div>
+              In this project I worked with another coworker and we
+              learned how to create a table of users. We learned how
+              to add, and remove data from that existing table. We
+              also learned how to conditionally style and show
+              components. We created a search bar to filter through
+              users in the table.
+            </div>
+          </ReusableItem>
+          <ReusableItem>
+            <strong className="align-self-center mb-2">
+              Brewery Locator
+            </strong>
+            <div>
+              In this project I worked with another coworker and we
+              learned how to fetch data from a brewery locator api. We
+              also learned how to plug in the data from the api into a
+              map api and display it on the UI. We also learned how to
+              use React Routing and styled components. I manually
+              built out auto complete functionality in the search bar
+              when searching for the breweries in specific cities.
+            </div>
+          </ReusableItem>
+          <ReusableItem>
+            <strong className="align-self-center mb-2">
+              Weather Project
+            </strong>
+            <div>
+              I learned how to connect two different apis together. I
+              worked with a geo location api and a weather api like
+              open weather. I took the users location from the geo
+              location api and passed the latitude and longitude to
+              access the 7-8 day forecast for that city. I used sass
+              for this project and implemented some conditional
+              styling.
+            </div>
+          </ReusableItem>
+          <ReusableItem>
+            <strong className="align-self-center mb-2">
+              Social Media App
+            </strong>
+            <div>
+              I worked with two other coworkers. We built a fullstack
+              app and our tech stack was MERN, which stands for
+              MongoDB (for the database), Express (which was used to
+              build out server), React (which was used for building
+              the UI), and Node (which was used for installing npm
+              packages). We also used AWS to handle image uploads and
+              socket.io to implement real time comments on each post.
+              We also learned how to use Typescript and Redux in a
+              React project.
+            </div>
+          </ReusableItem>
+          <ReusableItem>
+            <strong className="align-self-center mb-2">
+              Multiplayer Video Game
+            </strong>
+            <div>
+              This was my capstone project. I built a multiplayer game
+              using React on the client side, Express for the server
+              side, and socket.io for real time game updates. I had to
+              implement Phaser (which is a library to build video
+              games for the web browser using Typescript). The game I
+              built was a top-down multiplayer shooter game. I allowed
+              users to customize their characters and live chat within
+              the game room.
+            </div>
+          </ReusableItem>
         </ListGroup>
       </Card.Body>
     </ReusableCard>

@@ -1,5 +1,5 @@
 .light-mode {
-  background-color: #F9F6EE;
+  background-color: #f9f6ee;
   color: black;
 }
 .dark-mode {
@@ -22,7 +22,7 @@
   top: 0.5em;
   right: 1em;
   z-index: 4;
-  background-color: #28282B;
+  background-color: #28282b;
   padding: 1rem;
 }
 .toggle-btn {
@@ -31,23 +31,28 @@
   padding: 0;
   display: flex;
 }
-.light {
-  display: flex;
-  justify-content: flex-end;
+.toggle {
+  width: 5rem;
+  border-radius: 15px;
+  padding: 3px;
+}
+.active {
   background-color: lime;
 }
-.dark {
-  display: flex;
-  justify-content: flex-start;
+.inactive {
   background-color: white;
 }
-.icon {  
+.icon {
   width: 4rem;
   padding: 0.2rem 0.2rem;
   border-radius: 1rem;
 }
 .circle {
-  font-size: 1.5rem;
+  display: none;
+}
+.circle-btn {
+  height: 100%;
+  width: 1.5rem;
 }
 .information {
   width: 40rem;
@@ -63,31 +68,38 @@
 }
 .menu-btn {
   padding: 0.7rem;
-  background-color: #28282B;
+  background-color: #28282b;
   color: white;
 }
 .nav {
-  background-color: #28282B;
-  width: 9em;
+  background-color: #28282b;
+  width: 10em;
 }
 .close-btn {
   right: 5px;
-  top: 0.5rem;
+  top: 25%;
   padding: 0;
 }
-.top-btn {
-  background-color: white;
-  position: absolute;
-  width: 40px;
-  font-size: 20px;
-  padding: 10px 0;
-  bottom: 1rem;
-  z-index: 10;
-  display: flex; 
-  align-items: center;
-  justify-content: center;
-  color: red;
-  border: solid 3px dodgerblue;;
+.glass-bg {
+  /* From https://css.glass */
+  background: rgba(27, 218, 211, 0.24);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.8px);
+  -webkit-backdrop-filter: blur(1.8px);
+  border: 1px solid rgba(27, 218, 211, 0.38);
+  width: 100%;
+  padding: 1rem;
+}
+.carousel-item {
+  height: 300px;
+}
+.carousel-img {
+  width: 50vw;
+  height: 100%;
+  background-color: #4C4646;
+}
+.carousel-title {
+  font-size: 32px;
 }
 /* media queries */
 @media (max-width: 600px) {
@@ -101,6 +113,7 @@
     font-size: 12.5px;
     right: 1.5rem;
   }
+
 }
 @media (max-width: 420px) {
   html {

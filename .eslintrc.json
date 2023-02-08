@@ -30,6 +30,7 @@
   "rules": {
     "@typescript-eslint/no-var-requires": "off",
     "no-unused-expressions": "off",
+    "no-unused-vars": "off",
     "linebreak-style": 0,
     "no-lonely-if":"off",
     "no-underscore-dangle": "off",

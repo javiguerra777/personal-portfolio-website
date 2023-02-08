@@ -1,5 +1,5 @@
 import React from 'react';
-import DarkCircle from '../icons/DarkCircle';
+import DarkCircle from '../icons/Circle';
 
 function DarkIcon() {
   return (

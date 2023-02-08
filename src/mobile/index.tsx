@@ -8,6 +8,7 @@ import AboutMe from './components/AboutMe';
 import ContactInfo from './components/ContactInfo';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
+import Carousel from './components/Carousel';
 import './styles/index.css';
 
 const Mobile = require('../assets/mobile.jpg');
@@ -42,6 +43,7 @@ function MobileView() {
           </Card.Text>
         </Card.Body>
       </ReusableCard>
+      <Carousel />
       <AboutMe />
       <Experience />
       <ContactInfo />
