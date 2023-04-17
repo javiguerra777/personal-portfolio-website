@@ -13,3 +13,9 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+
+/*
+attributions
+<a href="https://www.freepik.com/free-photo/blue-watercolor-splash-background_6649581.htm">Image by vector_corp</a> on Freepik
+vecteezy.com
+*/

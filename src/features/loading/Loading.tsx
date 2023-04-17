@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useAppDispatch } from '../../app/store/hooks';
 import { setLoading } from '../../app/store/LoadingSlice';
+import Logo from '../../assets/logo.jpg';
 
 const LoadingWrapper = styled.div<{width: number}>`
   height: 100%;
@@ -11,7 +12,7 @@ const LoadingWrapper = styled.div<{width: number}>`
   justify-content: center;
   align-items: center;
   .spinner {
-    animation: rotate infinite 3s;
+    animation: rotate infinite 2s;
   }
   .loading-bar {
     width: ${props => props.width}%;
@@ -42,9 +43,11 @@ const Loading: FC = () => {
   return (
     <LoadingWrapper width={width}>
       <div className='flex flex-col items-center'>
-        <div className=' bg-white w-10 h-10 rounded-full spinner'>
-          Img
-        </div>
+        <img 
+        src={Logo}
+         alt="site-logo"
+         className="w-20 h-30 rounded-full spinner"
+          />
         <p className="text-white mt-3 mb-2">Loading</p>
         <div className='bg-white w-96 h-5 relative rounded'>
           <div className="bg-blue-600 h-full absolute z-2 rounded loading-bar" />
