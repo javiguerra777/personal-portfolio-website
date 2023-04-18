@@ -1,6 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import Logo from '../../../assets/logo.jpg';
+import SideBar from './SideBar';
 
 const NavBarWrapper = styled.nav`
   display: flex;
@@ -8,6 +10,7 @@ const NavBarWrapper = styled.nav`
   flex-direction: row;
   position: sticky;
   top: 0;
+  z-index: 10;
   justify-content: space-between;
   align-items: center;
   padding: 15px 10px;
@@ -33,6 +36,10 @@ const NavBarWrapper = styled.nav`
   }
 `;
 const NavBar: FC = () => {
+  const [openSide, setOpenSide] = useState(false);
+  const toggleOpenSide = () => {
+    setOpenSide((prev) => !prev);
+  }
   const downloadCV = () => {
     console.log('downloading file');
   }
@@ -45,14 +52,14 @@ const NavBar: FC = () => {
            alt="site-logo" 
            className="logo rounded-full"
            />
-           <p className="ml-3 text-xl">My Portfolio</p>
+           <p className="ml-3 text-xl md:text-3xl font-extrabold tracking-tight">My Portfolio</p>
         </a>
       </div>
       <div className="flex flex-row justify-between links sm-hidden">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
         <a href="#jobs">Jobs</a>
+        <a href="#contact">Contact</a>
       </div>
       <div className="sm-hidden">
         <button 
@@ -63,9 +70,16 @@ const NavBar: FC = () => {
           Download CV
         </button>
       </div>
-      <div className="sm-active">
-        I will be active on small screens
-      </div>
+      <button 
+      className="sm-active bg-zinc-700 p-2.5 rounded-full hover:bg-zinc-500 absolute right-1"
+      onClick={toggleOpenSide}
+      >
+        <GiHamburgerMenu size={25} />
+      </button>
+      {openSide && <SideBar 
+      toggleOpenSide={toggleOpenSide} 
+      downloadCV={downloadCV}
+      />}
     </NavBarWrapper>
   )
 }

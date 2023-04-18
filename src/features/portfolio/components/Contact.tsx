@@ -22,7 +22,7 @@ const Contact: FC = () => {
   })
   return (
     <ContactWrapper id="contact">
-      <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+      <div className="pb-8 pt-20 lg:pb-16 px-4 mx-auto max-w-screen-md">
         <h2 className="mb-4 text-4xl tracking-tight text-center font-extrabold text-gray-900">
           Contact Me
         </h2>

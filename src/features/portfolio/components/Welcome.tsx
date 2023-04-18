@@ -21,7 +21,7 @@ const Welcome: FC = () => {
           {' '}
           <span className="font-semibold">Software Developer</span>
         </p>
-        <p className="w-80 text-gray-400 mb-4 text-lg">I am familiar with fullstack development check out my experiences</p>
+        <p className="sm:w-80 text-gray-400 mb-4 text-lg">I am familiar with fullstack development check out my experiences</p>
         <div className='flex flex-row'>
           <a href="#contact" className="mr-5 bg-blue-500 text-white rounded-full px-3 py-2 hover:bg-blue-400">
             Contact Me
