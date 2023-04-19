@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Logo from '../../../assets/logo.jpg';
 import SideBar from './SideBar';
+import DownloadCV from '../../../common/components/DownloadCV';
 
 const NavBarWrapper = styled.nav`
   display: flex;
@@ -40,9 +41,6 @@ const NavBar: FC = () => {
   const toggleOpenSide = () => {
     setOpenSide((prev) => !prev);
   }
-  const downloadCV = () => {
-    console.log('downloading file');
-  }
   return (
     <NavBarWrapper>
       <div>
@@ -56,19 +54,13 @@ const NavBar: FC = () => {
         </a>
       </div>
       <div className="flex flex-row justify-between links sm-hidden">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#jobs">Jobs</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" className="hover-line">About</a>
+        <a href="#projects" className="hover-line">Projects</a>
+        <a href="#jobs" className="hover-line">Jobs</a>
+        <a href="#contact" className="hover-line">Contact</a>
       </div>
       <div className="sm-hidden">
-        <button 
-        className="bg-zinc-700 text-white px-4 py-2 rounded-full hover:bg-zinc-500" 
-        type='button'
-        onClick={downloadCV}
-        >
-          Download CV
-        </button>
+        <DownloadCV />
       </div>
       <button 
       className="sm-active bg-zinc-700 p-2.5 rounded-full hover:bg-zinc-500 absolute right-1"
@@ -78,7 +70,6 @@ const NavBar: FC = () => {
       </button>
       {openSide && <SideBar 
       toggleOpenSide={toggleOpenSide} 
-      downloadCV={downloadCV}
       />}
     </NavBarWrapper>
   )

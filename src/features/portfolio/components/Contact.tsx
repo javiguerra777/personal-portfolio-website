@@ -53,12 +53,12 @@ const Contact: FC = () => {
             >
               Your Email<span className="text-orange-500">* (Required)</span>
               </label>
-            {formik.errors.email && formik.touched.email && <p>{formik.errors.email}</p>}
+            {formik.errors.email && formik.touched.email && <small className="text-red-400">{formik.errors.email}</small>}
             <input 
             type="email" 
             id="email"
             name="email"
-            className={`shadow-sm bg-gray-50 text-gray-900 text-sm rounded-lg block w-full p-2.5 mb-5 ${formik.errors.email && formik.touched.email ? 'border-2 border-red-300' : 'border border-gray-300'}`}
+            className={`mt-1 shadow-sm bg-gray-50 text-gray-900 text-sm rounded-lg block w-full p-2.5 mb-5 ${formik.errors.email && formik.touched.email ? 'border-2 border-red-300' : 'border border-gray-300'}`}
             placeholder="youremail@email.com"
             required
             value={formik.values.email}
@@ -91,12 +91,12 @@ const Contact: FC = () => {
             >
               Your Message<span className="text-orange-500">* (Required)</span>
             </label>
-            {formik.errors.message && formik.touched.message && <p>{formik.errors.message}</p>}
+            {formik.errors.message && formik.touched.message && <small className="text-red-400">{formik.errors.message}</small>}
             <textarea
             id="message"
             name="message"
             rows={6}
-            className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm ${formik.errors.message && formik.touched.message ? 'border-2 border-red-300' : 'border border-gray-300'}`}
+            className={`block p-2.5 mt-1 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm ${formik.errors.message && formik.touched.message ? 'border-2 border-red-300' : 'border border-gray-300'}`}
             placeholder="Leave a message, minimum of 10 characters"
             required
             value={formik.values.message}

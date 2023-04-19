@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
+import DownloadCV from '../../../common/components/DownloadCV';
 
 const SideWrapper = styled.div`
   width: 150px;
@@ -20,9 +21,8 @@ const SideWrapper = styled.div`
 `;
 type Props = {
   toggleOpenSide: () => void;
-  downloadCV: () => void;
-}
-const SideBar: FC<Props> = ({ toggleOpenSide, downloadCV }) => {
+};
+const SideBar: FC<Props> = ({ toggleOpenSide }) => {
   const [activeHash, setActiveHash] = React.useState(window.location.hash);
   const location = window.location;
   console.log(location.hash);
@@ -44,20 +44,14 @@ const SideBar: FC<Props> = ({ toggleOpenSide, downloadCV }) => {
           </button>
         </div>
         <div className="flex flex-col mt-5 px-3 w-full">
-              <a href="#about" className={`${activeHash === "#about" ? "bg-gray-100 text-blue-500" : ''} p-1 rounded`}>About</a>
-              <a href="#projects" className={`${activeHash === "#projects" ? "bg-gray-100 text-blue-500" : ''} p-1 rounded`}>Projects</a>
-              <a href="#jobs" className={`${activeHash === "#jobs" ? "bg-gray-100 text-blue-500" : ''} p-1 rounded`}>Jobs</a>
-              <a href="#contact" className={`${activeHash === "#contact" ? "bg-gray-100 text-blue-500" : ''} p-1 rounded`}>Contact</a>
+              <a href="#about" className={`${activeHash === "#about" ? "bg-gray-100 text-blue-500" : ''} p-1 rounded hover-line`}>About</a>
+              <a href="#projects" className={`${activeHash === "#projects" ? "bg-gray-100 text-blue-500" : ''} p-1 rounded hover-line`}>Projects</a>
+              <a href="#jobs" className={`${activeHash === "#jobs" ? "bg-gray-100 text-blue-500" : ''} p-1 rounded hover-line`}>Jobs</a>
+              <a href="#contact" className={`${activeHash === "#contact" ? "bg-gray-100 text-blue-500" : ''} p-1 rounded hover-line`}>Contact</a>
         </div>
       </div>
       <div className="absolute bottom-5 w-full flex flex-row justify-center">
-        <button 
-        type="button"
-         className="bg-zinc-700 text-white px-4 py-2 rounded-full hover:bg-zinc-500"
-         onClick={downloadCV}
-         >
-          Download CV
-        </button>
+        <DownloadCV />
       </div>
     </SideWrapper>
   )
