@@ -6,7 +6,11 @@ const JobWrapper = styled.div`
 `;
 const Jobs: FC = () => {
   return (
-    <JobWrapper id="jobs">Jobs</JobWrapper>
+    <JobWrapper id="jobs">
+      <div className="pt-20">
+        Jobs Container
+      </div>
+    </JobWrapper>
   )
 }
 

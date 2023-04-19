@@ -7,7 +7,7 @@ import Logo from '../../assets/logo.jpg';
 const LoadingWrapper = styled.div<{width: number}>`
   height: 100%;
   width: 100%;
-  background-color: purple;
+  background-color: #2C2F33;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,6 +16,12 @@ const LoadingWrapper = styled.div<{width: number}>`
   }
   .loading-bar {
     width: ${props => props.width}%;
+  }
+  .loading-container {
+    width: 80vw;
+    @media (min-width: 800px) {
+      width: 700px;
+    }
   }
   @keyframes rotate {
     0% {
@@ -30,14 +36,13 @@ const Loading: FC = () => {
   const dispatch = useAppDispatch();
   const [width, setWidth] = useState(0);
   useEffect(() => {
-    console.log(width);
     if(width !== 100){
       setWidth((prev) => prev + 1);
     }
     if(width === 100) {
       setTimeout(() => {
         dispatch(setLoading(false));
-      }, 3000)
+      }, 2000)
     }
   }, [width]);
   return (
@@ -49,7 +54,7 @@ const Loading: FC = () => {
          className="w-20 h-30 rounded-full spinner"
           />
         <p className="text-white mt-3 mb-2">Loading</p>
-        <div className='bg-white w-96 h-5 relative rounded'>
+        <div className='bg-white h-5 relative rounded loading-container'>
           <div className="bg-blue-600 h-full absolute z-2 rounded loading-bar" />
         </div>
       </div>
