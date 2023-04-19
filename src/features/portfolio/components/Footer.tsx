@@ -14,20 +14,47 @@ const Footer: FC = () => {
   const iconSize= 40;
   return (
     <FooterWrapper>
-      <div>
+      <div className="my-5">
         <h3 className="text-2xl font-semibold">Proudly built with</h3>
         <div className="flex flex-row w-full justify-around my-3">
-          <FaReact size={iconSize} color="aqua" />
-          <SiTypescript size={iconSize} />
-          <SiTailwindcss size={iconSize} color="lightblue" />
-          <FaNodeJs size={iconSize} color="limegreen" />
-          <SiRedux size={iconSize} color="violet" />
+          <a href="https://react.dev/" target="_blank">
+            <FaReact size={iconSize} color="aqua" />
+          </a>
+          <a href="https://www.typescriptlang.org/" target="_blank">
+            <SiTypescript size={iconSize} color="#007acc" />
+          </a>
+          <a href="https://tailwindcss.com/" target="_blank">
+            <SiTailwindcss size={iconSize} color="lightblue" />
+          </a>
+          <a href="https://nodejs.org/en" target="_blank">
+            <FaNodeJs size={iconSize} color="limegreen" />
+          </a>
+          <a href="https://redux.js.org/" target="_blank">
+            <SiRedux size={iconSize} color="violet" />
+          </a>
         </div>
       </div>
-      <div>
+      <div className="my-5">
         <h3 className="text-2xl font-semibold">Attributions</h3>
-        <p>Img</p>
-        <p>Img</p>
+        <p className="text-lg font-medium my-2">Thank you to these sites for the use of their open source images.</p>
+        <div>
+          <a href="https://www.freepik.com/free-photo/blue-watercolor-splash-background_6649581.htm" 
+          target="_blank"
+          className="underline text-blue-500"
+          >
+            Freepik.com
+          </a>
+          <p>For the use of the splash picture</p>
+        </div>
+        <div>
+          <a href="https://www.vecteezy.com/vector-art/2084192-cute-astronaut-mascot-character-cartoon-vector-icon-illustration" 
+          target="_blank"
+          className="underline text-blue-500"
+          >
+            Vecteezy.com
+          </a>
+          <p>For the use of the astronaught logo</p>
+        </div>
       </div>
       <div className="flex flex-row justify-center">
       <a href="https://github.com/javiguerra777" target="_blank">

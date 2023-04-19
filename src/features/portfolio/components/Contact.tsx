@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
+import EmailFormSchema from '../schemas/EmailFormSchema';
+import { maxLen } from '../schemas/constants';
 
 const ContactWrapper = styled.div`
   width: 100%;
@@ -16,10 +18,17 @@ const Contact: FC = () => {
       name: '',
       message: '',
     },
-    onSubmit: (values) => {
-      console.log(values);
-    }
-  })
+    onSubmit: async(values, { resetForm }) => {
+      try{
+        console.log(values);
+        resetForm();
+      } catch(err){
+        console.error(err);
+      }
+    },
+    validationSchema: EmailFormSchema,
+    validateOnMount: true,
+  });
   return (
     <ContactWrapper id="contact">
       <div className="pb-8 pt-20 lg:pb-16 px-4 mx-auto max-w-screen-md">
@@ -35,17 +44,18 @@ const Contact: FC = () => {
             htmlFor="email"
             className="block mb-2 text-sm font-medium text-gray-900"
             >
-              Your Email<span>*</span>
+              Your Email<span className="text-orange-500">* (Required)</span>
               </label>
             <input 
             type="email" 
             id="email"
             name="email"
-            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 mb-5"
+            className={`shadow-sm bg-gray-50 text-gray-900 text-sm rounded-lg block w-full p-2.5 mb-5 ${formik.errors.email && formik.touched.email ? 'border-2 border-red-300' : 'border border-gray-300'}`}
             placeholder="youremail@email.com"
             required
             value={formik.values.email}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             />
           </div>
           <div>
@@ -63,6 +73,7 @@ const Contact: FC = () => {
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 mb-5"
             value={formik.values.name}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
              />
           </div>
           <div className="sm:col-span-2">
@@ -70,23 +81,28 @@ const Contact: FC = () => {
             htmlFor="message"
             className="block mb-2 text-sm font-medium text-gray-900"
             >
-              Your Message<span>*</span>
+              Your Message<span className="text-orange-500">* (Required)</span>
             </label>
             <textarea
             id="message"
             name="message"
             rows={6}
-            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 mb-5"
-            placeholder="Leave a message..."
+            className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm ${formik.errors.message && formik.touched.message ? 'border-2 border-red-300' : 'border border-gray-300'}`}
+            placeholder="Leave a message, minimum of 10 characters"
             required
             value={formik.values.message}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
              />
+            <p className={`mt-2 mb-5 ${maxLen - formik.values.message.length < 0 && 'text-red-500'}`}>{maxLen - formik.values.message.length} {maxLen - formik.values.message.length < 0 && 'Message is too long'}</p>
           </div>
           <button 
           type="submit"
           className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700
-          hover:bg-blue-500"        
+          hover:bg-blue-500
+          disabled:bg-slate-400
+          " 
+          disabled={!formik.isValid || formik.isSubmitting}       
           >
             Send Message
           </button>
