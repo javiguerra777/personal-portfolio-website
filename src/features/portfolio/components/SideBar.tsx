@@ -33,7 +33,7 @@ const SideBar: FC<Props> = ({ toggleOpenSide, downloadCV }) => {
     }
     window.addEventListener("hashchange", checkHash, false);
     return () => window.removeEventListener("hashchange", checkHash, false);
-  }, []);
+  }, [location.hash]);
   return (
     <SideWrapper>
       <div className="flex flex-col mt-5 items-center w-full">

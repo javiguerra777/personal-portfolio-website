@@ -18,8 +18,8 @@ const Contact: FC = () => {
       name: '',
       message: '',
     },
-    onSubmit: async(values, { resetForm }) => {
-      try{
+    onSubmit: async(values, { resetForm, validateForm }) => {
+      try {
         console.log(values);
         resetForm();
       } catch(err){
@@ -31,6 +31,13 @@ const Contact: FC = () => {
   });
   return (
     <ContactWrapper id="contact">
+      {formik.isSubmitting && (
+        <div className="fixed top-20 w-screen flex flex-row justify-center z-40">
+          <div className="bg-green-400 text-white">
+            <p>Form is submitting</p>
+          </div>
+        </div>
+      )}
       <div className="pb-8 pt-20 lg:pb-16 px-4 mx-auto max-w-screen-md">
         <h2 className="mb-4 text-4xl tracking-tight text-center font-extrabold text-gray-900">
           Contact Me
@@ -46,6 +53,7 @@ const Contact: FC = () => {
             >
               Your Email<span className="text-orange-500">* (Required)</span>
               </label>
+            {formik.errors.email && formik.touched.email && <p>{formik.errors.email}</p>}
             <input 
             type="email" 
             id="email"
@@ -83,6 +91,7 @@ const Contact: FC = () => {
             >
               Your Message<span className="text-orange-500">* (Required)</span>
             </label>
+            {formik.errors.message && formik.touched.message && <p>{formik.errors.message}</p>}
             <textarea
             id="message"
             name="message"
@@ -102,7 +111,7 @@ const Contact: FC = () => {
           hover:bg-blue-500
           disabled:bg-slate-400
           " 
-          disabled={!formik.isValid || formik.isSubmitting}       
+          disabled={!formik.isValid || formik.isSubmitting || !formik.dirty}       
           >
             Send Message
           </button>

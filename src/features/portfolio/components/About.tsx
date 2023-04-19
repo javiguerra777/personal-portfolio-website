@@ -15,7 +15,7 @@ const About: FC = () => {
     <AboutWrapper id="about">
       <div className='pt-20 pb-5 px-4 flex flex-col md:flex-row'>
         <div className="w-full flex flex-row items-center justify-center p-1">
-          <img className="h-96 w-96 selfie" src={Logo} />
+          <img className="h-96 w-96 selfie" src={Logo} alt="selfie" />
         </div>
         <div className="w-full md:w-90 p-1">
           <h2 className="text-4xl font-extrabold tracking-tight mb-4">About Me</h2>

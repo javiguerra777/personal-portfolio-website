@@ -44,7 +44,7 @@ const Loading: FC = () => {
         dispatch(setLoading(false));
       }, 2000)
     }
-  }, [width]);
+  }, [width, dispatch]);
   return (
     <LoadingWrapper width={width}>
       <div className='flex flex-col items-center'>
