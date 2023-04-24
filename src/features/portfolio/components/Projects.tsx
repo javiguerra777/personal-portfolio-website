@@ -4,72 +4,83 @@ import Marquee from 'react-fast-marquee';
 import { nanoid } from '@reduxjs/toolkit';
 import Logo from '../../../assets/logo.jpg';
 import SectionTitle from '../../../common/components/SectionTitle';
+import ReactLogo from '../../../assets/react.png';
+import AngularLogo from '../../../assets/angular.png';
+import ReactNativeLogo from '../../../assets/react_native.png';
+import PhaserLogo from '../../../assets/phaser.png';
+import DjangoLogo from '../../../assets/django-logo-positive.png';
+import ExpressLogo from '../../../assets/express-js-icon.png';
 
 const projects = [
   {
     name: 'Angular Crud App',
     description:
       'Practice app to learn the basics of Angular Web Development',
-    image: '',
+    image: AngularLogo,
     link: 'https://github.com/javiguerra777/angular-crud-app',
   },
   {
     name: 'Capstone Frontend',
     description:
       'Capstone Frontend built with React, Typescript, socket.io/client, and Phaser',
-    image: '',
+    image: PhaserLogo,
     link: 'https://github.com/javiguerra777/capstone-frontend',
   },
   {
     name: 'Capstone Backend',
     description:
       'Capstone Backend Server built with Node, Express, Typescript, MongoDB, and socket.io',
-    image: '',
+    image: ExpressLogo,
     link: 'https://github.com/javiguerra777/capstone-backend',
   },
   {
     name: 'Django Blog Server',
     description:
       'Django Server to use for blogs, a practice project to learn development with Django',
-    image: '',
+    image: DjangoLogo,
     link: 'https://github.com/javiguerra777/django-blog-server',
   },
   {
     name: 'Practice React Native',
     description:
       'App to practice the basics of React Native, Typescript, and Tailwind',
-    image: '',
+    image: ReactNativeLogo,
     link: 'https://github.com/javiguerra777/practtice-native',
   },
   {
     name: 'React Weather App',
     description: 'Weather Forecasting React Project',
-    image: '',
+    image: ReactLogo,
     link: 'https://github.com/javiguerra777/weather-app-apprenticeship',
   },
   {
     name: 'React Brewery Locator App',
     description: 'Brewery Locator App using React and React Hooks',
-    image: '',
+    image: ReactLogo,
     link: 'https://github.com/javiguerra777/brewery-locator',
   },
   {
     name: 'React Student Directory',
     description:
       'Student Directory Web Application using React and React Hooks',
-    image: '',
+    image: ReactLogo,
     link: 'https://github.com/javiguerra777/React-Student-Directory',
   },
   {
     name: 'React Game Project',
     description: 'Number guessing game using React and React Hooks',
-    image: '',
+    image: ReactLogo,
     link: 'https://github.com/javiguerra777/React-Game-Project',
   },
 ];
 
 const ProjectWrapper = styled.div`
   width: 100%;
+  .project {
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 `;
 const Projects: FC = () => (
   <ProjectWrapper id="projects">
@@ -79,18 +90,18 @@ const Projects: FC = () => (
         <Marquee speed={50} gradient={false}>
           {projects.map((project) => (
             <div
-              className="flex flex-col items-center bg-violet-300 py-4 px-2 rounded-lg mx-10 w-60 md:w-80"
+              className="flex flex-col items-center bg-zinc-700 text-white p-4 rounded mx-10 w-60 md:w-80 project"
               key={nanoid()}
             >
               <img
                 src={project.image || Logo}
                 alt="project-img"
-                className="w-40 h-40 rounded-lg"
+                className="w-full h-40 bg-white"
               />
               <a
                 href={`${project.link}`}
                 target="_blank"
-                className="mt-5 underline text-blue-600"
+                className="mt-5 text-blue-400 hover:text-white hover:underline"
                 rel="noreferrer"
               >
                 Github Repo
