@@ -14,7 +14,7 @@ const App: FC = () => {
     <AppContainer>
       {loading.loading ? <Loading /> : <Portfolio />}
     </AppContainer>
-  )
-}
+  );
+};
 
-export default App
+export default App;

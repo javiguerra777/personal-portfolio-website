@@ -7,7 +7,7 @@ import DownloadCV from '../../../common/components/DownloadCV';
 
 const NavBarWrapper = styled.nav`
   display: flex;
-  background-color: #7289DA;
+  background-color: #7289da;
   flex-direction: row;
   position: sticky;
   top: 0;
@@ -40,39 +40,48 @@ const NavBar: FC = () => {
   const [openSide, setOpenSide] = useState(false);
   const toggleOpenSide = () => {
     setOpenSide((prev) => !prev);
-  }
+  };
   return (
     <NavBarWrapper>
       <div>
         <a href="#top" className="flex flex-row items-center">
-          <img 
-          src={Logo}
-           alt="site-logo" 
-           className="logo rounded-full"
-           />
-           <p className="ml-3 text-xl md:text-3xl font-extrabold tracking-tight">My Portfolio</p>
+          <img
+            src={Logo}
+            alt="site-logo"
+            className="logo rounded-full"
+          />
+          <p className="ml-3 text-xl md:text-3xl font-extrabold tracking-tight">
+            My Portfolio
+          </p>
         </a>
       </div>
       <div className="flex flex-row justify-between links sm-hidden">
-        <a href="#about" className="hover-line">About</a>
-        <a href="#projects" className="hover-line">Projects</a>
-        <a href="#jobs" className="hover-line">Jobs</a>
-        <a href="#contact" className="hover-line">Contact</a>
+        <a href="#about" className="hover-line">
+          About
+        </a>
+        <a href="#projects" className="hover-line">
+          Projects
+        </a>
+        <a href="#jobs" className="hover-line">
+          Jobs
+        </a>
+        <a href="#contact" className="hover-line">
+          Contact
+        </a>
       </div>
       <div className="sm-hidden">
         <DownloadCV />
       </div>
-      <button 
-      className="sm-active bg-zinc-700 p-2.5 rounded-full hover:bg-zinc-500 absolute right-1"
-      onClick={toggleOpenSide}
+      <button
+        type="button"
+        className="sm-active bg-zinc-700 p-2.5 rounded-full hover:bg-zinc-500 absolute right-1"
+        onClick={toggleOpenSide}
       >
         <GiHamburgerMenu size={25} />
       </button>
-      {openSide && <SideBar 
-      toggleOpenSide={toggleOpenSide} 
-      />}
+      {openSide && <SideBar toggleOpenSide={toggleOpenSide} />}
     </NavBarWrapper>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

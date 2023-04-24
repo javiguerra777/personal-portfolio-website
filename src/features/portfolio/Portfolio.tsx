@@ -14,20 +14,18 @@ const PortfolioWrapper = styled.div`
   overflow-x: hidden;
   scroll-behavior: smooth;
 `;
-const Portfolio: FC = () => {
-  return (
-    <PortfolioWrapper>
-      {/* Hidden div to nav back to top */}
-      <div id="top" />
-      <NavBar />
-      <Welcome />
-      <About />
-      <Projects />
-      <Jobs />
-      <Contact />
-      <Footer />
-    </PortfolioWrapper>
-  )
-}
+const Portfolio: FC = () => (
+  <PortfolioWrapper>
+    {/* Hidden div to nav back to top */}
+    <div id="top" />
+    <NavBar />
+    <Welcome />
+    <About />
+    <Projects />
+    <Jobs />
+    <Contact />
+    <Footer />
+  </PortfolioWrapper>
+);
 
 export default Portfolio;
