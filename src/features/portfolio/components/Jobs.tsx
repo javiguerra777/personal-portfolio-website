@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../../../common/components/SectionTitle';
+import breakpoints from '../../../common/breakpoints';
 
 type ChildrenProps = {
   children: ReactNode;
@@ -13,6 +14,9 @@ const JobContentContainer = styled.div`
   ul {
     list-style-type: circle;
     margin-left: 20px;
+  }
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 0 50px;
   }
 `;
 
