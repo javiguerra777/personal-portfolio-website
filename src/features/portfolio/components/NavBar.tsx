@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import Logo from '../../../assets/logo.jpg';
 import SideBar from './SideBar';
 import DownloadCV from '../../../common/components/DownloadCV';
+import breakpoints from '../../../common/breakpoints';
 
 const NavBarWrapper = styled.nav`
   display: flex;
@@ -25,13 +26,13 @@ const NavBarWrapper = styled.nav`
   }
   .sm-hidden {
     display: none;
-    @media (min-width: 800px) {
+    @media (min-width: ${breakpoints.tablet}) {
       display: inherit;
     }
   }
   .sm-active {
     display: inherit;
-    @media (min-width: 800px) {
+    @media (min-width: ${breakpoints.tablet}) {
       display: none;
     }
   }

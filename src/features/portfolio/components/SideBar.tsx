@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 import DownloadCV from '../../../common/components/DownloadCV';
+import breakpoints from '../../../common/breakpoints';
 
 const SideWrapper = styled.div`
   width: 150px;
@@ -15,7 +16,7 @@ const SideWrapper = styled.div`
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border-left: solid 1px black;
-  @media (min-width: 800px) {
+  @media (min-width: ${breakpoints.tablet}) {
     display: none;
   }
 `;
