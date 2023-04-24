@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Marquee from 'react-fast-marquee';
 import { nanoid } from '@reduxjs/toolkit';
 import Logo from '../../../assets/logo.jpg';
+import SectionTitle from '../../../common/components/SectionTitle';
 
 const projects = [
   {
@@ -68,7 +69,9 @@ const Projects: FC = () => {
   return (
     <ProjectWrapper id="projects">
       <div className="pt-20 pb-10">
-        <h2 className="text-center tracking-light text-3xl font-extrabold">Projects</h2>
+        <SectionTitle>
+          Projects
+        </SectionTitle>
         <div className="mt-5">
           <Marquee speed={50} gradient={false}>
             {projects.map((project) => (

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useFormik } from 'formik';
 import EmailFormSchema from '../schemas/EmailFormSchema';
 import { maxLen } from '../schemas/constants';
+import SectionTitle from '../../../common/components/SectionTitle';
 
 const ContactWrapper = styled.div`
   width: 100%;
@@ -39,9 +40,9 @@ const Contact: FC = () => {
         </div>
       )}
       <div className="pb-8 pt-20 lg:pb-16 px-4 mx-auto max-w-screen-md">
-        <h2 className="mb-4 text-4xl tracking-tight text-center font-extrabold text-gray-900">
+        <SectionTitle>
           Contact Me
-        </h2>
+        </SectionTitle>
         <p className="mb-8 lg:mb-16 font-light text-center">
           Want to send me a message? Fill out the form below
         </p>
