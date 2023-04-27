@@ -45,14 +45,17 @@ const NavBar: FC = () => {
   return (
     <NavBarWrapper>
       <div>
-        <a href="#top" className="flex flex-row items-center">
+        <a
+          href="#top"
+          className="flex flex-row items-center hover:underline"
+        >
           <img
             src={Logo}
             alt="site-logo"
             className="logo rounded-full"
           />
           <p className="ml-3 text-xl md:text-3xl font-extrabold tracking-tight">
-            My Portfolio
+            Javi Guerra
           </p>
         </a>
       </div>

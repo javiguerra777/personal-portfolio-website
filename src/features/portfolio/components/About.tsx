@@ -1,20 +1,21 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
-import Logo from '../../../assets/logo.jpg';
+import Selfie from '../../../assets/selfie.jpeg';
 import SectionTitle from '../../../common/components/SectionTitle';
 
 const AboutWrapper = styled.div`
   width: 100%;
   .selfie {
     border: solid 5px dodgerblue;
+    overflow-y: hidden;
   }
 `;
 const About: FC = () => (
   <AboutWrapper id="about">
     <div className="pt-20 pb-5 px-4 flex flex-col md:flex-row">
       <div className="w-full flex flex-row items-center justify-center p-1">
-        <img className="h-96 w-96 selfie" src={Logo} alt="selfie" />
+        <img className="selfie" src={Selfie} alt="selfie" />
       </div>
       <div className="w-full md:w-90 p-1">
         <SectionTitle>About Me</SectionTitle>
@@ -24,8 +25,11 @@ const About: FC = () => (
         <p className="mb-4">
           I graduated from Stanislaus State in 2022 where I obtained
           my MBA in Finance. I graduated from the University of the
-          Pacific, where I obtained my Bachelor&apos;s Dergree in
-          Business Administration.
+          Pacific, where I obtained my Bachelor&apos;s Degree in
+          Business Administration. I went to Venture Academy high
+          school in Stockton, CA, where I graduated in 2016. I am
+          currently building a mobile app for a potential business
+          idea using React Native.
         </p>
         <p className="mb-4">
           I currently work as a React Apprentice at Bitwise. I am
@@ -38,9 +42,11 @@ const About: FC = () => (
           framework due to its popularity.
         </p>
         <p>
-          The language I am most comfortable with is Javascript, but I
-          also understand Typescript as well. I know some Java and
-          Python as well.
+          The jobs I am interested in are FullStack Developer, Video
+          Game Developer, and Mobile App Developer. The language I am
+          most comfortable with is Javascript, but I also understand
+          Typescript. I also know how to write Java, PHP and Python
+          code.
         </p>
         <div className="flex flex-row mt-7">
           <a

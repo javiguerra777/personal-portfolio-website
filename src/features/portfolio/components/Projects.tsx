@@ -101,7 +101,7 @@ const Projects: FC = () => (
               <a
                 href={`${project.link}`}
                 target="_blank"
-                className="mt-5 text-blue-400 hover:text-white hover:underline"
+                className="mt-5 text-blue-400 hover:text-blue-200 hover:underline"
                 rel="noreferrer"
               >
                 Github Repo

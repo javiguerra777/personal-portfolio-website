@@ -98,20 +98,6 @@ const Jobs: FC = () => (
           time.
         </JobDescription>
       </JobContentContainer>
-      <SectionTitle>Jobs I am interested in</SectionTitle>
-      <JobContentContainer>
-        <ul>
-          <li>React Developer</li>
-          <li>Angular Developer</li>
-          <li>Software Developer</li>
-          <li>Django Developer</li>
-          <li>.Net Developer</li>
-          <li>Front End Developer</li>
-          <li>UI/UX Designer</li>
-          <li>Video Game Developer</li>
-          <li>React Native Developer</li>
-        </ul>
-      </JobContentContainer>
     </div>
   </JobWrapper>
 );
