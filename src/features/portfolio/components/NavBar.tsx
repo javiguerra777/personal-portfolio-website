@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import Logo from '../../../assets/logo.jpg';
 import SideBar from './SideBar';
 import DownloadCV from '../../../common/components/DownloadCV';
+import breakpoints from '../../../common/breakpoints';
 
 const NavBarWrapper = styled.nav`
   display: flex;
@@ -25,13 +26,13 @@ const NavBarWrapper = styled.nav`
   }
   .sm-hidden {
     display: none;
-    @media (min-width: 800px) {
+    @media (min-width: ${breakpoints.tablet}) {
       display: inherit;
     }
   }
   .sm-active {
     display: inherit;
-    @media (min-width: 800px) {
+    @media (min-width: ${breakpoints.tablet}) {
       display: none;
     }
   }
@@ -44,14 +45,17 @@ const NavBar: FC = () => {
   return (
     <NavBarWrapper>
       <div>
-        <a href="#top" className="flex flex-row items-center">
+        <a
+          href="#top"
+          className="flex flex-row items-center hover:underline"
+        >
           <img
             src={Logo}
             alt="site-logo"
             className="logo rounded-full"
           />
           <p className="ml-3 text-xl md:text-3xl font-extrabold tracking-tight">
-            My Portfolio
+            Javi Guerra
           </p>
         </a>
       </div>

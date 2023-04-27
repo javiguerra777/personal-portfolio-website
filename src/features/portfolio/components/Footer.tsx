@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { FaReact, FaNodeJs } from 'react-icons/fa';
@@ -10,6 +10,23 @@ const FooterWrapper = styled.footer`
   color: white;
   padding: 10px;
 `;
+type AttributionProps = {
+  children: ReactNode;
+  link: string;
+};
+const AttributionLink: FC<AttributionProps> = ({
+  children,
+  link,
+}) => (
+  <a
+    href={link}
+    target="_blank"
+    className="underline text-blue-500 hover:text-blue-300"
+    rel="noreferrer"
+  >
+    {children}
+  </a>
+);
 const Footer: FC = () => {
   const iconSize = 40;
   return (
@@ -61,26 +78,52 @@ const Footer: FC = () => {
           images.
         </p>
         <div>
-          <a
-            href="https://www.freepik.com/free-photo/blue-watercolor-splash-background_6649581.htm"
-            target="_blank"
-            className="underline text-blue-500"
-            rel="noreferrer"
-          >
+          <AttributionLink link="https://www.freepik.com/free-photo/blue-watercolor-splash-background_6649581.htm">
             Freepik.com
-          </a>
+          </AttributionLink>
           <p>For the use of the splash picture</p>
         </div>
         <div>
-          <a
-            href="https://www.vecteezy.com/vector-art/2084192-cute-astronaut-mascot-character-cartoon-vector-icon-illustration"
-            target="_blank"
-            className="underline text-blue-500"
-            rel="noreferrer"
-          >
+          <AttributionLink link="https://www.vecteezy.com/vector-art/2084192-cute-astronaut-mascot-character-cartoon-vector-icon-illustration">
             Vecteezy.com
-          </a>
+          </AttributionLink>
           <p>For the use of the astronaught logo</p>
+        </div>
+        <div>
+          <AttributionLink link="https://angular.io/presskit">
+            Angular.io
+          </AttributionLink>
+          <p>For the use of the Angular Logo</p>
+        </div>
+        <div>
+          <AttributionLink link="https://www.djangoproject.com/community/logos/">
+            Djangoproject.com
+          </AttributionLink>
+          <p>For the use of the Django Logo</p>
+        </div>
+        <div>
+          <AttributionLink link="https://www.vhv.rs/viewpic/hwbxihm_phaser-phaser-3-logo-hd-png-download/">
+            Vhv.rs
+          </AttributionLink>
+          <p>For the use of the Phaser Logo</p>
+        </div>
+        <div>
+          <AttributionLink link="https://www.iconfinder.com/icons/1174949/js_react_js_logo_react_react_native_icon">
+            Iconfinder.com
+          </AttributionLink>
+          <p>For the use of the React Logo</p>
+        </div>
+        <div>
+          <AttributionLink link="https://uxwing.com/express-js-icon/">
+            Uxwing.com
+          </AttributionLink>
+          <p>For the use of the Express Logo</p>
+        </div>
+        <div>
+          <AttributionLink link="https://nicepng.com/">
+            Nicepng.com
+          </AttributionLink>
+          <p>For the use of the React Native Logo</p>
         </div>
       </div>
       <div className="flex flex-row justify-center">

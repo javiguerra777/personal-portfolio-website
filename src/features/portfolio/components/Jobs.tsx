@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../../../common/components/SectionTitle';
+import breakpoints from '../../../common/breakpoints';
 
 type ChildrenProps = {
   children: ReactNode;
@@ -10,9 +11,13 @@ const JobWrapper = styled.div`
 `;
 const JobContentContainer = styled.div`
   padding: 0 20px;
+  max-width: 1200px;
   ul {
     list-style-type: circle;
     margin-left: 20px;
+  }
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 0 50px;
   }
 `;
 
@@ -32,7 +37,7 @@ const JobTimeLine: FC<ChildrenProps> = ({ children }) => (
 );
 const Jobs: FC = () => (
   <JobWrapper id="jobs">
-    <div className="pt-20 pb-5">
+    <div className="pt-20 pb-5 flex flex-col items-center">
       <SectionTitle>Brief Work History</SectionTitle>
       <JobContentContainer>
         <FlexBetween>
@@ -93,20 +98,6 @@ const Jobs: FC = () => (
           ensure the company got paid within a reasonable amount of
           time.
         </JobDescription>
-      </JobContentContainer>
-      <SectionTitle>Jobs I am interested in</SectionTitle>
-      <JobContentContainer>
-        <ul>
-          <li>React Developer</li>
-          <li>Angular Developer</li>
-          <li>Software Developer</li>
-          <li>Django Developer</li>
-          <li>.Net Developer</li>
-          <li>Front End Developer</li>
-          <li>UI/UX Designer</li>
-          <li>Video Game Developer</li>
-          <li>React Native Developer</li>
-        </ul>
       </JobContentContainer>
     </div>
   </JobWrapper>

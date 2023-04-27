@@ -13,7 +13,9 @@ const WelcomeWrapper = styled.div`
 const Welcome: FC = () => (
   <WelcomeWrapper>
     <div className="md:ml-10 ml-4">
-      <p className="mb-1 text-sm text-blue-600">Hello, I am...</p>
+      <p className="mb-1 text-sm text-blue-600 font-medium">
+        Hello, I am...
+      </p>
       <h2 className="text-3xl font-bold mb-1">Javier Guerra</h2>
       <p className="text-xl mb-2">
         <span className="text-gray-400">Professional</span>{' '}

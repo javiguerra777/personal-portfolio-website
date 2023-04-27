@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useAppDispatch } from '../../app/store/hooks';
 import { setLoading } from '../../app/store/LoadingSlice';
 import Logo from '../../assets/logo.jpg';
+import breakpoints from '../../common/breakpoints';
 
 const LoadingWrapper = styled.div<{ width: number }>`
   height: 100%;
@@ -19,7 +20,7 @@ const LoadingWrapper = styled.div<{ width: number }>`
   }
   .loading-container {
     width: 80vw;
-    @media (min-width: 800px) {
+    @media (min-width: ${breakpoints.tablet}) {
       width: 700px;
     }
   }
