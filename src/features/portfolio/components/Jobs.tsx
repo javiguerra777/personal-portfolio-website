@@ -11,6 +11,7 @@ const JobWrapper = styled.div`
 `;
 const JobContentContainer = styled.div`
   padding: 0 20px;
+  max-width: 1200px;
   ul {
     list-style-type: circle;
     margin-left: 20px;
@@ -36,7 +37,7 @@ const JobTimeLine: FC<ChildrenProps> = ({ children }) => (
 );
 const Jobs: FC = () => (
   <JobWrapper id="jobs">
-    <div className="pt-20 pb-5">
+    <div className="pt-20 pb-5 flex flex-col items-center">
       <SectionTitle>Brief Work History</SectionTitle>
       <JobContentContainer>
         <FlexBetween>

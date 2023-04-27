@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
+import { AiOutlineClose } from 'react-icons/ai';
 import EmailFormSchema from '../schemas/EmailFormSchema';
-import { maxLen } from '../schemas/constants';
 import SectionTitle from '../../../common/components/SectionTitle';
 
 const ContactWrapper = styled.div`
@@ -12,7 +12,56 @@ const ContactWrapper = styled.div`
     resize: none;
   }
 `;
+type SuccessProps = {
+  clearMessage: () => void;
+  message: string;
+};
+type ErrorProps = {
+  clearError: () => void;
+  error: string;
+};
+const SuccessNotification: FC<SuccessProps> = ({
+  clearMessage,
+  message,
+}) => (
+  <div className="w-full fixed top-40 z-30 flex flex-row justify-center">
+    <div className="bg-stone-900 text-white flex flex-row p-3 rounded items-center">
+      <p className="text-lg">{message}</p>
+      <button
+        type="button"
+        onClick={clearMessage}
+        className="bg-red-600 ml-3 h-7 w-7 rounded flex items-center justify-center"
+      >
+        <AiOutlineClose />
+      </button>
+    </div>
+  </div>
+);
+const ErrorNotificaion: FC<ErrorProps> = ({ clearError, error }) => (
+  <div className="fixed top-40 w-full flex flex-row justify-center">
+    <div className="bg-stone-900 flex flex-row items-center text-white p-3 rounded">
+      <p className="text-red-500 text-lg">{error}</p>
+      <button
+        type="button"
+        onClick={clearError}
+        className="ml-3 h-7 w-7 rounded flex items-center justify-center bg-red-600 hover:bg-red-400"
+      >
+        x
+      </button>
+    </div>
+  </div>
+);
 const Contact: FC = () => {
+  const [state, setState] = useState({
+    message: '',
+    error: '',
+  });
+  const clearMessage = () => {
+    setState((prev) => ({ ...prev, message: '' }));
+  };
+  const clearError = () => {
+    setState((prev) => ({ ...prev, error: '' }));
+  };
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -21,10 +70,17 @@ const Contact: FC = () => {
     },
     onSubmit: async (values, { resetForm }) => {
       try {
-        console.log(values);
+        let mailto = `mailto:javier.guerra1001@gmail.com`;
+        mailto += `?subject=Message from ${values.name || 'no name'}`;
+        mailto += `&body=${values.message}`;
+        window.location.href = mailto;
         resetForm();
+        setState((prev) => ({ ...prev, message: 'Email was sent' }));
       } catch (err) {
-        console.error(err);
+        setState((prev) => ({
+          ...prev,
+          error: 'Error sending email',
+        }));
       }
     },
     validationSchema: EmailFormSchema,
@@ -32,12 +88,17 @@ const Contact: FC = () => {
   });
   return (
     <ContactWrapper id="contact">
-      {formik.isSubmitting && (
-        <div className="fixed top-20 w-screen flex flex-row justify-center z-40">
-          <div className="bg-green-400 text-white">
-            <p>Form is submitting</p>
-          </div>
-        </div>
+      {state.message && (
+        <SuccessNotification
+          message={state.message}
+          clearMessage={clearMessage}
+        />
+      )}
+      {state.error && (
+        <ErrorNotificaion
+          error={state.error}
+          clearError={clearError}
+        />
       )}
       <div className="pb-8 pt-20 lg:pb-16 px-4 mx-auto max-w-screen-md">
         <SectionTitle>Contact Me</SectionTitle>
@@ -114,26 +175,16 @@ const Contact: FC = () => {
                   ? 'border-2 border-red-300'
                   : 'border border-gray-300'
               }`}
-              placeholder="Leave a message, minimum of 10 characters"
+              placeholder="Leave a message"
               required
               value={formik.values.message}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            <p
-              className={`mt-2 mb-5 ${
-                maxLen - formik.values.message.length < 0 &&
-                'text-red-500'
-              }`}
-            >
-              {maxLen - formik.values.message.length}{' '}
-              {maxLen - formik.values.message.length < 0 &&
-                'Message is too long'}
-            </p>
           </div>
           <button
             type="submit"
-            className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700
+            className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 mt-2
           hover:bg-blue-500
           disabled:bg-slate-400
           "
