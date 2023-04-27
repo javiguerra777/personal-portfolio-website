@@ -46,7 +46,7 @@ const ErrorNotificaion: FC<ErrorProps> = ({ clearError, error }) => (
         onClick={clearError}
         className="ml-3 h-7 w-7 rounded flex items-center justify-center bg-red-600 hover:bg-red-400"
       >
-        x
+        <AiOutlineClose />
       </button>
     </div>
   </div>
