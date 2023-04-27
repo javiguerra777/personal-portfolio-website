@@ -1,10 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
+import { motion } from 'framer-motion';
 import DownloadCV from '../../../common/components/DownloadCV';
 import breakpoints from '../../../common/breakpoints';
 
-const SideWrapper = styled.div`
+const SideWrapper = styled(motion.div)`
   width: 150px;
   height: 100vh;
   position: fixed;
@@ -27,6 +28,7 @@ const SideBar: FC<Props> = ({ toggleOpenSide }) => {
   const [activeHash, setActiveHash] = React.useState(
     window.location.hash,
   );
+  const [x, setX] = useState(100);
   const { location } = window;
   console.log(location.hash);
   React.useEffect(() => {
@@ -38,8 +40,11 @@ const SideBar: FC<Props> = ({ toggleOpenSide }) => {
     return () =>
       window.removeEventListener('hashchange', checkHash, false);
   }, [location.hash]);
+  React.useEffect(() => {
+    setX(0);
+  }, []);
   return (
-    <SideWrapper>
+    <SideWrapper animate={{ x }}>
       <div className="flex flex-col mt-5 items-center w-full">
         <div className="flex flex-row">
           <p className="text-xl">Navigation</p>
