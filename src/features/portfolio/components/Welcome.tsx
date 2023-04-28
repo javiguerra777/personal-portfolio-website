@@ -4,7 +4,7 @@ import SplashImg from '../../../assets/splash_img.jpg';
 
 const WelcomeWrapper = styled.div`
   width: 100%;
-  height: 500px;
+  min-height: 500px;
   margin-top: 100px;
   background-image: url(${SplashImg});
   background-size: cover;

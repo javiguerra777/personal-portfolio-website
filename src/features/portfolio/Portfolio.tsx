@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import styled from 'styled-components';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';

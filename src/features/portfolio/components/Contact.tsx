@@ -1,12 +1,16 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
 import { AiOutlineClose } from 'react-icons/ai';
 import EmailFormSchema from '../schemas/EmailFormSchema';
-import SectionTitle from '../../../common/components/SectionTitle';
+import SectionTitle from '../../../common/style/SectionTitle';
+import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
+import { useAppDispatch } from '../../../app/store/hooks';
+import { switchActiveView } from '../../../app/store/ViewSlice';
 
 const ContactWrapper = styled.div`
   width: 100%;
+  min-height: 100vh;
   background-color: whitesmoke;
   textarea {
     resize: none;
@@ -52,10 +56,18 @@ const ErrorNotificaion: FC<ErrorProps> = ({ clearError, error }) => (
   </div>
 );
 const Contact: FC = () => {
+  const dispatch = useAppDispatch();
   const [state, setState] = useState({
     message: '',
     error: '',
   });
+  const contactRef = useRef<HTMLDivElement>(null);
+  const inViewPort = UseIsInViewport(contactRef);
+  useEffect(() => {
+    if (inViewPort) {
+      dispatch(switchActiveView('contact'));
+    }
+  }, [inViewPort, dispatch]);
   const clearMessage = () => {
     setState((prev) => ({ ...prev, message: '' }));
   };
@@ -101,7 +113,7 @@ const Contact: FC = () => {
         />
       )}
       <div className="pb-8 pt-20 lg:pb-16 px-4 mx-auto max-w-screen-md">
-        <SectionTitle>Contact Me</SectionTitle>
+        <SectionTitle ref={contactRef}>Contact Me</SectionTitle>
         <p className="mb-8 lg:mb-16 font-light text-center">
           Want to send me a message? Fill out the form below
         </p>
