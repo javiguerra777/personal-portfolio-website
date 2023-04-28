@@ -1,6 +1,5 @@
 import React, { FC, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import Marquee from 'react-fast-marquee';
 import { nanoid } from '@reduxjs/toolkit';
 import Logo from '../../../assets/logo.jpg';
 import SectionTitle from '../../../common/style/SectionTitle';
@@ -13,6 +12,7 @@ import ExpressLogo from '../../../assets/express-js-icon.png';
 import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
 import { useAppDispatch } from '../../../app/store/hooks';
 import { switchActiveView } from '../../../app/store/ViewSlice';
+import breakpoints from '../../../common/breakpoints';
 
 const projects = [
   {
@@ -79,11 +79,19 @@ const projects = [
 
 const ProjectWrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
+`;
+const HorizontalScroll = styled.div`
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  padding: 15px 0;
   .project {
-    height: 400px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    min-width: 70vw;
+    min-height: 400px;
+    @media (min-width: ${breakpoints.tablet}) {
+      min-width: 500px;
+    }
   }
 `;
 const Projects: FC = () => {
@@ -99,34 +107,30 @@ const Projects: FC = () => {
     <ProjectWrapper id="projects">
       <div className="pt-20 pb-40">
         <SectionTitle ref={projectRef}>Projects</SectionTitle>
-        <div className="mt-20">
-          <Marquee speed={50} gradient={false}>
-            {projects.map((project) => (
-              <div
-                className="flex flex-col items-center bg-zinc-700 text-white p-4 rounded mx-10 w-60 md:w-80 project"
-                key={nanoid()}
+        <HorizontalScroll>
+          {projects.map((project) => (
+            <div
+              className="flex flex-col items-center bg-zinc-700 text-white p-3 rounded project mx-3"
+              key={nanoid()}
+            >
+              <img
+                src={project.image || Logo}
+                alt="project-img"
+                className="w-full h-40 bg-white"
+              />
+              <a
+                href={`${project.link}`}
+                target="_blank"
+                className="mt-5 text-blue-400 hover:text-blue-200 hover:underline"
+                rel="noreferrer"
               >
-                <img
-                  src={project.image || Logo}
-                  alt="project-img"
-                  className="w-full h-40 bg-white"
-                />
-                <a
-                  href={`${project.link}`}
-                  target="_blank"
-                  className="mt-5 text-blue-400 hover:text-blue-200 hover:underline"
-                  rel="noreferrer"
-                >
-                  Github Repo
-                </a>
-                <p className="text-lg font-bold mt-2">
-                  {project.name}
-                </p>
-                <p className="mt-2">{project.description}</p>
-              </div>
-            ))}
-          </Marquee>
-        </div>
+                Github Repo
+              </a>
+              <p className="text-lg font-bold mt-2">{project.name}</p>
+              <p className="mt-2">{project.description}</p>
+            </div>
+          ))}
+        </HorizontalScroll>
       </div>
     </ProjectWrapper>
   );
