@@ -27,14 +27,12 @@ type Props = {
 };
 const SideBar: FC<Props> = ({ toggleOpenSide }) => {
   const view = UseGetView();
-  const [x, setX] = useState(100);
-  const { location } = window;
-  console.log(location.hash);
-  React.useEffect(() => {
-    setX(0);
-  }, []);
   return (
-    <SideWrapper animate={{ x }}>
+    <SideWrapper
+      animate={{ x: 0 }}
+      transition={{ type: 'spring' }}
+      initial={{ x: 100 }}
+    >
       <div className="flex flex-col mt-5 items-center w-full">
         <div className="flex flex-row">
           <p className="text-xl">Navigation</p>
