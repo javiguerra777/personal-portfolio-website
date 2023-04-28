@@ -11,6 +11,7 @@ const NavBarWrapper = styled.nav`
   background-color: #7289da;
   flex-direction: row;
   position: sticky;
+  height: 75px;
   top: 0;
   z-index: 10;
   justify-content: space-between;

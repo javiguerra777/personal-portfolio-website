@@ -1,15 +1,18 @@
-import React, { FC } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Marquee from 'react-fast-marquee';
 import { nanoid } from '@reduxjs/toolkit';
 import Logo from '../../../assets/logo.jpg';
-import SectionTitle from '../../../common/components/SectionTitle';
+import SectionTitle from '../../../common/style/SectionTitle';
 import ReactLogo from '../../../assets/react.png';
 import AngularLogo from '../../../assets/angular.png';
 import ReactNativeLogo from '../../../assets/react_native.png';
 import PhaserLogo from '../../../assets/phaser.png';
 import DjangoLogo from '../../../assets/django-logo-positive.png';
 import ExpressLogo from '../../../assets/express-js-icon.png';
+import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
+import { useAppDispatch } from '../../../app/store/hooks';
+import { switchActiveView } from '../../../app/store/ViewSlice';
 
 const projects = [
   {
@@ -76,44 +79,57 @@ const projects = [
 
 const ProjectWrapper = styled.div`
   width: 100%;
+  min-height: 100vh;
   .project {
     height: 400px;
     overflow-y: auto;
     overflow-x: hidden;
   }
 `;
-const Projects: FC = () => (
-  <ProjectWrapper id="projects">
-    <div className="pt-20 pb-10">
-      <SectionTitle>Projects</SectionTitle>
-      <div className="mt-5">
-        <Marquee speed={50} gradient={false}>
-          {projects.map((project) => (
-            <div
-              className="flex flex-col items-center bg-zinc-700 text-white p-4 rounded mx-10 w-60 md:w-80 project"
-              key={nanoid()}
-            >
-              <img
-                src={project.image || Logo}
-                alt="project-img"
-                className="w-full h-40 bg-white"
-              />
-              <a
-                href={`${project.link}`}
-                target="_blank"
-                className="mt-5 text-blue-400 hover:text-blue-200 hover:underline"
-                rel="noreferrer"
+const Projects: FC = () => {
+  const dispatch = useAppDispatch();
+  const projectRef = useRef(null);
+  const inViewPort = UseIsInViewport(projectRef);
+  useEffect(() => {
+    if (inViewPort) {
+      dispatch(switchActiveView('projects'));
+    }
+  }, [inViewPort, dispatch]);
+  return (
+    <ProjectWrapper id="projects">
+      <div className="pt-20 pb-40">
+        <SectionTitle ref={projectRef}>Projects</SectionTitle>
+        <div className="mt-20">
+          <Marquee speed={50} gradient={false}>
+            {projects.map((project) => (
+              <div
+                className="flex flex-col items-center bg-zinc-700 text-white p-4 rounded mx-10 w-60 md:w-80 project"
+                key={nanoid()}
               >
-                Github Repo
-              </a>
-              <p className="text-lg font-bold mt-2">{project.name}</p>
-              <p className="mt-2">{project.description}</p>
-            </div>
-          ))}
-        </Marquee>
+                <img
+                  src={project.image || Logo}
+                  alt="project-img"
+                  className="w-full h-40 bg-white"
+                />
+                <a
+                  href={`${project.link}`}
+                  target="_blank"
+                  className="mt-5 text-blue-400 hover:text-blue-200 hover:underline"
+                  rel="noreferrer"
+                >
+                  Github Repo
+                </a>
+                <p className="text-lg font-bold mt-2">
+                  {project.name}
+                </p>
+                <p className="mt-2">{project.description}</p>
+              </div>
+            ))}
+          </Marquee>
+        </div>
       </div>
-    </div>
-  </ProjectWrapper>
-);
+    </ProjectWrapper>
+  );
+};
 
 export default Projects;

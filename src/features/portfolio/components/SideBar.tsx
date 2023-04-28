@@ -4,6 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 import DownloadCV from '../../../common/components/DownloadCV';
 import breakpoints from '../../../common/breakpoints';
+import UseGetView from '../../../common/hooks/UseGetView';
 
 const SideWrapper = styled(motion.div)`
   width: 150px;
@@ -25,21 +26,10 @@ type Props = {
   toggleOpenSide: () => void;
 };
 const SideBar: FC<Props> = ({ toggleOpenSide }) => {
-  const [activeHash, setActiveHash] = React.useState(
-    window.location.hash,
-  );
+  const view = UseGetView();
   const [x, setX] = useState(100);
   const { location } = window;
   console.log(location.hash);
-  React.useEffect(() => {
-    const checkHash = () => {
-      console.log(location.hash);
-      setActiveHash(location.hash);
-    };
-    window.addEventListener('hashchange', checkHash, false);
-    return () =>
-      window.removeEventListener('hashchange', checkHash, false);
-  }, [location.hash]);
   React.useEffect(() => {
     setX(0);
   }, []);
@@ -60,7 +50,7 @@ const SideBar: FC<Props> = ({ toggleOpenSide }) => {
           <a
             href="#about"
             className={`${
-              activeHash === '#about'
+              view.activeView === 'about'
                 ? 'bg-gray-100 text-blue-500'
                 : ''
             } p-1 rounded hover-line`}
@@ -70,7 +60,7 @@ const SideBar: FC<Props> = ({ toggleOpenSide }) => {
           <a
             href="#projects"
             className={`${
-              activeHash === '#projects'
+              view.activeView === 'projects'
                 ? 'bg-gray-100 text-blue-500'
                 : ''
             } p-1 rounded hover-line`}
@@ -80,7 +70,7 @@ const SideBar: FC<Props> = ({ toggleOpenSide }) => {
           <a
             href="#jobs"
             className={`${
-              activeHash === '#jobs'
+              view.activeView === 'jobs'
                 ? 'bg-gray-100 text-blue-500'
                 : ''
             } p-1 rounded hover-line`}
@@ -90,7 +80,7 @@ const SideBar: FC<Props> = ({ toggleOpenSide }) => {
           <a
             href="#contact"
             className={`${
-              activeHash === '#contact'
+              view.activeView === 'contact'
                 ? 'bg-gray-100 text-blue-500'
                 : ''
             } p-1 rounded hover-line`}
