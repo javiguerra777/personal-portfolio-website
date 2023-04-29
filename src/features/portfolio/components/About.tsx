@@ -1,16 +1,22 @@
 import React, { FC, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import Selfie from '../../../assets/selfie.jpeg';
 import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
 import { useAppDispatch } from '../../../app/store/hooks';
 import { switchActiveView } from '../../../app/store/ViewSlice';
 
-const AboutWrapper = styled.div`
+const AboutWrapper = styled(motion.div)`
   width: 100%;
-  .selfie {
-    border: solid 5px dodgerblue;
+  position: relative;
+  .selfie-container {
+    height: 500px;
     overflow-y: hidden;
+  }
+  .selfie {
+    position: relative;
+    top: 60px;
   }
 `;
 const About: FC = () => {
@@ -23,7 +29,13 @@ const About: FC = () => {
     }
   }, [isInViewPort, dispatch]);
   return (
-    <AboutWrapper id="about">
+    <AboutWrapper
+      id="about"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 1 }}
+    >
       <h2
         ref={aboutRef}
         className="text-4xl text-center pt-20 font-extrabold tracking-tight"
@@ -31,7 +43,7 @@ const About: FC = () => {
         About Me
       </h2>
       <div className="pt-20 pb-20 px-4 flex flex-col md:flex-row">
-        <div className="w-full flex flex-row items-center justify-center p-1">
+        <div className="w-full flex flex-row items-center justify-center p-1 selfie-container">
           <img className="selfie" src={Selfie} alt="selfie" />
         </div>
         <div className="w-full md:w-90 p-1">
@@ -69,13 +81,14 @@ const About: FC = () => {
               href="https://github.com/javiguerra777"
               target="_blank"
               rel="noreferrer"
+              className="icons-hover"
             >
               <AiFillGithub size={30} />
             </a>
             <a
               href="https://www.linkedin.com/in/javiermguerra01/"
               target="_blank"
-              className="ml-5"
+              className="ml-5 icons-hover"
               rel="noreferrer"
             >
               <AiFillLinkedin size={30} />

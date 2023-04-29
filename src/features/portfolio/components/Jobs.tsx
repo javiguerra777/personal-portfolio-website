@@ -1,5 +1,6 @@
 import React, { FC, ReactNode, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import SectionTitle from '../../../common/style/SectionTitle';
 import breakpoints from '../../../common/breakpoints';
 import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
@@ -9,7 +10,7 @@ import { switchActiveView } from '../../../app/store/ViewSlice';
 type ChildrenProps = {
   children: ReactNode;
 };
-const JobWrapper = styled.div`
+const JobWrapper = styled(motion.div)`
   width: 100%;
   min-height: 100vh;
 `;
@@ -50,7 +51,13 @@ const Jobs: FC = () => {
     }
   }, [inViewPort, dispatch]);
   return (
-    <JobWrapper id="jobs">
+    <JobWrapper
+      id="jobs"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 1 }}
+    >
       <div className="pt-20 pb-40 flex flex-col items-center">
         <SectionTitle ref={jobRef}>Brief Work History</SectionTitle>
         <JobContentContainer>
