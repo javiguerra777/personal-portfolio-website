@@ -38,6 +38,7 @@ const Footer: FC = () => {
             href="https://react.dev/"
             target="_blank"
             rel="noreferrer"
+            className="icons-hover"
           >
             <FaReact size={iconSize} color="aqua" />
           </a>
@@ -45,6 +46,7 @@ const Footer: FC = () => {
             href="https://www.typescriptlang.org/"
             target="_blank"
             rel="noreferrer"
+            className="icons-hover"
           >
             <SiTypescript size={iconSize} color="#007acc" />
           </a>
@@ -52,6 +54,7 @@ const Footer: FC = () => {
             href="https://tailwindcss.com/"
             target="_blank"
             rel="noreferrer"
+            className="icons-hover"
           >
             <SiTailwindcss size={iconSize} color="lightblue" />
           </a>
@@ -59,6 +62,7 @@ const Footer: FC = () => {
             href="https://nodejs.org/en"
             target="_blank"
             rel="noreferrer"
+            className="icons-hover"
           >
             <FaNodeJs size={iconSize} color="limegreen" />
           </a>
@@ -66,6 +70,7 @@ const Footer: FC = () => {
             href="https://redux.js.org/"
             target="_blank"
             rel="noreferrer"
+            className="icons-hover"
           >
             <SiRedux size={iconSize} color="violet" />
           </a>
@@ -131,13 +136,14 @@ const Footer: FC = () => {
           href="https://github.com/javiguerra777"
           target="_blank"
           rel="noreferrer"
+          className="icons-hover"
         >
           <AiFillGithub size={iconSize} />
         </a>
         <a
           href="https://www.linkedin.com/in/javiermguerra01/"
           target="_blank"
-          className="ml-5"
+          className="ml-5 icons-hover"
           rel="noreferrer"
         >
           <AiFillLinkedin size={iconSize} />

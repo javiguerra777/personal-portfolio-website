@@ -1,17 +1,22 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import SplashImg from '../../../assets/splash_img.jpg';
 
-const WelcomeWrapper = styled.div`
+const WelcomeWrapper = styled(motion.div)`
   width: 100%;
-  min-height: 500px;
+  min-height: 100vh;
   margin-top: 100px;
   background-image: url(${SplashImg});
   background-size: cover;
   background-repeat: no-repeat;
 `;
 const Welcome: FC = () => (
-  <WelcomeWrapper>
+  <WelcomeWrapper
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+  >
     <div className="md:ml-10 ml-4">
       <p className="mb-1 text-sm text-blue-600 font-medium">
         Hello, I am...
