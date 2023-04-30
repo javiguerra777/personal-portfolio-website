@@ -39,6 +39,9 @@ const Projects: FC = () => {
     >
       <div className="pt-20 pb-40">
         <SectionTitle ref={projectRef}>Projects</SectionTitle>
+        <p className="md:hidden text-center mb-5 text-lg">
+          Press the images for details
+        </p>
         <HorizontalScroll>
           {projects.map((project) => (
             <Project project={project} key={nanoid()} />
