@@ -101,8 +101,8 @@ const Footer: FC = () => {
           <p>For the use of the Angular Logo</p>
         </div>
         <div>
-          <AttributionLink link="https://www.djangoproject.com/community/logos/">
-            Djangoproject.com
+          <AttributionLink link="https://brandslogos.com/d/django-logo/">
+            Brandslogos.com
           </AttributionLink>
           <p>For the use of the Django Logo</p>
         </div>
