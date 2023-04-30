@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/personal-portfolio-website/static/css/main.82dc9bdb.css",
-    "main.js": "/personal-portfolio-website/static/js/main.acb6e29c.js",
+    "main.css": "/personal-portfolio-website/static/css/main.4a14c2f6.css",
+    "main.js": "/personal-portfolio-website/static/js/main.2befc43b.js",
     "static/media/splash_img.jpg": "/personal-portfolio-website/static/media/splash_img.d84a5b828adc2729d6d1.jpg",
     "static/media/logo.jpg": "/personal-portfolio-website/static/media/logo.39cfd21d066ca8c162aa.jpg",
     "static/media/selfie.jpeg": "/personal-portfolio-website/static/media/selfie.6774693fcfb553ab6e63.jpeg",
+    "static/media/django-logo.png": "/personal-portfolio-website/static/media/django-logo.a5aaa412df3c52f5f6bf.png",
     "static/media/Javier Guerra.pdf": "/personal-portfolio-website/static/media/Javier Guerra.9c7408eda881f7e29a43.pdf",
     "static/media/react.png": "/personal-portfolio-website/static/media/react.f3e576ba08e6be927148.png",
-    "static/media/django-logo-positive.png": "/personal-portfolio-website/static/media/django-logo-positive.4c677b78d12c96ea7add.png",
     "static/media/phaser.png": "/personal-portfolio-website/static/media/phaser.a3fe17b329cfb85f8ed5.png",
     "static/media/react_native.png": "/personal-portfolio-website/static/media/react_native.3ba04486ad9f9ba6e6b0.png",
     "index.html": "/personal-portfolio-website/index.html",
-    "main.82dc9bdb.css.map": "/personal-portfolio-website/static/css/main.82dc9bdb.css.map",
-    "main.acb6e29c.js.map": "/personal-portfolio-website/static/js/main.acb6e29c.js.map"
+    "main.4a14c2f6.css.map": "/personal-portfolio-website/static/css/main.4a14c2f6.css.map",
+    "main.2befc43b.js.map": "/personal-portfolio-website/static/js/main.2befc43b.js.map"
   },
   "entrypoints": [
-    "static/css/main.82dc9bdb.css",
-    "static/js/main.acb6e29c.js"
+    "static/css/main.4a14c2f6.css",
+    "static/js/main.2befc43b.js"
   ]
 }
