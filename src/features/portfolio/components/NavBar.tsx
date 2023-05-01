@@ -64,11 +64,11 @@ const NavBar: FC = () => {
         <a href="#about" className="hover-line">
           About
         </a>
-        <a href="#projects" className="hover-line">
-          Projects
-        </a>
         <a href="#jobs" className="hover-line">
           Jobs
+        </a>
+        <a href="#projects" className="hover-line">
+          Projects
         </a>
         <a href="#contact" className="hover-line">
           Contact

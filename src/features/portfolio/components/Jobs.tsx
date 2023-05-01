@@ -10,9 +10,10 @@ import { switchActiveView } from '../../../app/store/ViewSlice';
 type ChildrenProps = {
   children: ReactNode;
 };
-const JobWrapper = styled(motion.div)`
+const JobWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
+  background-color: whitesmoke;
 `;
 const JobContentContainer = styled.div`
   padding: 0 20px;
@@ -51,14 +52,14 @@ const Jobs: FC = () => {
     }
   }, [inViewPort, dispatch]);
   return (
-    <JobWrapper
-      id="jobs"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: 1 }}
-    >
-      <div className="pt-20 pb-40 flex flex-col items-center">
+    <JobWrapper id="jobs">
+      <motion.div
+        className="pt-20 pb-40 flex flex-col items-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 1 }}
+      >
         <SectionTitle ref={jobRef}>Brief Work History</SectionTitle>
         <JobContentContainer>
           <FlexBetween>
@@ -120,7 +121,7 @@ const Jobs: FC = () => {
             amount of time.
           </JobDescription>
         </JobContentContainer>
-      </div>
+      </motion.div>
     </JobWrapper>
   );
 };

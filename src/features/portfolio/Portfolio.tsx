@@ -70,8 +70,8 @@ const Portfolio: FC = () => {
       <NavBar />
       <Welcome />
       <About />
-      <Projects />
       <Jobs />
+      <Projects />
       <Contact />
       <Footer />
       {showRead && (

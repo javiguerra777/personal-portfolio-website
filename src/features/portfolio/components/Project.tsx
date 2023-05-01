@@ -24,11 +24,7 @@ const ProjectWrapper = styled(motion.div)`
   animation-timing-function: ease-in-out;
   margin-left: 30px;
   margin-top: 5px;
-  /* From https://css.glass */
-  background: rgba(194, 10, 255, 0.33);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: #ccccff;
   @media (min-width: ${breakpoints.tablet}) {
     min-width: 500px;
   }
