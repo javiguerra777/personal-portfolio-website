@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import Resume from '../../assets/Javier Guerra.pdf';
 
 const DownloadCV: FC = () => (
   <a
     className="bg-zinc-700 text-white px-4 py-2 rounded-full hover:bg-zinc-500"
-    href={Resume}
-    download="javier_guerra_resume"
+    href="https://drive.google.com/file/d/1WhXfnpvvKJ2g5j0UzdJVH8byeVqDN4LB/view?usp=sharing"
+    target="_blank"
+    rel="noreferrer"
   >
     Download CV
   </a>
