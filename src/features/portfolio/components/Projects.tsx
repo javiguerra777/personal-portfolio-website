@@ -9,7 +9,7 @@ import { switchActiveView } from '../../../app/store/ViewSlice';
 import Project from './Project';
 import { projects } from '../services/ProjectsService';
 
-const ProjectWrapper = styled(motion.div)`
+const ProjectWrapper = styled.div`
   width: 100%;
   max-height: 100vh;
 `;
@@ -30,14 +30,14 @@ const Projects: FC = () => {
     }
   }, [inViewPort, dispatch]);
   return (
-    <ProjectWrapper
-      id="projects"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: 1 }}
-    >
-      <div className="pt-20 pb-40">
+    <ProjectWrapper id="projects">
+      <motion.div
+        className="pt-20 pb-40"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 1 }}
+      >
         <SectionTitle ref={projectRef}>Projects</SectionTitle>
         <p className="md:hidden text-center mb-5 text-lg">
           Press the images for details
@@ -47,7 +47,7 @@ const Projects: FC = () => {
             <Project project={project} key={nanoid()} />
           ))}
         </HorizontalScroll>
-      </div>
+      </motion.div>
     </ProjectWrapper>
   );
 };

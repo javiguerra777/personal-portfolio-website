@@ -56,16 +56,6 @@ const SideBar: FC<Props> = ({ toggleOpenSide }) => {
             About
           </a>
           <a
-            href="#projects"
-            className={`${
-              view.activeView === 'projects'
-                ? 'bg-gray-100 text-blue-500'
-                : ''
-            } p-1 rounded hover-line`}
-          >
-            Projects
-          </a>
-          <a
             href="#jobs"
             className={`${
               view.activeView === 'jobs'
@@ -74,6 +64,16 @@ const SideBar: FC<Props> = ({ toggleOpenSide }) => {
             } p-1 rounded hover-line`}
           >
             Jobs
+          </a>
+          <a
+            href="#projects"
+            className={`${
+              view.activeView === 'projects'
+                ? 'bg-gray-100 text-blue-500'
+                : ''
+            } p-1 rounded hover-line`}
+          >
+            Projects
           </a>
           <a
             href="#contact"
