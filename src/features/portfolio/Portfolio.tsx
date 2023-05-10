@@ -1,7 +1,8 @@
-import React, { FC, useRef, useState, UIEvent } from 'react';
+import React, { FC, useRef } from 'react';
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import { motion, useElementScroll, useSpring } from 'framer-motion';
 import styled from 'styled-components';
+import UseGetView from '../../common/hooks/UseGetView';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Welcome from './components/Welcome';
@@ -52,18 +53,12 @@ const ReadMoreContainer = styled.div`
   }
 `;
 const Portfolio: FC = () => {
-  const [showRead, setShowRead] = useState(true);
+  const view = UseGetView();
   const mainPageRef = useRef(null);
   const { scrollYProgress } = useElementScroll(mainPageRef);
   const scaleX = useSpring(scrollYProgress);
-  const onScroll = (e: UIEvent<HTMLElement>) => {
-    const { scrollTop } = e.target as HTMLElement;
-    if (scrollTop > 1) {
-      setShowRead(false);
-    }
-  };
   return (
-    <PortfolioWrapper ref={mainPageRef} onScroll={onScroll}>
+    <PortfolioWrapper ref={mainPageRef}>
       {/* Hidden div to nav back to top */}
       <div id="top" />
       <ProgressionBar style={{ scaleX }} />
@@ -74,14 +69,17 @@ const Portfolio: FC = () => {
       <Projects />
       <Contact />
       <Footer />
-      {showRead && (
+      {view.isHeroInView && (
         <ReadMoreContainer>
-          <div className="flex flex-col items-center floating">
+          <a
+            href="#about"
+            className="flex flex-col items-center text-violet-400 floating hover:underline"
+          >
             <p className="text-xl font-semibold">Read More</p>
             <span className="bg-violet-400 p-2 text-white rounded-full">
               <AiOutlineArrowDown />
             </span>
-          </div>
+          </a>
         </ReadMoreContainer>
       )}
     </PortfolioWrapper>
