@@ -145,6 +145,12 @@ const Footer: FC = () => {
               </AttributionLink>
               <p>For the use of the React Native Logo</p>
             </div>
+            <div>
+              <AttributionLink link="https://favpng.com/png_view/astronaut-astronaut-spacecraft-cartoon-png/AkWb6XPw">
+                Favpng.com
+              </AttributionLink>
+              <p>For the use of the astronaughts images</p>
+            </div>
           </>
         )}
       </div>
