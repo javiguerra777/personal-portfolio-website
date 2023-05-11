@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useAppDispatch } from '../../../app/store/hooks';
@@ -15,7 +15,7 @@ const WelcomeWrapper = styled(motion.div)`
   background-repeat: no-repeat;
   color: white;
   .astro-container {
-    width: 240px;
+    max-width: 240px;
     .astro {
       background: none;
       height: 200px;
@@ -31,6 +31,7 @@ const WelcomeWrapper = styled(motion.div)`
   }
 `;
 const Welcome: FC = () => {
+  const [hovered, setHovered] = useState(0);
   const dispatch = useAppDispatch();
   const welcomeRef = useRef(null);
   const isInView = UseIsInViewport(welcomeRef);
@@ -70,7 +71,15 @@ const Welcome: FC = () => {
             href="#contact"
             className="flex flex-col items-center astro-container"
             whileHover={{ scale: 1.3 }}
-            animate={{ y: [0, 10, -10] }}
+            animate={{
+              y: hovered === 1 ? 0 : [0, 50, 0],
+              transition: {
+                repeat: Infinity,
+                duration: hovered === 1 ? 0 : 5,
+              },
+            }}
+            onMouseEnter={() => setHovered(1)}
+            onMouseLeave={() => setHovered(0)}
           >
             <div className="textbox">Click here to contact me</div>
             <img
@@ -83,6 +92,15 @@ const Welcome: FC = () => {
             href="#about"
             className="flex flex-col items-center sm:my-0 my-40 astro-container"
             whileHover={{ scale: 1.3 }}
+            animate={{
+              y: hovered === 2 ? 0 : [0, 50, 0],
+              transition: {
+                repeat: Infinity,
+                duration: hovered === 2 ? 0 : 7,
+              },
+            }}
+            onMouseEnter={() => setHovered(2)}
+            onMouseLeave={() => setHovered(0)}
           >
             <div className="textbox">
               Click here to learn about me
