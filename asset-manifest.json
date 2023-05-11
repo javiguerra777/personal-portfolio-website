@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/personal-portfolio-website/static/css/main.74fb1b99.css",
-    "main.js": "/personal-portfolio-website/static/js/main.cad7075d.js",
+    "main.css": "/personal-portfolio-website/static/css/main.5345ed0b.css",
+    "main.js": "/personal-portfolio-website/static/js/main.32d54cdf.js",
     "static/media/3d-abstract-space-sky-with-stars-nebula.jpg": "/personal-portfolio-website/static/media/3d-abstract-space-sky-with-stars-nebula.10591a60ee9b1424effc.jpg",
+    "static/media/favpng_astronaut-spacecraft-cartoon.png": "/personal-portfolio-website/static/media/favpng_astronaut-spacecraft-cartoon.cccb6c682ebfab12cdaf.png",
     "static/media/logo.jpg": "/personal-portfolio-website/static/media/logo.39cfd21d066ca8c162aa.jpg",
     "static/media/selfie.jpeg": "/personal-portfolio-website/static/media/selfie.6774693fcfb553ab6e63.jpeg",
     "static/media/django-logo.png": "/personal-portfolio-website/static/media/django-logo.a5aaa412df3c52f5f6bf.png",
@@ -10,11 +11,11 @@
     "static/media/phaser.png": "/personal-portfolio-website/static/media/phaser.a3fe17b329cfb85f8ed5.png",
     "static/media/react_native.png": "/personal-portfolio-website/static/media/react_native.3ba04486ad9f9ba6e6b0.png",
     "index.html": "/personal-portfolio-website/index.html",
-    "main.74fb1b99.css.map": "/personal-portfolio-website/static/css/main.74fb1b99.css.map",
-    "main.cad7075d.js.map": "/personal-portfolio-website/static/js/main.cad7075d.js.map"
+    "main.5345ed0b.css.map": "/personal-portfolio-website/static/css/main.5345ed0b.css.map",
+    "main.32d54cdf.js.map": "/personal-portfolio-website/static/js/main.32d54cdf.js.map"
   },
   "entrypoints": [
-    "static/css/main.74fb1b99.css",
-    "static/js/main.cad7075d.js"
+    "static/css/main.5345ed0b.css",
+    "static/js/main.32d54cdf.js"
   ]
 }
