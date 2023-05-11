@@ -5,6 +5,7 @@ import { useAppDispatch } from '../../../app/store/hooks';
 import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
 import { setIsHeroInView } from '../../../app/store/ViewSlice';
 import HeroBg from '../../../assets/3d-abstract-space-sky-with-stars-nebula.jpg';
+import Astronaught from '../../../assets/favpng_astronaut-spacecraft-cartoon.png';
 
 const WelcomeWrapper = styled(motion.div)`
   width: 100%;
@@ -13,6 +14,21 @@ const WelcomeWrapper = styled(motion.div)`
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
+  .astro-container {
+    width: 240px;
+    .astro {
+      background: none;
+      height: 200px;
+      width: 200px;
+    }
+    .textbox {
+      background-color: #290927;
+      color: #f7e3d6;
+      padding: 10px;
+      border: solid 3px #6bcdbc;
+      border-radius: 5px;
+    }
+  }
 `;
 const Welcome: FC = () => {
   const dispatch = useAppDispatch();
@@ -49,37 +65,34 @@ const Welcome: FC = () => {
           I am familiar with fullstack development check out my
           experiences
         </p>
-        <p>
-          Email:{' '}
-          <a
-            href="mailto: javier.guerra1001@gmail.com"
-            className="text-blue-300 font-semibold underline hover:text-violet-800"
-          >
-            javier.guerra1001@gmail.com
-          </a>
-        </p>
-        <p>
-          Phone:{' '}
-          <a
-            href="tel:209-565-0901"
-            className="text-blue-300 font-semibold underline hover:text-violet-800"
-          >
-            (209)565-0901
-          </a>
-        </p>
-        <div className="flex flex-row mt-4">
-          <a
+        <div className="flex sm:flex-row justify-around flex-col mt-20 items-center">
+          <motion.a
             href="#contact"
-            className="mr-5 bg-blue-500 text-white rounded-full px-3 py-2 hover:bg-blue-400"
+            className="flex flex-col items-center astro-container"
+            whileHover={{ scale: 1.3 }}
+            animate={{ y: [0, 10, -10] }}
           >
-            Contact Me
-          </a>
-          <a
+            <div className="textbox">Click here to contact me</div>
+            <img
+              src={Astronaught}
+              alt="astronaught"
+              className="astro"
+            />
+          </motion.a>
+          <motion.a
             href="#about"
-            className="bg-zinc-700 px-3 py-2 text-white rounded-full hover:bg-zinc-500"
+            className="flex flex-col items-center sm:my-0 my-40 astro-container"
+            whileHover={{ scale: 1.3 }}
           >
-            Learn More
-          </a>
+            <div className="textbox">
+              Click here to learn about me
+            </div>
+            <img
+              src={Astronaught}
+              alt="astronaught"
+              className="astro"
+            />
+          </motion.a>
         </div>
       </div>
     </WelcomeWrapper>
