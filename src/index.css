@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Electrolize&family=Inter&family=Michroma&display=swap');
 
 .hover-line:hover {
   text-decoration: underline;
@@ -8,4 +9,13 @@
 .icons-hover:hover {
   box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
   scale: 1.5;
+}
+.michroma {
+  font-family: 'Michroma';
+}
+.inter {
+  font-family: 'Inter';
+}
+.electrolize {
+  font-family: 'Electrolize';
 }

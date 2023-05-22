@@ -8,7 +8,7 @@ import breakpoints from '../../../common/breakpoints';
 
 const NavBarWrapper = styled.nav`
   display: flex;
-  background-color: #7289da;
+  background-color: #a78bfa;
   flex-direction: row;
   position: sticky;
   height: 75px;
@@ -45,7 +45,7 @@ const NavBar: FC = () => {
   };
   return (
     <NavBarWrapper>
-      <div>
+      <div className="inter">
         <a
           href="#top"
           className="flex flex-row items-center hover:underline"
@@ -55,7 +55,7 @@ const NavBar: FC = () => {
             alt="site-logo"
             className="logo rounded-full"
           />
-          <p className="ml-3 text-xl md:text-3xl font-extrabold tracking-tight">
+          <p className="ml-3 text-xl md:text-3xl font-extrabold tracking-tight michroma">
             Javi Guerra
           </p>
         </a>

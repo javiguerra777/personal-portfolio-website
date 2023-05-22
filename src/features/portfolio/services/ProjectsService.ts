@@ -65,6 +65,8 @@ export const projects = [
     description: 'Number guessing game using React and React Hooks',
     image: ReactLogo,
     link: 'https://github.com/javiguerra777/React-Game-Project',
+    deployedLink:
+      'https://javiguerra777.github.io/React-Game-Project/',
   },
 ];
 export default {};

@@ -11,7 +11,8 @@ import { switchActiveView } from '../../../app/store/ViewSlice';
 const ContactWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: whitesmoke;
+  background-color: #28282b;
+  font-family: 'Inter';
   textarea {
     resize: none;
   }
@@ -121,13 +122,13 @@ const Contact: FC = () => {
           <div>
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900"
+              className="block mb-2 text-sm font-medium"
             >
               Your Email
               <span className="text-orange-500">* (Required)</span>
             </label>
             {formik.errors.email && formik.touched.email && (
-              <small className="text-red-400">
+              <small className="text-red-600">
                 {formik.errors.email}
               </small>
             )}
@@ -137,7 +138,7 @@ const Contact: FC = () => {
               name="email"
               className={`mt-1 shadow-sm bg-gray-50 text-gray-900 text-sm rounded-lg block w-full p-2.5 mb-5 ${
                 formik.errors.email && formik.touched.email
-                  ? 'border-2 border-red-300'
+                  ? 'border-2 border-red-600'
                   : 'border border-gray-300'
               }`}
               placeholder="youremail@email.com"
@@ -150,7 +151,7 @@ const Contact: FC = () => {
           <div>
             <label
               htmlFor="name"
-              className="block mb-2 text-sm font-medium text-gray-900"
+              className="block mb-2 text-sm font-medium"
             >
               Your Name
             </label>
@@ -168,13 +169,13 @@ const Contact: FC = () => {
           <div className="sm:col-span-2">
             <label
               htmlFor="message"
-              className="block mb-2 text-sm font-medium text-gray-900"
+              className="block mb-2 text-sm font-medium"
             >
               Your Message
               <span className="text-orange-500">* (Required)</span>
             </label>
             {formik.errors.message && formik.touched.message && (
-              <small className="text-red-400">
+              <small className="text-red-600">
                 {formik.errors.message}
               </small>
             )}
@@ -184,7 +185,7 @@ const Contact: FC = () => {
               rows={6}
               className={`block p-2.5 mt-1 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm ${
                 formik.errors.message && formik.touched.message
-                  ? 'border-2 border-red-300'
+                  ? 'border-2 border-red-600'
                   : 'border border-gray-300'
               }`}
               placeholder="Leave a message"
