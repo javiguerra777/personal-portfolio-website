@@ -18,6 +18,7 @@ const SideWrapper = styled(motion.div)`
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border-left: solid 1px black;
+  font-family: 'Inter';
   @media (min-width: ${breakpoints.tablet}) {
     display: none;
   }

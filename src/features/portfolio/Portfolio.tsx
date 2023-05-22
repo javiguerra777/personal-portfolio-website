@@ -16,6 +16,8 @@ const PortfolioWrapper = styled.div`
   overflow: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  background-color: #182030;
+  color: white;
 `;
 const ProgressionBar = styled(motion.div)`
   position: fixed;
@@ -73,7 +75,7 @@ const Portfolio: FC = () => {
         <ReadMoreContainer>
           <a
             href="#about"
-            className="flex flex-col items-center text-violet-400 floating hover:underline"
+            className="flex flex-col items-center text-violet-400 floating hover:underline inter"
           >
             <p className="text-xl font-semibold">Read More</p>
             <span className="bg-violet-400 p-2 text-white rounded-full">

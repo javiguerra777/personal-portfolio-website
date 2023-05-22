@@ -13,12 +13,13 @@ type ChildrenProps = {
 const JobWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: whitesmoke;
+  background-color: #28282b;
 `;
 const JobContentContainer = styled.div`
   padding: 0 20px;
   max-width: 1200px;
   margin-top: 50px;
+  font-family: 'Inter';
   ul {
     list-style-type: circle;
     margin-left: 20px;
@@ -29,18 +30,16 @@ const JobContentContainer = styled.div`
 `;
 
 const JobCompany: FC<ChildrenProps> = ({ children }) => (
-  <h4 className="font-semibold text-base md:text-xl">{children}</h4>
+  <h4 className="font-semibold text-base">{children}</h4>
 );
 const JobDescription: FC<ChildrenProps> = ({ children }) => (
   <p className="mb-4 text-xs md:text-base">{children}</p>
 );
 const FlexBetween: FC<ChildrenProps> = ({ children }) => (
-  <div className="flex flex-row justify-between mb-1 items-center">
-    {children}
-  </div>
+  <div className="flex flex-col mb-1">{children}</div>
 );
 const JobTimeLine: FC<ChildrenProps> = ({ children }) => (
-  <p className="text-sm md:text-base italic">{children}</p>
+  <p className="text-base italic">{children}</p>
 );
 const Jobs: FC = () => {
   const dispatch = useAppDispatch();

@@ -19,6 +19,8 @@ const HorizontalScroll = styled.div`
   overflow: auto;
   overflow-y: hidden;
   padding: 15px 0;
+  color: black;
+  font-family: 'Inter';
 `;
 const Projects: FC = () => {
   const dispatch = useAppDispatch();
@@ -39,7 +41,7 @@ const Projects: FC = () => {
         transition={{ delay: 1 }}
       >
         <SectionTitle ref={projectRef}>Projects</SectionTitle>
-        <p className="md:hidden text-center mb-5 text-lg">
+        <p className="md:hidden text-center mb-5 text-lg inter">
           Press the images for details
         </p>
         <HorizontalScroll>

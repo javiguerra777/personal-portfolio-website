@@ -50,26 +50,26 @@ const Welcome: FC = () => {
       ref={welcomeRef}
     >
       <div className="md:ml-10 ml-4">
-        <p className="mb-1 text-sm font-medium pt-6">
+        <p className="mb-1 text-sm font-medium pt-6 michroma">
           Hello, I am...
         </p>
-        <h2 className="text-3xl text-gray-400 font-bold mb-1">
+        <h2 className="text-3xl text-gray-400 font-bold mb-1 michroma">
           Javier Guerra
         </h2>
-        <p className="text-xl mb-2">
+        <p className="text-xl mb-2 michroma">
           <span>Professional</span>{' '}
           <span className="font-semibold text-gray-400">
             Software Developer
           </span>
         </p>
-        <p className="sm:w-80 mb-2 text-lg">
+        <p className="sm:w-80 mb-2 text-lg michroma">
           I am familiar with fullstack development check out my
           experiences
         </p>
         <div className="flex sm:flex-row justify-around flex-col mt-20 items-center">
           <motion.a
             href="#contact"
-            className="flex flex-col items-center astro-container"
+            className="flex flex-col items-center astro-container electrolize"
             whileHover={{ scale: 1.3 }}
             animate={{
               y: hovered === 1 ? 0 : [0, 50, 0],
@@ -90,7 +90,7 @@ const Welcome: FC = () => {
           </motion.a>
           <motion.a
             href="#about"
-            className="flex flex-col items-center sm:my-0 my-40 astro-container"
+            className="flex flex-col items-center sm:my-0 my-40 astro-container electrolize"
             whileHover={{ scale: 1.3 }}
             animate={{
               y: hovered === 2 ? 0 : [0, 50, 0],

@@ -24,7 +24,7 @@ const ProjectWrapper = styled(motion.div)`
   animation-timing-function: ease-in-out;
   margin-left: 30px;
   margin-top: 5px;
-  background-color: #ccccff;
+  background-color: #a78bfa;
   @media (min-width: ${breakpoints.tablet}) {
     min-width: 500px;
   }

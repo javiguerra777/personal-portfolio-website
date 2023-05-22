@@ -38,11 +38,11 @@ const About: FC = () => {
     >
       <h2
         ref={aboutRef}
-        className="text-4xl text-center pt-20 font-extrabold tracking-tight"
+        className="text-4xl text-center pt-20 font-extrabold tracking-tight michroma"
       >
         About Me
       </h2>
-      <div className="pt-20 pb-20 px-4 flex flex-col md:flex-row">
+      <div className="pt-20 pb-20 px-4 flex flex-col md:flex-row inter">
         <div className="w-full flex flex-row items-center justify-center p-1 selfie-container">
           <img className="selfie" src={Selfie} alt="selfie" />
         </div>
