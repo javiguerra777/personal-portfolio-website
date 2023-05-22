@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import { motion, useElementScroll, useSpring } from 'framer-motion';
 import styled from 'styled-components';
@@ -59,6 +59,17 @@ const Portfolio: FC = () => {
   const mainPageRef = useRef(null);
   const { scrollYProgress } = useElementScroll(mainPageRef);
   const scaleX = useSpring(scrollYProgress);
+  useEffect(() => {
+    const scrollToHashElement = () => {
+      const { hash } = window.location;
+      if (!hash) return;
+      const elementToScroll = document.querySelector(hash);
+      if (elementToScroll !== null) {
+        elementToScroll.scrollIntoView();
+      }
+    };
+    scrollToHashElement();
+  }, []);
   return (
     <PortfolioWrapper ref={mainPageRef}>
       {/* Hidden div to nav back to top */}

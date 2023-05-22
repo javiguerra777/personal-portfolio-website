@@ -10,6 +10,10 @@ const NavBarWrapper = styled.nav`
   display: flex;
   background-color: #a78bfa;
   flex-direction: row;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky;
   position: sticky;
   height: 75px;
   top: 0;

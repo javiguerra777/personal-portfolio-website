@@ -82,13 +82,11 @@ const SideBar: FC<Props> = ({ toggleOpenSide }) => {
               view.activeView === 'contact'
                 ? 'bg-gray-100 text-blue-500'
                 : ''
-            } p-1 rounded hover-line`}
+            } p-1 rounded hover-line mb-4`}
           >
             Contact
           </a>
         </div>
-      </div>
-      <div className="absolute bottom-5 w-full flex flex-row justify-center">
         <DownloadCV />
       </div>
     </SideWrapper>
