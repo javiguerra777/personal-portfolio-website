@@ -8,19 +8,25 @@ import { useAppDispatch } from '../../../app/store/hooks';
 import { switchActiveView } from '../../../app/store/ViewSlice';
 import Project from './Project';
 import { projects } from '../services/ProjectsService';
+import breakpoints from '../../../common/breakpoints';
 
 const ProjectWrapper = styled.div`
   width: 100%;
-  max-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
-const HorizontalScroll = styled.div`
+const ProjectsWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  overflow: auto;
-  overflow-y: hidden;
-  padding: 15px 0;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   color: black;
   font-family: 'Inter';
+  width: 100%;
+  @media (min-width: ${breakpoints.laptop}) {
+    width: 1000px;
+  }
 `;
 const Projects: FC = () => {
   const dispatch = useAppDispatch();
@@ -34,21 +40,18 @@ const Projects: FC = () => {
   return (
     <ProjectWrapper id="projects">
       <motion.div
-        className="pt-20 pb-40"
+        className="pt-20 pb-40 flex flex-col items-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 1 }}
       >
         <SectionTitle ref={projectRef}>Projects</SectionTitle>
-        <p className="md:hidden text-center mb-5 text-lg inter">
-          Press the images for details
-        </p>
-        <HorizontalScroll>
+        <ProjectsWrapper>
           {projects.map((project) => (
             <Project project={project} key={nanoid()} />
           ))}
-        </HorizontalScroll>
+        </ProjectsWrapper>
       </motion.div>
     </ProjectWrapper>
   );

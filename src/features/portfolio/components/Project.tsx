@@ -16,17 +16,15 @@ type Props = {
   };
 };
 const ProjectWrapper = styled(motion.div)`
-  min-width: 70vw;
-  min-height: 400px;
+  width: 230px;
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  margin-left: 30px;
-  margin-top: 5px;
+  margin: 30px 0 30px 10px;
   background-color: #a78bfa;
   @media (min-width: ${breakpoints.tablet}) {
-    min-width: 500px;
+    width: 300px;
   }
   &:hover {
     animation: none;
@@ -36,27 +34,17 @@ const ProjectWrapper = styled(motion.div)`
     width: 100%;
     height: 200px;
   }
-  .project-image-hover {
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.53);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(13.3px);
-    -webkit-backdrop-filter: blur(13.3px);
-    border: 1px solid rgba(187, 57, 200, 0.3);
-    opacity: 0.2;
-  }
   .links-container {
-    top: 50%;
+    top: 0;
     width: 100%;
     position: absolute;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
   }
   .link:hover {
     background: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 5px;
   }
   @keyframes floating {
     0% {
@@ -71,52 +59,39 @@ const ProjectWrapper = styled(motion.div)`
   }
 `;
 const Project: FC<Props> = ({ project }) => {
-  const [hovered, setHovered] = useState(false);
-  const iconSize = 50;
+  const iconSize = 40;
   return (
-    <ProjectWrapper
-      className="flex flex-col items-center p-3 rounded project mx-3 floating"
-      whileHover={{ scale: 1.1 }}
-    >
-      <div
-        className="w-full relative"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
+    <ProjectWrapper className="flex flex-col items-center p-2 rounded project mx-3 floating">
+      <div className="w-full relative">
         <img
           src={project.image || Logo}
           alt="project-img"
-          className={`project-image ${
-            hovered && 'project-image-hover'
-          }`}
+          className="project-image"
         />
-        {hovered && (
-          <div className="links-container">
+        <div className="links-container">
+          <motion.a
+            whileHover={{ scale: 1.3 }}
+            href={`${project.link}`}
+            target="_blank"
+            rel="noreferrer"
+            className="link"
+          >
+            <AiFillGithub size={iconSize} />
+          </motion.a>
+          {project.deployedLink && (
             <motion.a
               whileHover={{ scale: 1.3 }}
-              href={`${project.link}`}
+              href={`${project.deployedLink}`}
               target="_blank"
               rel="noreferrer"
-              className="link"
+              className="link ml-2"
             >
-              <AiFillGithub size={iconSize} />
+              <CgWebsite size={iconSize} />
             </motion.a>
-            {project.deployedLink && (
-              <motion.a
-                whileHover={{ scale: 1.3 }}
-                href={`${project.deployedLink}`}
-                target="_blank"
-                rel="noreferrer"
-                className="link ml-8"
-              >
-                <CgWebsite size={iconSize} />
-              </motion.a>
-            )}
-          </div>
-        )}
+          )}
+        </div>
       </div>
       <p className="text-lg font-bold mt-5">{project.name}</p>
-      <p className="mt-2">{project.description}</p>
     </ProjectWrapper>
   );
 };

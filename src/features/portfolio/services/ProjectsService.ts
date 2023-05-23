@@ -4,6 +4,7 @@ import ReactNativeLogo from '../../../assets/react_native.png';
 import PhaserLogo from '../../../assets/phaser.png';
 import DjangoLogo from '../../../assets/django-logo.png';
 import ExpressLogo from '../../../assets/express-js-icon.png';
+import NumberGuesser from '../../../assets/number_guesser.png';
 
 export const projects = [
   {
@@ -63,7 +64,7 @@ export const projects = [
   {
     name: 'React Game Project',
     description: 'Number guessing game using React and React Hooks',
-    image: ReactLogo,
+    image: NumberGuesser,
     link: 'https://github.com/javiguerra777/React-Game-Project',
     deployedLink:
       'https://javiguerra777.github.io/React-Game-Project/',
