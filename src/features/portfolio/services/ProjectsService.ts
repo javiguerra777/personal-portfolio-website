@@ -1,12 +1,13 @@
-import ReactLogo from '../../../assets/react.png';
 import AngularLogo from '../../../assets/angular.png';
 import ReactNativeLogo from '../../../assets/react_native.png';
-import PhaserLogo from '../../../assets/phaser.png';
 import DjangoLogo from '../../../assets/django-logo.png';
 import ExpressLogo from '../../../assets/express-js-icon.png';
 import NumberGuesser from '../../../assets/number_guesser.png';
 import StudentDirectory from '../../../assets/student_directory.png';
 import SuitDrive from '../../../assets/suit_drive.png';
+import WeatherLogo from '../../../assets/weather_application.png';
+import BreweryLocator from '../../../assets/brewery_locator.png';
+import FortNerf from '../../../assets/fortnerf.png';
 
 export const projects = [
   {
@@ -26,8 +27,9 @@ export const projects = [
     name: 'Capstone Frontend',
     description:
       'Capstone Frontend built with React, Typescript, socket.io/client, and Phaser',
-    image: PhaserLogo,
+    image: FortNerf,
     link: 'https://github.com/javiguerra777/capstone-frontend',
+    deployedLink: 'https://multiplayerfortnerf.netlify.app/',
   },
   {
     name: 'Capstone Backend',
@@ -53,14 +55,15 @@ export const projects = [
   {
     name: 'React Weather App',
     description: 'Weather Forecasting React Project',
-    image: ReactLogo,
+    image: WeatherLogo,
     link: 'https://github.com/javiguerra777/weather-app-apprenticeship',
   },
   {
     name: 'React Brewery Locator App',
     description: 'Brewery Locator App using React and React Hooks',
-    image: ReactLogo,
-    link: 'https://github.com/javiguerra777/brewery-locator',
+    image: BreweryLocator,
+    link: 'https://github.com/srirachy/brewery_locator',
+    deployedLink: 'https://srirachy.github.io/brewery_locator/',
   },
   {
     name: 'React Student Directory',
