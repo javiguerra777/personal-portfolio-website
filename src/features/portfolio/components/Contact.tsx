@@ -1,7 +1,8 @@
-import React, { FC, useRef, useState, useEffect } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
-import { AiOutlineClose } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import emailjs from '@emailjs/browser';
 import EmailFormSchema from '../schemas/EmailFormSchema';
 import SectionTitle from '../../../common/style/SectionTitle';
 import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
@@ -17,51 +18,8 @@ const ContactWrapper = styled.div`
     resize: none;
   }
 `;
-type SuccessProps = {
-  clearMessage: () => void;
-  message: string;
-};
-type ErrorProps = {
-  clearError: () => void;
-  error: string;
-};
-const SuccessNotification: FC<SuccessProps> = ({
-  clearMessage,
-  message,
-}) => (
-  <div className="w-full fixed top-40 z-30 flex flex-row justify-center">
-    <div className="bg-stone-900 text-white flex flex-row p-3 rounded items-center">
-      <p className="text-lg">{message}</p>
-      <button
-        type="button"
-        onClick={clearMessage}
-        className="bg-red-600 ml-3 h-7 w-7 rounded flex items-center justify-center"
-      >
-        <AiOutlineClose />
-      </button>
-    </div>
-  </div>
-);
-const ErrorNotificaion: FC<ErrorProps> = ({ clearError, error }) => (
-  <div className="fixed top-40 w-full flex flex-row justify-center">
-    <div className="bg-stone-900 flex flex-row items-center text-white p-3 rounded">
-      <p className="text-red-500 text-lg">{error}</p>
-      <button
-        type="button"
-        onClick={clearError}
-        className="ml-3 h-7 w-7 rounded flex items-center justify-center bg-red-600 hover:bg-red-400"
-      >
-        <AiOutlineClose />
-      </button>
-    </div>
-  </div>
-);
 const Contact: FC = () => {
   const dispatch = useAppDispatch();
-  const [state, setState] = useState({
-    message: '',
-    error: '',
-  });
   const contactRef = useRef<HTMLDivElement>(null);
   const inViewPort = UseIsInViewport(contactRef);
   useEffect(() => {
@@ -69,12 +27,6 @@ const Contact: FC = () => {
       dispatch(switchActiveView('contact'));
     }
   }, [inViewPort, dispatch]);
-  const clearMessage = () => {
-    setState((prev) => ({ ...prev, message: '' }));
-  };
-  const clearError = () => {
-    setState((prev) => ({ ...prev, error: '' }));
-  };
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -83,17 +35,35 @@ const Contact: FC = () => {
     },
     onSubmit: async (values, { resetForm }) => {
       try {
-        let mailto = `mailto:javier.guerra1001@gmail.com`;
-        mailto += `?subject=Message from ${values.name || 'no name'}`;
-        mailto += `&body=${values.message}`;
-        window.location.href = mailto;
+        const serviceId = process.env.REACT_APP_EMAIL_SERVICE_ID;
+        const templateId = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
+        const publicKey = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+        const params = {
+          reply_to: values.email,
+          from_name: values.name || 'No Name Provided',
+          to_name: 'Javi Guerra',
+          message: values.message,
+        };
+        await emailjs.send(
+          serviceId || '',
+          templateId || '',
+          params,
+          publicKey || '',
+        );
+        // let mailto = `mailto:javier.guerra1001@gmail.com`;
+        // mailto += `?subject=Message from ${values.name || 'no name'}`;
+        // mailto += `&body=${values.message}`;
+        // window.location.href = mailto;
+        toast.success('Email sent successfully', {
+          position: 'top-center',
+          autoClose: 5000,
+        });
         resetForm();
-        setState((prev) => ({ ...prev, message: 'Email was sent' }));
-      } catch (err) {
-        setState((prev) => ({
-          ...prev,
-          error: 'Error sending email',
-        }));
+      } catch (err: any) {
+        toast.error(err.message, {
+          position: 'top-center',
+          autoClose: 5000,
+        });
       }
     },
     validationSchema: EmailFormSchema,
@@ -101,18 +71,6 @@ const Contact: FC = () => {
   });
   return (
     <ContactWrapper id="contact">
-      {state.message && (
-        <SuccessNotification
-          message={state.message}
-          clearMessage={clearMessage}
-        />
-      )}
-      {state.error && (
-        <ErrorNotificaion
-          error={state.error}
-          clearError={clearError}
-        />
-      )}
       <div className="pb-8 pt-20 lg:pb-16 px-4 mx-auto max-w-screen-md">
         <SectionTitle ref={contactRef}>Contact Me</SectionTitle>
         <p className="mb-8 lg:mb-16 font-light text-center">
