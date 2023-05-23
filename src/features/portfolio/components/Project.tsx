@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { AiFillGithub } from 'react-icons/ai';
@@ -8,7 +8,7 @@ import breakpoints from '../../../common/breakpoints';
 
 type Props = {
   project: {
-    link: string;
+    link?: string;
     image: string;
     name: string;
     description: string;
@@ -42,6 +42,9 @@ const ProjectWrapper = styled(motion.div)`
     flex-direction: row;
     justify-content: space-between;
   }
+  .link {
+    background: white;
+  }
   .link:hover {
     background: rgba(0, 0, 0, 0.5);
     color: white;
@@ -69,15 +72,17 @@ const Project: FC<Props> = ({ project }) => {
           className="project-image"
         />
         <div className="links-container">
-          <motion.a
-            whileHover={{ scale: 1.3 }}
-            href={`${project.link}`}
-            target="_blank"
-            rel="noreferrer"
-            className="link"
-          >
-            <AiFillGithub size={iconSize} />
-          </motion.a>
+          {project.link && (
+            <motion.a
+              whileHover={{ scale: 1.3 }}
+              href={`${project.link}`}
+              target="_blank"
+              rel="noreferrer"
+              className="link"
+            >
+              <AiFillGithub size={iconSize} />
+            </motion.a>
+          )}
           {project.deployedLink && (
             <motion.a
               whileHover={{ scale: 1.3 }}

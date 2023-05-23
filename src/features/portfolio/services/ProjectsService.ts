@@ -5,8 +5,16 @@ import PhaserLogo from '../../../assets/phaser.png';
 import DjangoLogo from '../../../assets/django-logo.png';
 import ExpressLogo from '../../../assets/express-js-icon.png';
 import NumberGuesser from '../../../assets/number_guesser.png';
+import StudentDirectory from '../../../assets/student_directory.png';
+import SuitDrive from '../../../assets/suit_drive.png';
 
 export const projects = [
+  {
+    name: 'Foundations Suit Drive',
+    description: 'Suit Drive page for Foundations Website',
+    image: SuitDrive,
+    deployedLink: 'https://foundation4fusd.org/event/suit-drive/',
+  },
   {
     name: 'Angular Crud App',
     description:
@@ -58,8 +66,10 @@ export const projects = [
     name: 'React Student Directory',
     description:
       'Student Directory Web Application using React and React Hooks',
-    image: ReactLogo,
+    image: StudentDirectory,
     link: 'https://github.com/javiguerra777/React-Student-Directory',
+    deployedLink:
+      'https://javiguerra777.github.io/React-Student-Directory/',
   },
   {
     name: 'React Game Project',
