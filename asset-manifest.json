@@ -1,21 +1,25 @@
 {
   "files": {
-    "main.css": "/personal-portfolio-website/static/css/main.0fcb901a.css",
-    "main.js": "/personal-portfolio-website/static/js/main.23e8c3f0.js",
+    "main.css": "/personal-portfolio-website/static/css/main.99e0a9b8.css",
+    "main.js": "/personal-portfolio-website/static/js/main.eede7ef3.js",
     "static/media/3d-abstract-space-sky-with-stars-nebula.jpg": "/personal-portfolio-website/static/media/3d-abstract-space-sky-with-stars-nebula.10591a60ee9b1424effc.jpg",
+    "static/media/brewery_locator.png": "/personal-portfolio-website/static/media/brewery_locator.178eabe1484611bdcdc1.png",
+    "static/media/suit_drive.png": "/personal-portfolio-website/static/media/suit_drive.b5985842fec016535998.png",
+    "static/media/student_directory.png": "/personal-portfolio-website/static/media/student_directory.7ab62a6fb96c6c259cf9.png",
     "static/media/favpng_astronaut-spacecraft-cartoon.png": "/personal-portfolio-website/static/media/favpng_astronaut-spacecraft-cartoon.cccb6c682ebfab12cdaf.png",
+    "static/media/fortnerf.png": "/personal-portfolio-website/static/media/fortnerf.f105c8ed4eef817bc783.png",
     "static/media/logo.jpg": "/personal-portfolio-website/static/media/logo.39cfd21d066ca8c162aa.jpg",
     "static/media/selfie.jpeg": "/personal-portfolio-website/static/media/selfie.6774693fcfb553ab6e63.jpeg",
+    "static/media/weather_application.png": "/personal-portfolio-website/static/media/weather_application.497629bf82a1dfa121eb.png",
     "static/media/django-logo.png": "/personal-portfolio-website/static/media/django-logo.a5aaa412df3c52f5f6bf.png",
-    "static/media/react.png": "/personal-portfolio-website/static/media/react.f3e576ba08e6be927148.png",
-    "static/media/phaser.png": "/personal-portfolio-website/static/media/phaser.a3fe17b329cfb85f8ed5.png",
+    "static/media/number_guesser.png": "/personal-portfolio-website/static/media/number_guesser.643b1a327de4fe2b8fc4.png",
     "static/media/react_native.png": "/personal-portfolio-website/static/media/react_native.3ba04486ad9f9ba6e6b0.png",
     "index.html": "/personal-portfolio-website/index.html",
-    "main.0fcb901a.css.map": "/personal-portfolio-website/static/css/main.0fcb901a.css.map",
-    "main.23e8c3f0.js.map": "/personal-portfolio-website/static/js/main.23e8c3f0.js.map"
+    "main.99e0a9b8.css.map": "/personal-portfolio-website/static/css/main.99e0a9b8.css.map",
+    "main.eede7ef3.js.map": "/personal-portfolio-website/static/js/main.eede7ef3.js.map"
   },
   "entrypoints": [
-    "static/css/main.0fcb901a.css",
-    "static/js/main.23e8c3f0.js"
+    "static/css/main.99e0a9b8.css",
+    "static/js/main.eede7ef3.js"
   ]
 }
