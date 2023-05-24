@@ -1,5 +1,4 @@
 import React, { ReactNode, FC } from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
 import FixedBlackBg, {
   SpaceBgCard,
 } from '../../../common/style/PopupStyles';
@@ -29,11 +28,12 @@ const AttributionLink: FC<AttributionProps> = ({
 const Attributions: FC<Props> = ({ closeAtts }) => (
   <FixedBlackBg>
     <SpaceBgCard>
-      <div className="flex flex-row w-full justify-end">
+      <div className="flex flex-row w-full justify-center relative">
+        <h2>Attributions</h2>
         <button
           type="button"
           onClick={closeAtts}
-          className="text-white"
+          className="absolute right-0"
         >
           <WhiteXIcon />
         </button>

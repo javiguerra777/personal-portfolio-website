@@ -11,8 +11,13 @@ type Props = {
 const Testimonials: FC<Props> = ({ closeTestimonials }) => (
   <FixedBlackBg>
     <SpaceBgCard>
-      <div className="flex flex-row w-full justify-end">
-        <button type="button" onClick={closeTestimonials}>
+      <div className="flex flex-row w-full justify-center items-center relative">
+        <h2>Testimonials</h2>
+        <button
+          type="button"
+          className="absolute right-0"
+          onClick={closeTestimonials}
+        >
           <WhiteXIcon />
         </button>
       </div>

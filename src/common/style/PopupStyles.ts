@@ -23,9 +23,17 @@ export const SpaceBgCard = styled.div`
   overflow: auto;
   padding: 10px;
   border-radius: 10px;
+  font-family: 'Inter';
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+  }
   @media (min-width: ${breakpoints.tablet}) {
-    height: auto;
+    height: 550px;
     width: 700px;
+  }
+  @media (max-height: 550px) {
+    height: 100%;
   }
 `;
 export default FixedBlackBg;
