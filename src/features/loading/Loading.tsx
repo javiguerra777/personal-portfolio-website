@@ -39,8 +39,7 @@ const Loading: FC = () => {
   useEffect(() => {
     if (width !== 100) {
       setWidth((prev) => prev + 1);
-    }
-    if (width === 100) {
+    } else {
       setTimeout(() => {
         dispatch(setLoading(false));
       }, 2000);

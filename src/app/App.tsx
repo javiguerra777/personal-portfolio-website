@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
+import { ToastContainer } from 'react-toastify';
 import styled from 'styled-components';
 import UseGetLoading from '../common/hooks/UseGetLoading';
 import Loading from '../features/loading/Loading';
 import Portfolio from '../features/portfolio/Portfolio';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -12,6 +14,7 @@ const App: FC = () => {
   const loading = UseGetLoading();
   return (
     <AppContainer>
+      <ToastContainer />
       {loading.loading ? <Loading /> : <Portfolio />}
     </AppContainer>
   );

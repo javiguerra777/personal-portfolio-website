@@ -54,7 +54,7 @@ const Welcome: FC = () => {
           Hello, I am...
         </p>
         <h2 className="text-3xl text-gray-400 font-bold mb-1 michroma">
-          Javier Guerra
+          Javi Guerra
         </h2>
         <p className="text-xl mb-2 michroma">
           <span>Professional</span>{' '}
