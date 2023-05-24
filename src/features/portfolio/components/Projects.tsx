@@ -12,9 +12,7 @@ import breakpoints from '../../../common/breakpoints';
 
 const ProjectWrapper = styled.div`
   width: 100%;
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+  min-height: 100vh;
 `;
 const ProjectsWrapper = styled.div`
   display: flex;

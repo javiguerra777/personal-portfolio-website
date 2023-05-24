@@ -1,9 +1,17 @@
-import React, { ReactNode, FC, useEffect, useRef } from 'react';
+import React, { ReactNode, FC } from 'react';
+import FixedBlackBg, {
+  SpaceBgCard,
+} from '../../../common/style/PopupStyles';
+import WhiteXIcon from '../../../common/components/WhiteXIcon';
 
 type AttributionProps = {
   children: ReactNode;
   link: string;
 };
+type Props = {
+  closeAtts: () => void;
+};
+
 const AttributionLink: FC<AttributionProps> = ({
   children,
   link,
@@ -17,19 +25,20 @@ const AttributionLink: FC<AttributionProps> = ({
     {children}
   </a>
 );
-const Attributions = () => {
-  const endRef = useRef<HTMLDivElement>(null);
-  const scrollToBottom = () => {
-    if (endRef.current) {
-      endRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-  useEffect(() => {
-    scrollToBottom();
-  }, []);
-  return (
-    <div>
-      <p className="text-lg font-medium my-2">
+const Attributions: FC<Props> = ({ closeAtts }) => (
+  <FixedBlackBg>
+    <SpaceBgCard>
+      <div className="flex flex-row w-full justify-center relative">
+        <h2>Attributions</h2>
+        <button
+          type="button"
+          onClick={closeAtts}
+          className="absolute right-0"
+        >
+          <WhiteXIcon />
+        </button>
+      </div>
+      <p className="text-lg font-medium my-2 text-center">
         Thank you to these sites for the use of their open source
         images.
       </p>
@@ -87,9 +96,8 @@ const Attributions = () => {
         </AttributionLink>
         <p>For the use of the astronaughts images</p>
       </div>
-      <div ref={endRef} />
-    </div>
-  );
-};
+    </SpaceBgCard>
+  </FixedBlackBg>
+);
 
 export default Attributions;

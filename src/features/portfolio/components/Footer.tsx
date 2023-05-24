@@ -14,8 +14,11 @@ const FooterWrapper = styled.footer`
 `;
 const Footer: FC = () => {
   const [showAtts, setShowAtts] = useState(false);
-  const toggleAtts = () => {
-    setShowAtts((prev) => !prev);
+  const openAtts = () => {
+    setShowAtts(true);
+  };
+  const closeAtts = () => {
+    setShowAtts(false);
   };
   const iconSize = 40;
   return (
@@ -70,13 +73,12 @@ const Footer: FC = () => {
         <div>
           <button
             type="button"
-            className="bg-violet-500 p-2 mt-4 ml-3 rounded w-20 hover:bg-violet-300"
-            onClick={toggleAtts}
+            className="mt-4 ml-3 hover:underline hover:text-blue-600"
+            onClick={openAtts}
           >
-            {showAtts ? 'Hide' : 'Show'}
+            Read More {'>>'}
           </button>
         </div>
-        {showAtts && <Attributions />}
       </div>
       <div className="flex flex-row justify-center">
         <a
@@ -99,6 +101,7 @@ const Footer: FC = () => {
       <p className="text-center py-3 text-xl font-semibold">
         Javier Guerra (c) 2023
       </p>
+      {showAtts && <Attributions closeAtts={closeAtts} />}
     </FooterWrapper>
   );
 };

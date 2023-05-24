@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
@@ -6,6 +6,8 @@ import Selfie from '../../../assets/selfie.jpeg';
 import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
 import { useAppDispatch } from '../../../app/store/hooks';
 import { switchActiveView } from '../../../app/store/ViewSlice';
+import MoreAbout from './MoreAbout';
+import Testimonials from './Testimonials';
 
 const AboutWrapper = styled(motion.div)`
   width: 100%;
@@ -22,6 +24,13 @@ const AboutWrapper = styled(motion.div)`
 const About: FC = () => {
   const dispatch = useAppDispatch();
   const aboutRef = useRef(null);
+  const [activeComponent, setActiveComponent] = useState('');
+  const handleActiveComponent = (option: string) => {
+    setActiveComponent(option);
+  };
+  const clearActiveComponent = () => {
+    setActiveComponent('');
+  };
   const isInViewPort = UseIsInViewport(aboutRef);
   useEffect(() => {
     if (isInViewPort) {
@@ -48,26 +57,15 @@ const About: FC = () => {
         </div>
         <div className="w-full md:w-90 p-1">
           <p className="mb-4 font-semibold text-lg">
-            Software Developer
+            More than a Software Developer
           </p>
           <p className="mb-4">
-            I graduated from Stanislaus State in 2022 where I obtained
-            my MBA in Finance. I graduated from the University of the
-            Pacific, where I obtained my Bachelor&apos;s Degree in
-            Business Administration. I went to Venture Academy high
-            school in Stockton, CA, where I graduated in 2016. I am
-            currently building a mobile app for a potential business
-            idea using React Native.
-          </p>
-          <p className="mb-4">
-            I currently work as a React Apprentice at Bitwise. I am
-            familiar with fullstack development. I understand how to
-            create web application using React and a bit of Angular.
-            On the server side I am familiar with Express, Ruby on
-            Rails, and Django. I have briefly started learning how to
-            write server side applications using the .Net framework
-            and I would love to continue learning more about the .Net
-            framework due to its popularity.
+            My family comes first, I have a 1 year old son. I also
+            have 2 corgi&apos;s named Little Bear and Gibbs. I
+            graduated from CSU, Stanislaus with an MBA in Finance. I
+            work at Bitwise as a React Apprentice. I am currently
+            building a mobile app for a potential business idea using
+            React Native.
           </p>
           <p>
             The jobs I am interested in are FullStack Developer, Video
@@ -76,6 +74,21 @@ const About: FC = () => {
             understand Typescript. I also know how to write Java, PHP
             and Python code.
           </p>
+          <button
+            type="button"
+            className="mt-4 hover:underline hover:text-blue-600"
+            onClick={() => handleActiveComponent('aboutme')}
+          >
+            More About Me {'>>'}
+          </button>
+          <br />
+          <button
+            type="button"
+            className="mt-4 hover:underline hover:text-blue-600"
+            onClick={() => handleActiveComponent('testimonials')}
+          >
+            Testimonials {'>>'}
+          </button>
           <div className="flex flex-row mt-7">
             <a
               href="https://github.com/javiguerra777"
@@ -96,6 +109,12 @@ const About: FC = () => {
           </div>
         </div>
       </div>
+      {activeComponent === 'aboutme' && (
+        <MoreAbout closeAbout={clearActiveComponent} />
+      )}
+      {activeComponent === 'testimonials' && (
+        <Testimonials closeTestimonials={clearActiveComponent} />
+      )}
     </AboutWrapper>
   );
 };
