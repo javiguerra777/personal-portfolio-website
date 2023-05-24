@@ -59,27 +59,6 @@ const About: FC = () => {
           <p className="mb-4 font-semibold text-lg">
             More than a Software Developer
           </p>
-          {/* <p className="mb-4">
-            My family comes first, I have a 1 year old son. I also
-            have 2 corgi&apos;s named Little Bear and Gibbs I
-            graduated from Stanislaus State in 2022 where I obtained
-            my MBA in Finance. I graduated from the University of the
-            Pacific, where I obtained my Bachelor&apos;s Degree in
-            Business Administration. I went to Venture Academy high
-            school in Stockton, CA, where I graduated in 2016. I am
-            currently building a mobile app for a potential business
-            idea using React Native.
-          </p> */}
-          {/* <p className="mb-4">
-            I currently work as a React Apprentice at Bitwise. I am
-            familiar with fullstack development. I understand how to
-            create web application using React and a bit of Angular.
-            On the server side I am familiar with Express, Ruby on
-            Rails, and Django. I have briefly started learning how to
-            write server side applications using the .Net framework
-            and I would love to continue learning more about the .Net
-            framework due to its popularity.
-          </p> */}
           <p className="mb-4">
             My family comes first, I have a 1 year old son. I also
             have 2 corgi&apos;s named Little Bear and Gibbs. I
