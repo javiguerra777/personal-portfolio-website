@@ -64,7 +64,10 @@ const ProjectWrapper = styled(motion.div)`
 const Project: FC<Props> = ({ project }) => {
   const iconSize = 40;
   return (
-    <ProjectWrapper className="flex flex-col items-center p-2 rounded project mx-3 floating">
+    <ProjectWrapper
+      className="flex flex-col items-center p-2 rounded project mx-3 floating"
+      whileHover={{ scale: 1.1 }}
+    >
       <div className="w-full relative">
         <img
           src={project.image || Logo}

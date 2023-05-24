@@ -88,7 +88,7 @@ const NavBar: FC = () => {
       >
         <GiHamburgerMenu color="black" size={25} />
       </button>
-      {openSide && <SideBar toggleOpenSide={toggleOpenSide} />}
+      <SideBar toggleOpenSide={toggleOpenSide} open={openSide} />
     </NavBarWrapper>
   );
 };
