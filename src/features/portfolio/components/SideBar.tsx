@@ -23,16 +23,21 @@ const SideWrapper = styled(motion.div)`
     display: none;
   }
 `;
+const variants = {
+  open: { opacity: 1, x: 0 },
+  closed: { opacity: 0, x: '100%' },
+};
 type Props = {
   toggleOpenSide: () => void;
+  open: boolean;
 };
-const SideBar: FC<Props> = ({ toggleOpenSide }) => {
+const SideBar: FC<Props> = ({ toggleOpenSide, open }) => {
   const view = UseGetView();
   return (
     <SideWrapper
-      animate={{ x: 0 }}
-      transition={{ type: 'spring' }}
-      initial={{ x: 100 }}
+      initial={false}
+      animate={open ? 'open' : 'closed'}
+      variants={variants}
     >
       <div className="flex flex-col mt-5 items-center w-full">
         <div className="flex flex-row">
