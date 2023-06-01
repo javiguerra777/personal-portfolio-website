@@ -15,6 +15,8 @@ const Wrapper = styled.nav`
   position: sticky;
   height: 75px;
   padding: 15px 10px;
+  top: 0;
+  z-index: 10;
   .logo {
     width: 50px;
     height: 50px;

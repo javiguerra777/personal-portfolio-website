@@ -21,7 +21,7 @@ const Attributions: FC = () => (
   <div>
     <div>
       <div className="flex flex-row w-full justify-center relative">
-        <h2>Attributions</h2>
+        <h2 className="text-3xl font-bold my-3">Attributions</h2>
       </div>
       <p className="text-lg font-medium my-2 text-center">
         Thank you to these sites for the use of their open source
