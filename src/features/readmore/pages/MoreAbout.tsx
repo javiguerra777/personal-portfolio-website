@@ -1,24 +1,10 @@
 import React, { FC } from 'react';
-import FixedBlackBg, {
-  SpaceBgCard,
-} from '../../../common/style/PopupStyles';
-import WhiteXIcon from '../../../common/components/WhiteXIcon';
 
-type Props = {
-  closeAbout: () => void;
-};
-const MoreAbout: FC<Props> = ({ closeAbout }) => (
-  <FixedBlackBg>
-    <SpaceBgCard>
+const MoreAbout: FC = () => (
+  <div>
+    <div>
       <div className="flex flex-row justify-center items-center relative">
         <h2>More About Me</h2>
-        <button
-          type="button"
-          className="absolute right-0"
-          onClick={closeAbout}
-        >
-          <WhiteXIcon />
-        </button>
       </div>
       <h3 className="text-lg">Personal Life</h3>
       <p className="mb-3">
@@ -56,8 +42,8 @@ const MoreAbout: FC<Props> = ({ closeAbout }) => (
         Apprentice. I enjoyed the times when I got to lead groups
         because I enjoy working with people.
       </p>
-    </SpaceBgCard>
-  </FixedBlackBg>
+    </div>
+  </div>
 );
 
 export default MoreAbout;
