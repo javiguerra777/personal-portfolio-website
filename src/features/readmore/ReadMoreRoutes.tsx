@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import MoreAbout from './pages/MoreAbout';
 import Testimonials from './pages/Testimonials';
 import Attributions from './pages/Attributions';
+import ReadMoreNav from './components/ReadMoreNav';
 
 const Layout = styled.div`
   height: 100%;
@@ -13,6 +14,7 @@ const Layout = styled.div`
 `;
 const ReadMoreRoutes = () => (
   <Layout>
+    <ReadMoreNav />
     <Routes>
       <Route path="/aboutme" element={<MoreAbout />} />
       <Route path="/testimonials" element={<Testimonials />} />

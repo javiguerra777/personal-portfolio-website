@@ -7,8 +7,6 @@ import Selfie from '../../../assets/selfie.jpeg';
 import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
 import { useAppDispatch } from '../../../app/store/hooks';
 import { switchActiveView } from '../../../app/store/ViewSlice';
-import MoreAbout from '../../readmore/pages/MoreAbout';
-import Testimonials from '../../readmore/pages/Testimonials';
 
 const AboutWrapper = styled(motion.div)`
   width: 100%;
@@ -25,13 +23,6 @@ const AboutWrapper = styled(motion.div)`
 const About: FC = () => {
   const dispatch = useAppDispatch();
   const aboutRef = useRef(null);
-  const [activeComponent, setActiveComponent] = useState('');
-  const handleActiveComponent = (option: string) => {
-    setActiveComponent(option);
-  };
-  const clearActiveComponent = () => {
-    setActiveComponent('');
-  };
   const isInViewPort = UseIsInViewport(aboutRef);
   useEffect(() => {
     if (isInViewPort) {
@@ -75,19 +66,22 @@ const About: FC = () => {
             understand Typescript. I also know how to write Java, PHP
             and Python code.
           </p>
-          <NavLink
-            to="/readmore/aboutme"
-            className="mt-4 hover:underline hover:text-blue-600"
-          >
-            More About Me {'>>'}
-          </NavLink>
-          <br />
-          <NavLink
-            to="/readmore/testimonials"
-            className="mt-4 hover:underline hover:text-blue-600"
-          >
-            Testimonials {'>>'}
-          </NavLink>
+          <div className="my-3">
+            <NavLink
+              to="/readmore/aboutme"
+              className="mt-4 hover:underline hover:text-blue-600"
+            >
+              More About Me {'>>'}
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              to="/readmore/testimonials"
+              className="mt-4 hover:underline hover:text-blue-600"
+            >
+              Testimonials {'>>'}
+            </NavLink>
+          </div>
           <div className="flex flex-row mt-7">
             <a
               href="https://github.com/javiguerra777"
