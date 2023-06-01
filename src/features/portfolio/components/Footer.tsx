@@ -1,9 +1,9 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { FaReact, FaNodeJs } from 'react-icons/fa';
 import { SiTypescript, SiTailwindcss, SiRedux } from 'react-icons/si';
-import Attributions from './Attributions';
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -13,13 +13,6 @@ const FooterWrapper = styled.footer`
   font-family: 'Inter';
 `;
 const Footer: FC = () => {
-  const [showAtts, setShowAtts] = useState(false);
-  const openAtts = () => {
-    setShowAtts(true);
-  };
-  const closeAtts = () => {
-    setShowAtts(false);
-  };
   const iconSize = 40;
   return (
     <FooterWrapper>
@@ -69,15 +62,13 @@ const Footer: FC = () => {
         </div>
       </div>
       <div className="my-5">
-        <h3 className="text-2xl font-semibold">Attributions</h3>
         <div>
-          <button
-            type="button"
-            className="mt-4 ml-3 hover:underline hover:text-blue-600"
-            onClick={openAtts}
+          <NavLink
+            to="/readmore/attributions"
+            className="mt-4 hover:underline hover:text-blue-600 text-2xl font-semibold"
           >
-            Read More {'>>'}
-          </button>
+            Attributions {'>>'}
+          </NavLink>
         </div>
       </div>
       <div className="flex flex-row justify-center">
@@ -101,7 +92,6 @@ const Footer: FC = () => {
       <p className="text-center py-3 text-xl font-semibold">
         Javier Guerra (c) 2023
       </p>
-      {showAtts && <Attributions closeAtts={closeAtts} />}
     </FooterWrapper>
   );
 };

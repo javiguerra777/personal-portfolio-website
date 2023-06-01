@@ -49,7 +49,7 @@ const NavBar: FC = () => {
   };
   return (
     <NavBarWrapper>
-      <div className="inter">
+      <div>
         <a
           href="#top"
           className="flex flex-row items-center hover:underline"

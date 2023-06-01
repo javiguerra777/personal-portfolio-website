@@ -1,17 +1,9 @@
 import React, { ReactNode, FC } from 'react';
-import FixedBlackBg, {
-  SpaceBgCard,
-} from '../../../common/style/PopupStyles';
-import WhiteXIcon from '../../../common/components/WhiteXIcon';
 
 type AttributionProps = {
   children: ReactNode;
   link: string;
 };
-type Props = {
-  closeAtts: () => void;
-};
-
 const AttributionLink: FC<AttributionProps> = ({
   children,
   link,
@@ -25,18 +17,11 @@ const AttributionLink: FC<AttributionProps> = ({
     {children}
   </a>
 );
-const Attributions: FC<Props> = ({ closeAtts }) => (
-  <FixedBlackBg>
-    <SpaceBgCard>
+const Attributions: FC = () => (
+  <div>
+    <div>
       <div className="flex flex-row w-full justify-center relative">
-        <h2>Attributions</h2>
-        <button
-          type="button"
-          onClick={closeAtts}
-          className="absolute right-0"
-        >
-          <WhiteXIcon />
-        </button>
+        <h2 className="text-3xl font-bold my-3">Attributions</h2>
       </div>
       <p className="text-lg font-medium my-2 text-center">
         Thank you to these sites for the use of their open source
@@ -96,8 +81,8 @@ const Attributions: FC<Props> = ({ closeAtts }) => (
         </AttributionLink>
         <p>For the use of the astronaughts images</p>
       </div>
-    </SpaceBgCard>
-  </FixedBlackBg>
+    </div>
+  </div>
 );
 
 export default Attributions;
