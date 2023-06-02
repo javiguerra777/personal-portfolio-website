@@ -22,10 +22,10 @@ const CarouselWrapper = styled.div`
   position: relative;
   .image {
     position: absolute;
+    object-fit: contain;
     top: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
   }
   .left,
   .right {

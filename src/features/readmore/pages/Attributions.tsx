@@ -79,7 +79,13 @@ const Attributions: FC = () => (
         <AttributionLink link="https://favpng.com/png_view/astronaut-astronaut-spacecraft-cartoon-png/AkWb6XPw">
           Favpng.com
         </AttributionLink>
-        <p>For the use of the astronaughts images</p>
+        <p>For the use of the astronauts images</p>
+      </div>
+      <div>
+        <AttributionLink link="https://freepik.com">
+          Freepik.com
+        </AttributionLink>
+        <p>For the use of the coming soon image</p>
       </div>
     </div>
   </div>
