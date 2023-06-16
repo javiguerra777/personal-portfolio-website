@@ -5,6 +5,7 @@ import MoreAbout from './pages/MoreAbout';
 import Testimonials from './pages/Testimonials';
 import Attributions from './pages/Attributions';
 import ReadMoreNav from './components/ReadMoreNav';
+import NotFound from '../../common/components/NotFound';
 
 const Layout = styled.div`
   height: 100%;
@@ -19,6 +20,7 @@ const ReadMoreRoutes = () => (
       <Route path="/aboutme" element={<MoreAbout />} />
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/attributions" element={<Attributions />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </Layout>
 );

@@ -87,6 +87,12 @@ const Attributions: FC = () => (
         </AttributionLink>
         <p>For the use of the coming soon image</p>
       </div>
+      <div>
+        <AttributionLink link="https://www.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_13315300.htm#query=404%20error%20icon&position=0&from_view=keyword&track=ais">
+          Freepik.com
+        </AttributionLink>
+        <p>For the use of the not found image</p>
+      </div>
     </div>
   </div>
 );
