@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
@@ -55,9 +55,9 @@ const About: FC = () => {
             My family comes first, I have a 1 year old son. I also
             have 2 corgi&apos;s named Little Bear and Gibbs. I
             graduated from CSU, Stanislaus with an MBA in Finance. I
-            work at Bitwise as a React Apprentice. I am currently
-            building a mobile app for a potential business idea using
-            React Native.
+            most recently worked at Bitwise as a Software Engineer. I
+            am currently building a mobile app for a potential
+            business idea using React Native.
           </p>
           <p>
             The jobs I am interested in are FullStack Developer, Video

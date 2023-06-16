@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   .description-container {
     max-width: 1200px;
     margin: 0 0 20px 0;
+    padding: 0 10px;
   }
 `;
 const CarouselWrapper = styled.div`
@@ -189,9 +190,9 @@ const MoreAbout: FC = () => {
           <p>
             I have expreience with working in groups, I understand how
             to communicate well with others. I have had experience
-            leading groups in college and at my current role as a
-            React Apprentice. I enjoyed the times when I got to lead
-            groups because I enjoy working with people.
+            leading groups in college and when I worked as a Software
+            Engineer. I enjoyed the times when I got to lead groups
+            because I enjoy working with people.
           </p>
         </div>
       </div>

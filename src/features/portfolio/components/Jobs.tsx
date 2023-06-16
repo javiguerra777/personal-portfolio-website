@@ -66,19 +66,18 @@ const Jobs: FC = () => {
             <JobTimeLine>03/2022 - Current</JobTimeLine>
           </FlexBetween>
           <JobDescription>
-            I am working as a React Apprentice, where I have been
-            developing web applications using React Hooks. I am
-            learning how to implement Typescript, Eslinter, Prettier,
-            Redux, and Async Thunks into a React web application. I am
-            also learning how to use Fetch and Axios to send HTTP
-            request to API servers. I am acquiring knowledge of Git,
-            Github, Branching and Git Flow. I also am obtaining
-            Angular, Wordpress, and .Net experience because I have had
-            to build projects with those technologies. I am building a
-            multiplayer video game usind React, Phaser, Redux,
-            Express, Socket.io and MongoDB. I am creating a social
-            media web application using React, Redux, Express, AWS,
-            Socket.io and MongoDB.
+            I am worked as a Software Engineer, where I developed web
+            applications using React Hooks. I learned how to implement
+            Typescript, Eslinter, Prettier, Redux, and Async Thunks
+            into a React web application. I learned how to use Fetch
+            and Axios to send HTTP request to API servers. I acquired
+            knowledge of Git, Github, Branching and Git Flow. I also
+            am obtaining Angular, Wordpress, and .Net experience
+            because I have had to build projects with those
+            technologies. I built a multiplayer video game using
+            React, Phaser, Redux, Express, Socket.io and MongoDB. I am
+            creating a social media web application using React,
+            Redux, Express, AWS, Socket.io and MongoDB.
           </JobDescription>
           <FlexBetween>
             <JobCompany>Cash Offers LLC</JobCompany>
