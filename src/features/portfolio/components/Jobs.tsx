@@ -63,7 +63,7 @@ const Jobs: FC = () => {
         <JobContentContainer>
           <FlexBetween>
             <JobCompany>Bitwise (Alpha Works)</JobCompany>
-            <JobTimeLine>03/2022 - Current</JobTimeLine>
+            <JobTimeLine>03/2022 - 06/2023</JobTimeLine>
           </FlexBetween>
           <JobDescription>
             I am worked as a Software Engineer, where I developed web
