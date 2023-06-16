@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/personal-portfolio-website/static/css/main.9f3164ce.css",
-    "main.js": "/personal-portfolio-website/static/js/main.5cc3473f.js",
+    "main.css": "/personal-portfolio-website/static/css/main.c3aa4956.css",
+    "main.js": "/personal-portfolio-website/static/js/main.114fd360.js",
     "static/media/3d-abstract-space-sky-with-stars-nebula.jpg": "/personal-portfolio-website/static/media/3d-abstract-space-sky-with-stars-nebula.10591a60ee9b1424effc.jpg",
     "static/media/brewery_locator.png": "/personal-portfolio-website/static/media/brewery_locator.178eabe1484611bdcdc1.png",
     "static/media/suit_drive.png": "/personal-portfolio-website/static/media/suit_drive.b5985842fec016535998.png",
@@ -11,20 +11,22 @@
     "static/media/axel_in_swing.jpg": "/personal-portfolio-website/static/media/axel_in_swing.99330734cec864f96600.jpg",
     "static/media/coming_soon.jpg": "/personal-portfolio-website/static/media/coming_soon.39a8f01afc4746982ed1.jpg",
     "static/media/fortnerf.png": "/personal-portfolio-website/static/media/fortnerf.f105c8ed4eef817bc783.png",
+    "static/media/not-found.jpg": "/personal-portfolio-website/static/media/not-found.ce293654fc5b055593cf.jpg",
     "static/media/logo.jpg": "/personal-portfolio-website/static/media/logo.39cfd21d066ca8c162aa.jpg",
     "static/media/axel_in_car.jpg": "/personal-portfolio-website/static/media/axel_in_car.846aa3af8829fd6e16bf.jpg",
     "static/media/selfie.jpeg": "/personal-portfolio-website/static/media/selfie.6774693fcfb553ab6e63.jpeg",
     "static/media/me_and_axel.JPEG": "/personal-portfolio-website/static/media/me_and_axel.7e0eb8a2059f44e2f034.JPEG",
     "static/media/weather_application.png": "/personal-portfolio-website/static/media/weather_application.497629bf82a1dfa121eb.png",
     "static/media/django-logo.png": "/personal-portfolio-website/static/media/django-logo.a5aaa412df3c52f5f6bf.png",
+    "static/media/Javier Guerra Software Developer Resume.pdf": "/personal-portfolio-website/static/media/Javier Guerra Software Developer Resume.b0228f810d100462946b.pdf",
     "static/media/number_guesser.png": "/personal-portfolio-website/static/media/number_guesser.643b1a327de4fe2b8fc4.png",
     "static/media/react_native.png": "/personal-portfolio-website/static/media/react_native.3ba04486ad9f9ba6e6b0.png",
     "index.html": "/personal-portfolio-website/index.html",
-    "main.9f3164ce.css.map": "/personal-portfolio-website/static/css/main.9f3164ce.css.map",
-    "main.5cc3473f.js.map": "/personal-portfolio-website/static/js/main.5cc3473f.js.map"
+    "main.c3aa4956.css.map": "/personal-portfolio-website/static/css/main.c3aa4956.css.map",
+    "main.114fd360.js.map": "/personal-portfolio-website/static/js/main.114fd360.js.map"
   },
   "entrypoints": [
-    "static/css/main.9f3164ce.css",
-    "static/js/main.5cc3473f.js"
+    "static/css/main.c3aa4956.css",
+    "static/js/main.114fd360.js"
   ]
 }
