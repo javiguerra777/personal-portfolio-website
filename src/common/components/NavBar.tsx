@@ -1,10 +1,13 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import Logo from '../../../assets/logo.jpg';
+import { NavLink } from 'react-router-dom';
+import Logo from '../../assets/logo.jpg';
 import SideBar from './SideBar';
-import DownloadCV from '../../../common/components/DownloadCV';
-import breakpoints from '../../../common/breakpoints';
+import DownloadCV from './DownloadCV';
+import breakpoints from '../breakpoints';
+import { useAppDispatch } from '../../app/store/hooks';
+import { toggleSideOpen } from '../../app/store/SideBarSlice';
 
 const NavBarWrapper = styled.nav`
   display: flex;
@@ -43,15 +46,15 @@ const NavBarWrapper = styled.nav`
   }
 `;
 const NavBar: FC = () => {
-  const [openSide, setOpenSide] = useState(false);
+  const dispatch = useAppDispatch();
   const toggleOpenSide = () => {
-    setOpenSide((prev) => !prev);
+    dispatch(toggleSideOpen());
   };
   return (
     <NavBarWrapper>
       <div>
-        <a
-          href="#top"
+        <NavLink
+          to="/personal-portfolio-website"
           className="flex flex-row items-center hover:underline"
         >
           <img
@@ -62,21 +65,18 @@ const NavBar: FC = () => {
           <p className="ml-3 text-xl md:text-3xl font-extrabold tracking-tight michroma">
             Javi Guerra
           </p>
-        </a>
+        </NavLink>
       </div>
       <div className="flex flex-row justify-between links sm-hidden">
-        <a href="#about" className="hover-line">
-          About
-        </a>
-        <a href="#jobs" className="hover-line">
+        <NavLink to="/jobs" className="hover-line">
           Jobs
-        </a>
-        <a href="#projects" className="hover-line">
+        </NavLink>
+        <NavLink to="/projects" className="hover-line">
           Projects
-        </a>
-        <a href="#contact" className="hover-line">
+        </NavLink>
+        <NavLink to="/contact" className="hover-line">
           Contact
-        </a>
+        </NavLink>
       </div>
       <div className="sm-hidden">
         <DownloadCV />
@@ -88,7 +88,7 @@ const NavBar: FC = () => {
       >
         <GiHamburgerMenu color="black" size={25} />
       </button>
-      <SideBar toggleOpenSide={toggleOpenSide} open={openSide} />
+      <SideBar />
     </NavBarWrapper>
   );
 };

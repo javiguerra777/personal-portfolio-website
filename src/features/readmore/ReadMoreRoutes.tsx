@@ -4,18 +4,17 @@ import styled from 'styled-components';
 import MoreAbout from './pages/MoreAbout';
 import Testimonials from './pages/Testimonials';
 import Attributions from './pages/Attributions';
-import ReadMoreNav from './components/ReadMoreNav';
 import NotFound from '../../common/components/NotFound';
+import NavBar from '../../common/components/NavBar';
 
 const Layout = styled.div`
   height: 100%;
   width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
 `;
 const ReadMoreRoutes = () => (
   <Layout>
-    <ReadMoreNav />
+    <NavBar />
     <Routes>
       <Route path="/aboutme" element={<MoreAbout />} />
       <Route path="/testimonials" element={<Testimonials />} />

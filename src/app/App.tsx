@@ -7,6 +7,9 @@ import UseGetLoading from '../common/hooks/UseGetLoading';
 import Loading from '../features/loading/Loading';
 import Portfolio from '../features/portfolio/Portfolio';
 import NotFound from '../common/components/NotFound';
+import Contact from '../features/contact/Contact';
+import Jobs from '../features/jobs/Jobs';
+import Projects from '../features/projects/Projects';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AppContainer = styled.div`
@@ -14,6 +17,7 @@ const AppContainer = styled.div`
   height: 100vh;
   background-color: #182030;
   color: white;
+  overflow: hidden;
 `;
 const ReNav = () => <Navigate to="/personal-portfolio-website" />;
 const App: FC = () => {
@@ -29,6 +33,9 @@ const App: FC = () => {
           element={<Portfolio />}
         />
         <Route path="/readmore/*" element={<ReadMoreRoutes />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/jobs" element={<Jobs />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AppContainer>

@@ -2,9 +2,12 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 import { motion } from 'framer-motion';
-import DownloadCV from '../../../common/components/DownloadCV';
-import breakpoints from '../../../common/breakpoints';
-import UseGetView from '../../../common/hooks/UseGetView';
+import { NavLink, useLocation } from 'react-router-dom';
+import DownloadCV from './DownloadCV';
+import breakpoints from '../breakpoints';
+import UseGetSideBar from '../hooks/UseGetSideBar';
+import { useAppDispatch } from '../../app/store/hooks';
+import { toggleSideOpen } from '../../app/store/SideBarSlice';
 
 const SideWrapper = styled(motion.div)`
   width: 150px;
@@ -27,16 +30,17 @@ const variants = {
   open: { opacity: 1, x: 0 },
   closed: { opacity: 0, x: '100%' },
 };
-type Props = {
-  toggleOpenSide: () => void;
-  open: boolean;
-};
-const SideBar: FC<Props> = ({ toggleOpenSide, open }) => {
-  const view = UseGetView();
+const SideBar: FC = () => {
+  const dispatch = useAppDispatch();
+  const { pathname } = useLocation();
+  const sidebar = UseGetSideBar();
+  const toggleOpenSide = () => {
+    dispatch(toggleSideOpen());
+  };
   return (
     <SideWrapper
       initial={false}
-      animate={open ? 'open' : 'closed'}
+      animate={sidebar.isOpen ? 'open' : 'closed'}
       variants={variants}
     >
       <div className="flex flex-col mt-5 items-center w-full">
@@ -51,46 +55,44 @@ const SideBar: FC<Props> = ({ toggleOpenSide, open }) => {
           </button>
         </div>
         <div className="flex flex-col mt-5 px-3 w-full">
-          <a
-            href="#about"
+          <NavLink
+            to="/personal-portfolio-website"
             className={`${
-              view.activeView === 'about'
+              pathname === '/personal-portfolio-website'
                 ? 'bg-gray-100 text-blue-500'
                 : ''
             } p-1 rounded hover-line`}
           >
-            About
-          </a>
-          <a
-            href="#jobs"
+            Home
+          </NavLink>
+          <NavLink
+            to="/jobs"
             className={`${
-              view.activeView === 'jobs'
-                ? 'bg-gray-100 text-blue-500'
-                : ''
+              pathname === '/jobs' ? 'bg-gray-100 text-blue-500' : ''
             } p-1 rounded hover-line`}
           >
             Jobs
-          </a>
-          <a
-            href="#projects"
+          </NavLink>
+          <NavLink
+            to="/projects"
             className={`${
-              view.activeView === 'projects'
+              pathname === '/projects'
                 ? 'bg-gray-100 text-blue-500'
                 : ''
             } p-1 rounded hover-line`}
           >
             Projects
-          </a>
-          <a
-            href="#contact"
+          </NavLink>
+          <NavLink
+            to="/contact"
             className={`${
-              view.activeView === 'contact'
+              pathname === '/contact'
                 ? 'bg-gray-100 text-blue-500'
                 : ''
             } p-1 rounded hover-line mb-4`}
           >
             Contact
-          </a>
+          </NavLink>
         </div>
         <DownloadCV />
       </div>
