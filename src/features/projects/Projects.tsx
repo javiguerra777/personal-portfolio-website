@@ -6,10 +6,12 @@ import SectionTitle from '../../common/style/SectionTitle';
 import Project from './components/Project';
 import { projects } from '../portfolio/services/ProjectsService';
 import breakpoints from '../../common/breakpoints';
+import NavBar from '../../common/components/NavBar';
 
 const ProjectWrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
+  overflow: auto;
 `;
 const ProjectsWrapper = styled.div`
   display: flex;
@@ -24,7 +26,8 @@ const ProjectsWrapper = styled.div`
   }
 `;
 const Projects: FC = () => (
-  <ProjectWrapper id="projects">
+  <ProjectWrapper>
+    <NavBar />
     <motion.div
       className="pt-20 pb-40 flex flex-col items-center"
       initial={{ opacity: 0 }}

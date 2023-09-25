@@ -7,7 +7,6 @@ import UseGetLoading from '../common/hooks/UseGetLoading';
 import Loading from '../features/loading/Loading';
 import Portfolio from '../features/portfolio/Portfolio';
 import NotFound from '../common/components/NotFound';
-import NavBar from '../common/components/NavBar';
 import Contact from '../features/contact/Contact';
 import Jobs from '../features/jobs/Jobs';
 import Projects from '../features/projects/Projects';
@@ -18,7 +17,7 @@ const AppContainer = styled.div`
   height: 100vh;
   background-color: #182030;
   color: white;
-  overflow: auto;
+  overflow: hidden;
 `;
 const ReNav = () => <Navigate to="/personal-portfolio-website" />;
 const App: FC = () => {
@@ -27,7 +26,6 @@ const App: FC = () => {
     <AppContainer>
       <ToastContainer />
       {loading && <Loading />}
-      <NavBar />
       <Routes>
         <Route index element={<ReNav />} />
         <Route

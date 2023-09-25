@@ -3,14 +3,16 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import SectionTitle from '../../common/style/SectionTitle';
 import breakpoints from '../../common/breakpoints';
+import NavBar from '../../common/components/NavBar';
 
 type ChildrenProps = {
   children: ReactNode;
 };
 const JobWrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #28282b;
+  overflow: auto;
 `;
 const JobContentContainer = styled.div`
   padding: 0 20px;
@@ -39,7 +41,8 @@ const JobTimeLine: FC<ChildrenProps> = ({ children }) => (
   <p className="text-base italic">{children}</p>
 );
 const Jobs: FC = () => (
-  <JobWrapper id="jobs">
+  <JobWrapper>
+    <NavBar />
     <motion.div
       className="pt-20 pb-40 flex flex-col items-center"
       initial={{ opacity: 0 }}

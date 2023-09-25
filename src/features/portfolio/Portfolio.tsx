@@ -6,12 +6,14 @@ import UseGetView from '../../common/hooks/UseGetView';
 import Footer from './components/Footer';
 import Welcome from './components/Welcome';
 import About from './components/About';
+import NavBar from '../../common/components/NavBar';
 
 const PortfolioWrapper = styled.div`
   height: 100%;
   scroll-behavior: smooth;
   background-color: #182030;
   color: white;
+  overflow: auto;
 `;
 const ProgressionBar = styled(motion.div)`
   position: fixed;
@@ -67,6 +69,7 @@ const Portfolio: FC = () => {
   return (
     <PortfolioWrapper ref={mainPageRef}>
       {/* Hidden div to nav back to top */}
+      <NavBar />
       <div id="top" />
       <ProgressionBar style={{ scaleX }} />
       <Welcome />

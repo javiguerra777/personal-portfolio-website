@@ -5,10 +5,12 @@ import { toast } from 'react-toastify';
 import emailjs from '@emailjs/browser';
 import EmailFormSchema from '../portfolio/schemas/EmailFormSchema';
 import SectionTitle from '../../common/style/SectionTitle';
+import NavBar from '../../common/components/NavBar';
 
 const ContactWrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: auto;
   background-color: #28282b;
   font-family: 'Inter';
   textarea {
@@ -60,6 +62,7 @@ const Contact: FC = () => {
   });
   return (
     <ContactWrapper id="contact">
+      <NavBar />
       <div className="pb-8 pt-20 lg:pb-16 px-4 mx-auto max-w-screen-md">
         <SectionTitle>Contact Me</SectionTitle>
         <p className="mb-8 lg:mb-16 font-light text-center">
