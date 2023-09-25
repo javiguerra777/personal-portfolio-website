@@ -1,13 +1,10 @@
-import React, { FC, useRef, useEffect } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
 import { toast } from 'react-toastify';
 import emailjs from '@emailjs/browser';
-import EmailFormSchema from '../schemas/EmailFormSchema';
-import SectionTitle from '../../../common/style/SectionTitle';
-import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
-import { useAppDispatch } from '../../../app/store/hooks';
-import { switchActiveView } from '../../../app/store/ViewSlice';
+import EmailFormSchema from '../portfolio/schemas/EmailFormSchema';
+import SectionTitle from '../../common/style/SectionTitle';
 
 const ContactWrapper = styled.div`
   width: 100%;
@@ -19,14 +16,6 @@ const ContactWrapper = styled.div`
   }
 `;
 const Contact: FC = () => {
-  const dispatch = useAppDispatch();
-  const contactRef = useRef<HTMLDivElement>(null);
-  const inViewPort = UseIsInViewport(contactRef);
-  useEffect(() => {
-    if (inViewPort) {
-      dispatch(switchActiveView('contact'));
-    }
-  }, [inViewPort, dispatch]);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -72,7 +61,7 @@ const Contact: FC = () => {
   return (
     <ContactWrapper id="contact">
       <div className="pb-8 pt-20 lg:pb-16 px-4 mx-auto max-w-screen-md">
-        <SectionTitle ref={contactRef}>Contact Me</SectionTitle>
+        <SectionTitle>Contact Me</SectionTitle>
         <p className="mb-8 lg:mb-16 font-light text-center">
           Want to send me a message? Fill out the form below
         </p>

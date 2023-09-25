@@ -1,10 +1,11 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import Logo from '../../../assets/logo.jpg';
+import { NavLink } from 'react-router-dom';
+import Logo from '../../assets/logo.jpg';
 import SideBar from './SideBar';
-import DownloadCV from '../../../common/components/DownloadCV';
-import breakpoints from '../../../common/breakpoints';
+import DownloadCV from './DownloadCV';
+import breakpoints from '../breakpoints';
 
 const NavBarWrapper = styled.nav`
   display: flex;
@@ -50,8 +51,8 @@ const NavBar: FC = () => {
   return (
     <NavBarWrapper>
       <div>
-        <a
-          href="#top"
+        <NavLink
+          to="/personal-portfolio-website"
           className="flex flex-row items-center hover:underline"
         >
           <img
@@ -62,21 +63,18 @@ const NavBar: FC = () => {
           <p className="ml-3 text-xl md:text-3xl font-extrabold tracking-tight michroma">
             Javi Guerra
           </p>
-        </a>
+        </NavLink>
       </div>
       <div className="flex flex-row justify-between links sm-hidden">
-        <a href="#about" className="hover-line">
-          About
-        </a>
-        <a href="#jobs" className="hover-line">
+        <NavLink to="/jobs" className="hover-line">
           Jobs
-        </a>
-        <a href="#projects" className="hover-line">
+        </NavLink>
+        <NavLink to="/projects" className="hover-line">
           Projects
-        </a>
-        <a href="#contact" className="hover-line">
+        </NavLink>
+        <NavLink to="/contact" className="hover-line">
           Contact
-        </a>
+        </NavLink>
       </div>
       <div className="sm-hidden">
         <DownloadCV />

@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../app/store/hooks';
 import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
 import { setIsHeroInView } from '../../../app/store/ViewSlice';
@@ -31,6 +32,7 @@ const WelcomeWrapper = styled(motion.div)`
   }
 `;
 const Welcome: FC = () => {
+  const navigate = useNavigate();
   const [hovered, setHovered] = useState(0);
   const dispatch = useAppDispatch();
   const welcomeRef = useRef(null);
@@ -67,8 +69,7 @@ const Welcome: FC = () => {
           experiences
         </p>
         <div className="flex sm:flex-row justify-around flex-col mt-20 items-center">
-          <motion.a
-            href="#contact"
+          <motion.div
             className="flex flex-col items-center astro-container electrolize"
             whileHover={{ scale: 1.3 }}
             animate={{
@@ -80,6 +81,9 @@ const Welcome: FC = () => {
             }}
             onMouseEnter={() => setHovered(1)}
             onMouseLeave={() => setHovered(0)}
+            onClick={() => {
+              navigate('/contact');
+            }}
           >
             <div className="textbox">Click here to contact me</div>
             <img
@@ -87,7 +91,7 @@ const Welcome: FC = () => {
               alt="astronaught"
               className="astro"
             />
-          </motion.a>
+          </motion.div>
           <motion.a
             href="#about"
             className="flex flex-col items-center sm:my-0 my-40 astro-container electrolize"

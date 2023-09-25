@@ -3,18 +3,12 @@ import { AiOutlineArrowDown } from 'react-icons/ai';
 import { motion, useElementScroll, useSpring } from 'framer-motion';
 import styled from 'styled-components';
 import UseGetView from '../../common/hooks/UseGetView';
-import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Welcome from './components/Welcome';
-import Contact from './components/Contact';
 import About from './components/About';
-import Jobs from './components/Jobs';
-import Projects from './components/Projects';
 
 const PortfolioWrapper = styled.div`
   height: 100%;
-  overflow: auto;
-  overflow-x: hidden;
   scroll-behavior: smooth;
   background-color: #182030;
   color: white;
@@ -75,12 +69,8 @@ const Portfolio: FC = () => {
       {/* Hidden div to nav back to top */}
       <div id="top" />
       <ProgressionBar style={{ scaleX }} />
-      <NavBar />
       <Welcome />
       <About />
-      <Jobs />
-      <Projects />
-      <Contact />
       <Footer />
       {view.isHeroInView && (
         <ReadMoreContainer>
