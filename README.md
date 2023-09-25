@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# Front-End for multiplayer video game
+<a name="top"></a>
+My personal portfolio website!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Table of contents
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+        <!-- <li><a href="#wireframe">Wireframe</a></li> -->
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-## Available Scripts
+# About the Project
+<a name="about-the-project"></a>
+This website is to present my portfolio to anyone interested.
+<p align="left">(<a href="#top">back to top</a>)</p>
 
-In the project directory, you can run:
+### Built with
+<a name="built-with"></a>
+A few of the frameworks/libraries that were used to build the project are
+* React
+* Typescript
+* Node.js
+* React Redux 
+* React Router
+* EsLint and AirBnb
+<p align="left">(<a href="#top">back to top</a>)</p>
+<!-- ### wireframe
+  ### Getting Started The App build out with simple wireframes using Figma.
+<img width="328" alt="wire-frame-frontend" src=""> -->
 
-### `npm start`
+## Getting Started
+<a name="getting-started"></a>
+To get started follow these steps
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
+<a name="prerequisites"></a>
+* npm
+  ```
+  npm install npm@latest -g
+  ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
+<a name="installation"></a>
 
-### `npm test`
+1. Clone the repo
+  ```she
+  git clone https://github.com/javiguerra777/personal-portfolio-website
+  ```
+2. Install npm packages
+  ```sh
+  npm install
+  ```
+3. npm start for the frontend
+```
+npm start
+```
+4. You will need to obtain api keys for the emailjs to send emails. Make sure to put it inside a .env file.
+```
+REACT_APP_EMAIL_SERVICE_ID=''
+REACT_APP_EMAIL_TEMPLATE_ID=''
+REACT_APP_EMAIL_PUBLIC_KEY=''
+```
+<p align="left">(<a href="#top">back to top</a>)</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contributing
+If you have a suggestion that could improve this project, please fork the repo and create a pull request. You can simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thank you!
 
-### `npm run build`
+1. Fork the project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your changes (git commit -m "message")
+4. Push to the branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
+<p align="left">(<a href="#top">back to top</a>)</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deploying
+This website is deployed on github and uses github pages to be able to properly deploy this site use the following steps.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Make sure it's being deployed from the development branch
+```
+git switch development
+```
+2. Make sure to run the predeploy in the CLI to run a build
+```
+npm run predeploy
+```
+3. Lastly run npm deploy so the build will get published to github pages properly
+```
+npm run deploy
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contact
+<a name="contact"></a>
+Javier Guerra - javier.guerra1001@gmail.com
 
-### `npm run eject`
+Project link: https://github.com/javiguerra777/personal-portfolio-website
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Demo: https://javiguerra777.github.io/personal-portfolio-website/
+<p align="left">(<a href="#top">back to top</a>)</p>
