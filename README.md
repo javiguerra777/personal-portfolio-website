@@ -86,6 +86,21 @@ If you have a suggestion that could improve this project, please fork the repo a
 5. Open a Pull Request
 <p align="left">(<a href="#top">back to top</a>)</p>
 
+## Deploying
+This website is deployed on github and uses github pages to be able to properly deploy this site use the following steps.
+
+1. Make sure it's being deployed from the development branch
+```
+git switch development
+```
+2. Make sure to run the predeploy in the CLI to run a build
+```
+npm run predeploy
+```
+3. Lastly run npm deploy so the build will get published to github pages properly
+```
+npm run deploy
+```
 
 ## Contact
 <a name="contact"></a>
