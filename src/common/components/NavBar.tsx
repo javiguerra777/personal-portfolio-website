@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { NavLink } from 'react-router-dom';
@@ -6,6 +6,8 @@ import Logo from '../../assets/logo.jpg';
 import SideBar from './SideBar';
 import DownloadCV from './DownloadCV';
 import breakpoints from '../breakpoints';
+import { useAppDispatch } from '../../app/store/hooks';
+import { toggleSideOpen } from '../../app/store/SideBarSlice';
 
 const NavBarWrapper = styled.nav`
   display: flex;
@@ -44,9 +46,9 @@ const NavBarWrapper = styled.nav`
   }
 `;
 const NavBar: FC = () => {
-  const [openSide, setOpenSide] = useState(false);
+  const dispatch = useAppDispatch();
   const toggleOpenSide = () => {
-    setOpenSide((prev) => !prev);
+    dispatch(toggleSideOpen());
   };
   return (
     <NavBarWrapper>
@@ -86,7 +88,7 @@ const NavBar: FC = () => {
       >
         <GiHamburgerMenu color="black" size={25} />
       </button>
-      <SideBar toggleOpenSide={toggleOpenSide} open={openSide} />
+      <SideBar />
     </NavBarWrapper>
   );
 };

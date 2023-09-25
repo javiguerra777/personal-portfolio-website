@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../app/store/hooks';
 import UseIsInViewport from '../../../common/hooks/UseIsInViewPort';
 import { setIsHeroInView } from '../../../app/store/ViewSlice';

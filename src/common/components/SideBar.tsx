@@ -5,6 +5,9 @@ import { motion } from 'framer-motion';
 import { NavLink, useLocation } from 'react-router-dom';
 import DownloadCV from './DownloadCV';
 import breakpoints from '../breakpoints';
+import UseGetSideBar from '../hooks/UseGetSideBar';
+import { useAppDispatch } from '../../app/store/hooks';
+import { toggleSideOpen } from '../../app/store/SideBarSlice';
 
 const SideWrapper = styled(motion.div)`
   width: 150px;
@@ -27,16 +30,17 @@ const variants = {
   open: { opacity: 1, x: 0 },
   closed: { opacity: 0, x: '100%' },
 };
-type Props = {
-  toggleOpenSide: () => void;
-  open: boolean;
-};
-const SideBar: FC<Props> = ({ toggleOpenSide, open }) => {
+const SideBar: FC = () => {
+  const dispatch = useAppDispatch();
   const { pathname } = useLocation();
+  const sidebar = UseGetSideBar();
+  const toggleOpenSide = () => {
+    dispatch(toggleSideOpen());
+  };
   return (
     <SideWrapper
       initial={false}
-      animate={open ? 'open' : 'closed'}
+      animate={sidebar.isOpen ? 'open' : 'closed'}
       variants={variants}
     >
       <div className="flex flex-col mt-5 items-center w-full">
