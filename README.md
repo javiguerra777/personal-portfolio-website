@@ -68,7 +68,12 @@ To get started follow these steps
 ```
 npm start
 ```
-4. You will need to connect a backend to this project.
+4. You will need to obtain api keys for the emailjs to send emails. Make sure to put it inside a .env file.
+```
+REACT_APP_EMAIL_SERVICE_ID=''
+REACT_APP_EMAIL_TEMPLATE_ID=''
+REACT_APP_EMAIL_PUBLIC_KEY=''
+```
 <p align="left">(<a href="#top">back to top</a>)</p>
 
 ## Contributing
