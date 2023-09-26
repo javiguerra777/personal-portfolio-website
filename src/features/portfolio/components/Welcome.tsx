@@ -70,7 +70,7 @@ const Welcome: FC = () => {
         </p>
         <div className="flex sm:flex-row justify-around flex-col mt-20 items-center">
           <motion.div
-            className="flex flex-col items-center astro-container electrolize"
+            className="flex flex-col items-center astro-container electrolize hover:cursor-pointer"
             whileHover={{ scale: 1.3 }}
             animate={{
               y: hovered === 1 ? 0 : [0, 50, 0],

@@ -4,7 +4,6 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 import { NavLink, useLocation } from 'react-router-dom';
 import DownloadCV from './DownloadCV';
-import breakpoints from '../breakpoints';
 import UseGetSideBar from '../hooks/UseGetSideBar';
 import { useAppDispatch } from '../../app/store/hooks';
 import { toggleSideOpen } from '../../app/store/SideBarSlice';
@@ -22,9 +21,6 @@ const SideWrapper = styled(motion.div)`
   border-bottom-left-radius: 10px;
   border-left: solid 1px black;
   font-family: 'Inter';
-  @media (min-width: ${breakpoints.tablet}) {
-    display: none;
-  }
 `;
 const variants = {
   open: { opacity: 1, x: 0 },
@@ -89,9 +85,29 @@ const SideBar: FC = () => {
               pathname === '/contact'
                 ? 'bg-gray-100 text-blue-500'
                 : ''
-            } p-1 rounded hover-line mb-4`}
+            } p-1 rounded hover-line`}
           >
             Contact
+          </NavLink>
+          <NavLink
+            to="/readmore/aboutme"
+            className={`${
+              pathname === '/readmore/aboutme'
+                ? 'bg-gray-100 text-blue-500'
+                : ''
+            } p-1 rounded hover-line`}
+          >
+            Read More About Me
+          </NavLink>
+          <NavLink
+            to="/readmore/testimonials"
+            className={`${
+              pathname === '/readmore/testimonials'
+                ? 'bg-gray-100 text-blue-500'
+                : ''
+            } p-1 rounded hover-line mb-4`}
+          >
+            Testimonials
           </NavLink>
         </div>
         <DownloadCV />

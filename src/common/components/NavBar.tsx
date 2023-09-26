@@ -4,7 +4,6 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { NavLink } from 'react-router-dom';
 import Logo from '../../assets/logo.jpg';
 import SideBar from './SideBar';
-import DownloadCV from './DownloadCV';
 import breakpoints from '../breakpoints';
 import { useAppDispatch } from '../../app/store/hooks';
 import { toggleSideOpen } from '../../app/store/SideBarSlice';
@@ -67,23 +66,9 @@ const NavBar: FC = () => {
           </p>
         </NavLink>
       </div>
-      <div className="flex flex-row justify-between links sm-hidden">
-        <NavLink to="/jobs" className="hover-line">
-          Jobs
-        </NavLink>
-        <NavLink to="/projects" className="hover-line">
-          Projects
-        </NavLink>
-        <NavLink to="/contact" className="hover-line">
-          Contact
-        </NavLink>
-      </div>
-      <div className="sm-hidden">
-        <DownloadCV />
-      </div>
       <button
         type="button"
-        className="sm-active bg-white p-2.5 rounded-full hover:bg-zinc-500 absolute right-1"
+        className="bg-white p-2.5 rounded-full hover:bg-zinc-500 absolute right-1"
         onClick={toggleOpenSide}
       >
         <GiHamburgerMenu color="black" size={25} />
