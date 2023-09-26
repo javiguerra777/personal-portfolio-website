@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/personal-portfolio-website/static/css/main.c3aa4956.css",
-    "main.js": "/personal-portfolio-website/static/js/main.114fd360.js",
+    "main.css": "/personal-portfolio-website/static/css/main.f7c84ff5.css",
+    "main.js": "/personal-portfolio-website/static/js/main.de7c4768.js",
     "static/media/3d-abstract-space-sky-with-stars-nebula.jpg": "/personal-portfolio-website/static/media/3d-abstract-space-sky-with-stars-nebula.10591a60ee9b1424effc.jpg",
     "static/media/brewery_locator.png": "/personal-portfolio-website/static/media/brewery_locator.178eabe1484611bdcdc1.png",
     "static/media/suit_drive.png": "/personal-portfolio-website/static/media/suit_drive.b5985842fec016535998.png",
@@ -22,11 +22,11 @@
     "static/media/number_guesser.png": "/personal-portfolio-website/static/media/number_guesser.643b1a327de4fe2b8fc4.png",
     "static/media/react_native.png": "/personal-portfolio-website/static/media/react_native.3ba04486ad9f9ba6e6b0.png",
     "index.html": "/personal-portfolio-website/index.html",
-    "main.c3aa4956.css.map": "/personal-portfolio-website/static/css/main.c3aa4956.css.map",
-    "main.114fd360.js.map": "/personal-portfolio-website/static/js/main.114fd360.js.map"
+    "main.f7c84ff5.css.map": "/personal-portfolio-website/static/css/main.f7c84ff5.css.map",
+    "main.de7c4768.js.map": "/personal-portfolio-website/static/js/main.de7c4768.js.map"
   },
   "entrypoints": [
-    "static/css/main.c3aa4956.css",
-    "static/js/main.114fd360.js"
+    "static/css/main.f7c84ff5.css",
+    "static/js/main.de7c4768.js"
   ]
 }
