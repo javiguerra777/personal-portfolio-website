@@ -33,7 +33,6 @@ const Projects: FC = () => (
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      transition={{ delay: 1 }}
     >
       <SectionTitle>Projects</SectionTitle>
       <ProjectsWrapper>
