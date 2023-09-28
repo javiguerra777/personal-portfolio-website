@@ -97,7 +97,12 @@ const MoreAbout: FC = () => {
   };
   return (
     <Wrapper>
-      <div className="flex flex-col items-center">
+      <motion.div
+        className="flex flex-col items-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
         <SectionTitle>More About Me</SectionTitle>
         <CarouselWrapper>
           <AnimatePresence initial={false} custom={direction}>
@@ -196,7 +201,7 @@ const MoreAbout: FC = () => {
             because I enjoy working with people.
           </p>
         </div>
-      </div>
+      </motion.div>
     </Wrapper>
   );
 };
