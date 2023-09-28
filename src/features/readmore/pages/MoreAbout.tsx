@@ -8,6 +8,7 @@ import {
 } from 'react-icons/bs';
 import { nanoid } from '@reduxjs/toolkit';
 import { images } from '../constants/carouselimages';
+import SectionTitle from '../../../common/style/SectionTitle';
 
 const Wrapper = styled.div`
   .description-container {
@@ -97,7 +98,7 @@ const MoreAbout: FC = () => {
   return (
     <Wrapper>
       <div className="flex flex-col items-center">
-        <h2 className="my-2 text-3xl font-bold">More About Me</h2>
+        <SectionTitle>More About Me</SectionTitle>
         <CarouselWrapper>
           <AnimatePresence initial={false} custom={direction}>
             <motion.img

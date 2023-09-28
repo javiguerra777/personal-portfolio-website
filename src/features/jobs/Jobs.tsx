@@ -1,46 +1,22 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from 'react-vertical-timeline-component';
+import { nanoid } from '@reduxjs/toolkit';
+import { FcWorkflow } from 'react-icons/fc';
 import SectionTitle from '../../common/style/SectionTitle';
-import breakpoints from '../../common/breakpoints';
 import NavBar from '../../common/components/NavBar';
 import MyJobs from './services/MyJobs';
 
-type ChildrenProps = {
-  children: ReactNode;
-};
 const JobWrapper = styled.div`
   width: 100%;
   height: 100vh;
   background-color: #28282b;
   overflow: auto;
 `;
-const JobContentContainer = styled.div`
-  padding: 0 20px;
-  max-width: 1200px;
-  margin-top: 50px;
-  font-family: 'Inter';
-  ul {
-    list-style-type: circle;
-    margin-left: 20px;
-  }
-  @media (min-width: ${breakpoints.tablet}) {
-    padding: 0 50px;
-  }
-`;
-
-const JobCompany: FC<ChildrenProps> = ({ children }) => (
-  <h4 className="font-semibold text-base">{children}</h4>
-);
-const JobDescription: FC<ChildrenProps> = ({ children }) => (
-  <p className="mb-4 text-xs md:text-base">{children}</p>
-);
-const FlexBetween: FC<ChildrenProps> = ({ children }) => (
-  <div className="flex flex-col mb-1">{children}</div>
-);
-const JobTimeLine: FC<ChildrenProps> = ({ children }) => (
-  <p className="text-base italic">{children}</p>
-);
 const Jobs: FC = () => (
   <JobWrapper>
     <NavBar />
@@ -51,17 +27,22 @@ const Jobs: FC = () => (
       viewport={{ once: true }}
     >
       <SectionTitle>Work History</SectionTitle>
-      <JobContentContainer>
-        {MyJobs.map(({ company, workDates, description }) => (
-          <>
-            <FlexBetween>
-              <JobCompany>{company}</JobCompany>
-              <JobTimeLine>{workDates}</JobTimeLine>
-            </FlexBetween>
-            <JobDescription>{description}</JobDescription>
-          </>
+      <VerticalTimeline>
+        {MyJobs.map(({ company, description, workDates }) => (
+          <VerticalTimelineElement
+            key={nanoid()}
+            className="vertical-timeline-element--work text-black"
+            dateClassName="text-white"
+            date={workDates}
+            icon={<FcWorkflow />}
+            iconClassName="bg-blue-200"
+          >
+            <h4 className="font-semibold">{company}</h4>
+            <p className="italic">{workDates}</p>
+            <p>{description}</p>
+          </VerticalTimelineElement>
         ))}
-      </JobContentContainer>
+      </VerticalTimeline>
     </motion.div>
   </JobWrapper>
 );
