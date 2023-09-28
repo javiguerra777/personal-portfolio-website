@@ -50,7 +50,7 @@ const Jobs: FC = () => (
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
     >
-      <SectionTitle>Brief Work History</SectionTitle>
+      <SectionTitle>Work History</SectionTitle>
       <JobContentContainer>
         {MyJobs.map(({ company, workDates, description }) => (
           <>

@@ -4,7 +4,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import { motion } from 'framer-motion';
 import SectionTitle from '../../common/style/SectionTitle';
 import Project from './components/Project';
-import { projects } from '../portfolio/services/ProjectsService';
+import { projects } from './services/ProjectsService';
 import breakpoints from '../../common/breakpoints';
 import NavBar from '../../common/components/NavBar';
 
