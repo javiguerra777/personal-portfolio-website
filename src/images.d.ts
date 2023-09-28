@@ -4,3 +4,4 @@ declare module '*.pdf';
 declare module '*.png';
 declare module '*.JPEG';
 declare module '*.JPG';
+declare module '*.JSON';

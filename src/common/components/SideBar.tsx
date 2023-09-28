@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { AiOutlineClose } from 'react-icons/ai';
+import {
+  AiOutlineClose,
+  AiFillCaretDown,
+  AiFillCaretUp,
+} from 'react-icons/ai';
 import { motion } from 'framer-motion';
 import { NavLink, useLocation } from 'react-router-dom';
 import DownloadCV from './DownloadCV';
@@ -30,9 +34,13 @@ const SideBar: FC = () => {
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
   const sidebar = UseGetSideBar();
+  const [isOpen, setIsOpen] = useState(false);
   const toggleOpenSide = () => {
     dispatch(toggleSideOpen());
   };
+  const toggleIsOpen = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
   return (
     <SideWrapper
       initial={false}
@@ -89,26 +97,40 @@ const SideBar: FC = () => {
           >
             Contact
           </NavLink>
-          <NavLink
-            to="/readmore/aboutme"
-            className={`${
-              pathname === '/readmore/aboutme'
-                ? 'bg-gray-100 text-blue-500'
-                : ''
-            } p-1 rounded hover-line`}
+          <button
+            type="button"
+            className="p-1 flex flex-row"
+            onClick={toggleIsOpen}
           >
-            Read More About Me
-          </NavLink>
-          <NavLink
-            to="/readmore/testimonials"
-            className={`${
-              pathname === '/readmore/testimonials'
-                ? 'bg-gray-100 text-blue-500'
-                : ''
-            } p-1 rounded hover-line mb-4`}
-          >
-            Testimonials
-          </NavLink>
+            Read More
+            <div className="ml-1 flex items-center h-full">
+              {isOpen ? <AiFillCaretUp /> : <AiFillCaretDown />}
+            </div>
+          </button>
+          {isOpen && (
+            <div className="w-full flex flex-col pl-4">
+              <NavLink
+                to="/readmore/aboutme"
+                className={`${
+                  pathname === '/readmore/aboutme'
+                    ? 'bg-gray-100 text-blue-500'
+                    : ''
+                } p-1 rounded hover-line`}
+              >
+                About Me
+              </NavLink>
+              <NavLink
+                to="/readmore/testimonials"
+                className={`${
+                  pathname === '/readmore/testimonials'
+                    ? 'bg-gray-100 text-blue-500'
+                    : ''
+                } p-1 rounded hover-line mb-4`}
+              >
+                Testimonials
+              </NavLink>
+            </div>
+          )}
         </div>
         <DownloadCV />
       </div>

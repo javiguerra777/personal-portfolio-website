@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import store from './app/store';
 import App from './app/App';
 import './index.css';
+import 'react-vertical-timeline-component/style.min.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,

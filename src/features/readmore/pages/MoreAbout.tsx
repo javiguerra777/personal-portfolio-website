@@ -8,6 +8,7 @@ import {
 } from 'react-icons/bs';
 import { nanoid } from '@reduxjs/toolkit';
 import { images } from '../constants/carouselimages';
+import SectionTitle from '../../../common/style/SectionTitle';
 
 const Wrapper = styled.div`
   .description-container {
@@ -96,8 +97,13 @@ const MoreAbout: FC = () => {
   };
   return (
     <Wrapper>
-      <div className="flex flex-col items-center">
-        <h2 className="my-2 text-3xl font-bold">More About Me</h2>
+      <motion.div
+        className="flex flex-col items-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        <SectionTitle>More About Me</SectionTitle>
         <CarouselWrapper>
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
@@ -195,7 +201,7 @@ const MoreAbout: FC = () => {
             because I enjoy working with people.
           </p>
         </div>
-      </div>
+      </motion.div>
     </Wrapper>
   );
 };
