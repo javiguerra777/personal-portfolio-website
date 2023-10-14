@@ -26,7 +26,7 @@ export const projects = [
   {
     name: 'Client Angular CMS',
     description:
-      'Practice app to learn the basics of Angular Web Development',
+      'I built a simple CMS where users can add posts, edit their own posts, and delete their own posts. There were a lot more features I wanted to add but I did not have the time to do so. If you want to contribute to the source code click the github symbol in the top left and read the documentation.',
     image: AngularLogo,
     link: 'https://github.com/javiguerra777/angular-crud-app',
   },
@@ -68,7 +68,7 @@ export const projects = [
   {
     name: 'Student Directory Template',
     description:
-      'Student Directory Web Application using React and React Hooks',
+      'I worked with a teammate to build this student directory template with React. If you want to add new features checkout the github repo. You can also check out the deployed version of this app if you click on the symbol in the top-right hand corner.',
     image: StudentDirectory,
     link: 'https://github.com/javiguerra777/React-Student-Directory',
     deployedLink:
@@ -76,7 +76,8 @@ export const projects = [
   },
   {
     name: 'Number Guessing Game',
-    description: 'Number guessing game using React and React Hooks',
+    description:
+      'I built this number guessing game using React and React hooks. If you want to contribute to the source code or add new features click on the github symbol and fork the project. You can click on the top right corner to check out a deployed version of this app.',
     image: NumberGuesser,
     link: 'https://github.com/javiguerra777/React-Game-Project',
     deployedLink:

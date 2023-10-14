@@ -16,15 +16,15 @@ type Props = {
   };
 };
 const ProjectWrapper = styled(motion.div)`
-  width: 230px;
+  width: 90%;
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  margin: 30px 0 30px 10px;
+  margin: 30px 10px 30px 10px;
   background-color: #a78bfa;
   @media (min-width: ${breakpoints.tablet}) {
-    width: 300px;
+    width: 500px;
   }
   &:hover {
     animation: none;
@@ -100,6 +100,7 @@ const Project: FC<Props> = ({ project }) => {
         </div>
       </div>
       <p className="text-lg font-bold mt-5">{project.name}</p>
+      <p className="mt-2">{project.description}</p>
     </ProjectWrapper>
   );
 };
