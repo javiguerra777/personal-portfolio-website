@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Resume from '../../assets/Javier Guerra Software Developer Resume.pdf';
+import Resume from '../../assets/Javier_Guerra_Software_Dev.pdf';
 
 const DownloadCV: FC = () => (
   <a
