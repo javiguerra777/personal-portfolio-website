@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { AiFillGithub } from 'react-icons/ai';
@@ -16,15 +16,15 @@ type Props = {
   };
 };
 const ProjectWrapper = styled(motion.div)`
-  width: 230px;
+  width: 90%;
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  margin: 30px 0 30px 10px;
+  margin: 30px 10px 30px 10px;
   background-color: #a78bfa;
   @media (min-width: ${breakpoints.tablet}) {
-    width: 300px;
+    width: 600px;
   }
   &:hover {
     animation: none;
@@ -62,7 +62,7 @@ const ProjectWrapper = styled(motion.div)`
   }
 `;
 const Project: FC<Props> = ({ project }) => {
-  const iconSize = 40;
+  const iconSize = useMemo(() => 40, []);
   return (
     <ProjectWrapper
       className="flex flex-col items-center p-2 rounded project mx-3 floating"
@@ -92,7 +92,7 @@ const Project: FC<Props> = ({ project }) => {
               href={`${project.deployedLink}`}
               target="_blank"
               rel="noreferrer"
-              className="link ml-2"
+              className="link"
             >
               <CgWebsite size={iconSize} />
             </motion.a>
@@ -100,6 +100,7 @@ const Project: FC<Props> = ({ project }) => {
         </div>
       </div>
       <p className="text-lg font-bold mt-5">{project.name}</p>
+      <p className="mt-2">{project.description}</p>
     </ProjectWrapper>
   );
 };

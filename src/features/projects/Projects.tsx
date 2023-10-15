@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import SectionTitle from '../../common/style/SectionTitle';
 import Project from './components/Project';
 import { projects } from './services/ProjectsService';
-import breakpoints from '../../common/breakpoints';
 import NavBar from '../../common/components/NavBar';
 
 const ProjectWrapper = styled.div`
@@ -21,9 +20,6 @@ const ProjectsWrapper = styled.div`
   color: black;
   font-family: 'Inter';
   width: 100%;
-  @media (min-width: ${breakpoints.laptop}) {
-    width: 1000px;
-  }
 `;
 const Projects: FC = () => (
   <ProjectWrapper>
