@@ -194,7 +194,7 @@ const MoreAbout: FC = () => {
             Django, Ruby on Rails, Java Swing, JavaFX, Pygames, Pygui
           </p>
           <p>
-            I have expreience with working in groups, I understand how
+            I have experience with working in groups, I understand how
             to communicate well with others. I have had experience
             leading groups in college and when I worked as a Software
             Engineer. I enjoyed the times when I got to lead groups
