@@ -92,8 +92,8 @@ const Welcome: FC = () => {
               className="astro"
             />
           </motion.div>
-          <motion.a
-            href="#about"
+          <motion.button
+            type="button"
             className="flex flex-col items-center sm:my-0 my-40 astro-container electrolize"
             whileHover={{ scale: 1.3 }}
             animate={{
@@ -105,6 +105,13 @@ const Welcome: FC = () => {
             }}
             onMouseEnter={() => setHovered(2)}
             onMouseLeave={() => setHovered(0)}
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.querySelector('#about');
+              if (el !== null) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             <div className="textbox">
               Click here to learn about me
@@ -114,7 +121,7 @@ const Welcome: FC = () => {
               alt="astronaught"
               className="astro"
             />
-          </motion.a>
+          </motion.button>
         </div>
       </div>
     </WelcomeWrapper>

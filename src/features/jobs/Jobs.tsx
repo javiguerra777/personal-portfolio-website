@@ -8,18 +8,15 @@ import {
 import { nanoid } from '@reduxjs/toolkit';
 import { FcWorkflow } from 'react-icons/fc';
 import SectionTitle from '../../common/style/SectionTitle';
-import NavBar from '../../common/components/NavBar';
 import MyJobs from './services/MyJobs';
 
 const JobWrapper = styled.div`
   width: 100%;
-  height: 100vh;
   background-color: #28282b;
-  overflow: auto;
+  flex-grow: 1;
 `;
 const Jobs: FC = () => (
   <JobWrapper>
-    <NavBar />
     <motion.div
       className="pt-10 pb-40 flex flex-col items-center"
       initial={{ opacity: 0 }}

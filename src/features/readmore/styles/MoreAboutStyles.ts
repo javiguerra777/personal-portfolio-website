@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const MoreAboutWrapper = styled.div`
-  height: 100%;
+  width: 100%;
+  flex-grow: 1;
   .description-container {
     max-width: 1200px;
     margin: 0 0 20px 0;
