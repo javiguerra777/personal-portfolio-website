@@ -33,9 +33,6 @@ const NotFound: FC = () => (
         <li>
           <NavLink to="/readmore/aboutme">About Me</NavLink>
         </li>
-        <li>
-          <NavLink to="/readmore/testimonials">Testimonials</NavLink>
-        </li>
       </ul>
     </div>
     <img src={NFImage} alt="not found" />

@@ -1,4 +1,4 @@
-import React, { FC, useState, useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 import styled from 'styled-components';
 import {
   AiOutlineClose,
@@ -10,7 +10,10 @@ import { NavLink, useLocation } from 'react-router-dom';
 import DownloadCV from './DownloadCV';
 import UseGetSideBar from '../hooks/UseGetSideBar';
 import { useAppDispatch } from '../../app/store/hooks';
-import { toggleSideOpen } from '../../app/store/SideBarSlice';
+import {
+  toggleSideOpen,
+  toggleReadMoreOpen,
+} from '../../app/store/SideBarSlice';
 
 const SideWrapper = styled(motion.div)`
   width: 150px;
@@ -34,13 +37,12 @@ const SideBar: FC = () => {
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
   const sidebar = UseGetSideBar();
-  const [isOpen, setIsOpen] = useState(false);
   const toggleOpenSide = () => {
     dispatch(toggleSideOpen());
   };
   const toggleIsOpen = useCallback(() => {
-    setIsOpen((prev) => !prev);
-  }, []);
+    dispatch(toggleReadMoreOpen());
+  }, [dispatch]);
   return (
     <SideWrapper
       initial={false}
@@ -53,9 +55,9 @@ const SideBar: FC = () => {
           <button
             type="button"
             onClick={toggleOpenSide}
-            className="p-0 ml-2"
+            className="p-0 ml-2 hover:bg-red-600 hover:text-white rounded"
           >
-            <AiOutlineClose size={25} color="black" />
+            <AiOutlineClose size={25} />
           </button>
         </div>
         <div className="flex flex-col mt-5 px-3 w-full">
@@ -104,10 +106,14 @@ const SideBar: FC = () => {
           >
             Read More
             <div className="ml-1 flex items-center h-full">
-              {isOpen ? <AiFillCaretUp /> : <AiFillCaretDown />}
+              {sidebar.isReadMoreOpen ? (
+                <AiFillCaretUp />
+              ) : (
+                <AiFillCaretDown />
+              )}
             </div>
           </button>
-          {isOpen && (
+          {sidebar.isReadMoreOpen && (
             <div className="w-full flex flex-col pl-4">
               <NavLink
                 to="/readmore/aboutme"
@@ -120,14 +126,14 @@ const SideBar: FC = () => {
                 About Me
               </NavLink>
               <NavLink
-                to="/readmore/testimonials"
+                to="/readmore/skills"
                 className={`${
-                  pathname === '/readmore/testimonials'
+                  pathname === '/readmore/skills'
                     ? 'bg-gray-100 text-blue-500'
                     : ''
                 } p-1 rounded hover-line mb-4`}
               >
-                Testimonials
+                Skills
               </NavLink>
             </div>
           )}

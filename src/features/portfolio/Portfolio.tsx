@@ -68,7 +68,6 @@ const Portfolio: FC = () => {
   }, []);
   return (
     <PortfolioWrapper ref={mainPageRef}>
-      {/* Hidden div to nav back to top */}
       <NavBar />
       <div id="top" />
       <ProgressionBar style={{ scaleX }} />

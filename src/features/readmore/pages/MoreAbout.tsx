@@ -1,5 +1,4 @@
-import React, { FC, useState } from 'react';
-import styled from 'styled-components';
+import React, { FC, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { wrap } from 'popmotion';
 import {
@@ -9,66 +8,11 @@ import {
 import { nanoid } from '@reduxjs/toolkit';
 import { images } from '../constants/carouselimages';
 import SectionTitle from '../../../common/style/SectionTitle';
+import {
+  MoreAboutCarouselWrapper,
+  MoreAboutWrapper,
+} from '../styles/MoreAboutStyles';
 
-const Wrapper = styled.div`
-  .description-container {
-    max-width: 1200px;
-    margin: 0 0 20px 0;
-    padding: 0 10px;
-  }
-`;
-const CarouselWrapper = styled.div`
-  width: 100%;
-  height: 600px;
-  margin: 0 0 20px 0;
-  position: relative;
-  .image {
-    position: absolute;
-    object-fit: contain;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .left,
-  .right {
-    color: gray;
-    position: absolute;
-    z-index: 4;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 99px;
-  }
-  .left {
-    left: 10px;
-  }
-  .right {
-    right: 10px;
-  }
-  .left:hover,
-  .right:hover {
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-  }
-  .pagination-container {
-    position: absolute;
-    bottom: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 4;
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    .dot {
-      width: 20px;
-      height: 5px;
-      margin: 0 0 0 5px;
-    }
-    .active-dot {
-      background-color: #a78bfa;
-    }
-  }
-`;
 const variants = {
   enter: (direction: number) => ({
     x: direction > 0 ? 1000 : -1000,
@@ -88,15 +32,15 @@ const variants = {
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) =>
   Math.abs(offset) * velocity;
-const iconSize = 50;
 const MoreAbout: FC = () => {
   const [[page, direction], setPage] = useState([0, 0]);
+  const iconSize = useMemo(() => 50, []);
   const imageIndex = wrap(0, images.length, page);
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
   return (
-    <Wrapper>
+    <MoreAboutWrapper>
       <motion.div
         className="flex flex-col items-center"
         initial={{ opacity: 0 }}
@@ -104,7 +48,7 @@ const MoreAbout: FC = () => {
         viewport={{ once: true }}
       >
         <SectionTitle>More About Me</SectionTitle>
-        <CarouselWrapper>
+        <MoreAboutCarouselWrapper>
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
               className="image"
@@ -157,7 +101,7 @@ const MoreAbout: FC = () => {
           >
             <BsChevronCompactRight size={iconSize} />
           </button>
-        </CarouselWrapper>
+        </MoreAboutCarouselWrapper>
         <div className="description-container">
           <h3 className="text-2xl font-semibold">Personal Life</h3>
           <p className="mt-2">
@@ -184,25 +128,8 @@ const MoreAbout: FC = () => {
             background.
           </p>
         </div>
-        <div className="description-container">
-          <h3 className="text-2xl font-semibold mb-2">Skills</h3>
-          <p className="mb-2">
-            Languages: Javascript, Typescript, Java, Python, Ruby
-          </p>
-          <p className="mb-2">
-            Frameworks/Libraries: Angular, React, Phaser, Express,
-            Django, Ruby on Rails, Java Swing, JavaFX, Pygames, Pygui
-          </p>
-          <p>
-            I have experience with working in groups, I understand how
-            to communicate well with others. I have had experience
-            leading groups in college and when I worked as a Software
-            Engineer. I enjoyed the times when I got to lead groups
-            because I enjoy working with people.
-          </p>
-        </div>
       </motion.div>
-    </Wrapper>
+    </MoreAboutWrapper>
   );
 };
 

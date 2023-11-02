@@ -19,7 +19,7 @@ const AttributionLink: FC<AttributionProps> = ({
   </a>
 );
 const Attributions: FC = () => (
-  <div>
+  <div className="px-10">
     <div>
       <div className="flex flex-row w-full justify-center relative">
         <SectionTitle>Attributions</SectionTitle>
