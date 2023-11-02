@@ -38,6 +38,15 @@ const ReadMoreSkills = () => (
       to a point where I am an expert.
     </p>
     <h3 className="text-2xl font-semibold mb-2">Certificates</h3>
+    <p className="mb-1">
+      <span className="font-extrabold">IT:</span> Coursera Google IT
+      Support (Received September 2023), CompTIA ITF+ (Receieved
+      September 2023)
+    </p>
+    <p className="mb-4">
+      <span className="font-extrabold">Business:</span> Coursera
+      Google Project Management (Received October 2023)
+    </p>
     <h3 className="text-2xl font-semibold mb-2">Soft Skills</h3>
     <p>
       With my experience as a 7th grade elementary teacher. I have
