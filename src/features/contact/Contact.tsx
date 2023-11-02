@@ -5,17 +5,15 @@ import { toast } from 'react-toastify';
 import emailjs from '@emailjs/browser';
 import EmailFormSchema from '../portfolio/schemas/EmailFormSchema';
 import SectionTitle from '../../common/style/SectionTitle';
-import NavBar from '../../common/components/NavBar';
 
 const ContactWrapper = styled.div`
   width: 100%;
-  height: 100%;
-  overflow: auto;
   background-color: #28282b;
   font-family: 'Inter';
   textarea {
     resize: none;
   }
+  flex-grow: 1;
 `;
 const Contact: FC = () => {
   const formik = useFormik({
@@ -41,20 +39,18 @@ const Contact: FC = () => {
           params,
           publicKey || '',
         );
-        // let mailto = `mailto:javier.guerra1001@gmail.com`;
-        // mailto += `?subject=Message from ${values.name || 'no name'}`;
-        // mailto += `&body=${values.message}`;
-        // window.location.href = mailto;
         toast.success('Email sent successfully', {
           position: 'top-center',
           autoClose: 5000,
         });
         resetForm();
-      } catch (err: any) {
-        toast.error(err.message, {
-          position: 'top-center',
-          autoClose: 5000,
-        });
+      } catch (err) {
+        if (err instanceof Error) {
+          toast.error(err.message, {
+            position: 'top-center',
+            autoClose: 5000,
+          });
+        }
       }
     },
     validationSchema: EmailFormSchema,
@@ -62,7 +58,6 @@ const Contact: FC = () => {
   });
   return (
     <ContactWrapper id="contact">
-      <NavBar />
       <div className="pb-8 pt-5 lg:pb-16 px-4 mx-auto max-w-screen-md">
         <SectionTitle>Contact Me</SectionTitle>
         <p className="mb-8 lg:mb-16 font-light text-center">

@@ -6,14 +6,12 @@ import UseGetView from '../../common/hooks/UseGetView';
 import Footer from './components/Footer';
 import Welcome from './components/Welcome';
 import About from './components/About';
-import NavBar from '../../common/components/NavBar';
 
 const PortfolioWrapper = styled.div`
   height: 100%;
   scroll-behavior: smooth;
   background-color: #182030;
   color: white;
-  overflow: auto;
 `;
 const ProgressionBar = styled(motion.div)`
   position: fixed;
@@ -68,7 +66,6 @@ const Portfolio: FC = () => {
   }, []);
   return (
     <PortfolioWrapper ref={mainPageRef}>
-      <NavBar />
       <div id="top" />
       <ProgressionBar style={{ scaleX }} />
       <Welcome />
@@ -76,15 +73,22 @@ const Portfolio: FC = () => {
       <Footer />
       {view.isHeroInView && (
         <ReadMoreContainer>
-          <a
-            href="#about"
-            className="flex flex-col items-center text-violet-400 floating hover:underline inter"
+          <button
+            type="button"
+            className="flex flex-col items-center text-violet-400 floating hover:underline inter hover:cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.querySelector('#about');
+              if (el !== null) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             <p className="text-xl font-semibold">Read More</p>
             <span className="bg-violet-400 p-2 text-white rounded-full">
               <AiOutlineArrowDown />
             </span>
-          </a>
+          </button>
         </ReadMoreContainer>
       )}
     </PortfolioWrapper>

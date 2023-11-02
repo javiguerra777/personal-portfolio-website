@@ -7,17 +7,15 @@ import SideBar from './SideBar';
 import breakpoints from '../breakpoints';
 import { useAppDispatch } from '../../app/store/hooks';
 import { toggleSideOpen } from '../../app/store/SideBarSlice';
+import { NavBarHeight } from '../constants/StyleVariables';
 
 const NavBarWrapper = styled.nav`
   display: flex;
   background-color: #a78bfa;
   flex-direction: row;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -o-sticky;
-  position: -ms-sticky;
   position: sticky;
-  height: 75px;
+  width: 100vw;
+  height: ${NavBarHeight};
   top: 0;
   z-index: 10;
   justify-content: space-between;
@@ -68,7 +66,7 @@ const NavBar: FC = () => {
       </div>
       <button
         type="button"
-        className="bg-white p-2.5 rounded-full hover:bg-zinc-500 absolute right-1"
+        className="bg-white p-2.5 mr-5 rounded-full hover:bg-zinc-500"
         onClick={toggleOpenSide}
       >
         <GiHamburgerMenu color="black" size={25} />

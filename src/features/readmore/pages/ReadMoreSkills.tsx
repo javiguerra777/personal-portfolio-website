@@ -4,9 +4,9 @@ import SectionTitle from '../../../common/style/SectionTitle';
 
 const MoreSkillsWrapper = styled.div`
   background-color: #28282b;
-  height: 100%;
+  width: 100%;
+  flex-grow: 1;
   padding: 10px 15px;
-  overflow: auto;
 `;
 
 const ReadMoreSkills = () => (

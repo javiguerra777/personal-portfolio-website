@@ -5,12 +5,10 @@ import { motion } from 'framer-motion';
 import SectionTitle from '../../common/style/SectionTitle';
 import Project from './components/Project';
 import { projects } from './services/ProjectsService';
-import NavBar from '../../common/components/NavBar';
 
 const ProjectWrapper = styled.div`
   width: 100%;
   height: 100%;
-  overflow: auto;
 `;
 const ProjectsWrapper = styled.div`
   display: flex;
@@ -23,7 +21,6 @@ const ProjectsWrapper = styled.div`
 `;
 const Projects: FC = () => (
   <ProjectWrapper>
-    <NavBar />
     <motion.div
       className="pt-20 pb-40 flex flex-col items-center"
       initial={{ opacity: 0 }}
