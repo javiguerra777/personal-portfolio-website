@@ -65,8 +65,8 @@ const Welcome: FC = () => {
           </span>
         </p>
         <p className="sm:w-80 mb-2 text-lg michroma">
-          I am familiar with fullstack development check out my
-          experiences
+          I have 3 years of experience building valuable software
+          solutions.
         </p>
         <div className="flex sm:flex-row justify-around flex-col mt-20 items-center">
           <motion.div

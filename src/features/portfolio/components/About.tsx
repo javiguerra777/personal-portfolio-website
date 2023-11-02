@@ -31,17 +31,14 @@ const About: FC = () => (
         <p className="mb-4">
           My family comes first, I have a 1 year old son. I also have
           2 corgi&apos;s named Little Bear and Gibbs. I graduated from
-          CSU, Stanislaus with an MBA in Finance. I most recently
-          worked at Bitwise as a Software Engineer. I am currently
-          building a mobile app for a potential business idea using
-          React Native.
+          CSU, Stanislaus with an MBA in Finance. I work as a teacher
+          for SUSD. I have built a Mobile Application with React
+          Native that has been deployed and I am maintaining the
+          codebase and adding new features.
         </p>
         <p>
-          The jobs I am interested in are FullStack Developer, Video
-          Game Developer, and Mobile App Developer. The language I am
-          most comfortable with is Javascript, but I also understand
-          Typescript. I also know how to write Java, PHP and Python
-          code.
+          The jobs I am interested in are Full Stack Developer, Video
+          Game Developer, and Mobile App Developer.
         </p>
         <div className="my-3">
           <NavLink
@@ -53,10 +50,10 @@ const About: FC = () => (
         </div>
         <div>
           <NavLink
-            to="/readmore/testimonials"
+            to="/readmore/skills"
             className="mt-4 hover:underline hover:text-blue-600"
           >
-            Testimonials {'>>'}
+            Skills {'>>'}
           </NavLink>
         </div>
         <div className="flex flex-row mt-7">
