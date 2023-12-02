@@ -51,20 +51,28 @@ const Jobs: FC = () => {
         <SectionTitle>Work History</SectionTitle>
         <VerticalTimeline>
           {data !== undefined &&
-            data.jobs.map((job) => (
-              <VerticalTimelineElement
-                key={job._id}
-                className="vertical-timeline-element--work text-black"
-                dateClassName="text-white"
-                date={job.workDates}
-                icon={<FcWorkflow />}
-                iconClassName="bg-blue-200"
-              >
-                <h4 className="font-semibold">{job.company}</h4>
-                <p className="italic">{job.workDates}</p>
-                <p>{job.description}</p>
-              </VerticalTimelineElement>
-            ))}
+            [...data.jobs]
+              .sort((a, b) => {
+                const [aMonth, aYear] = a.startDate.split('/');
+                const [bMonth, bYear] = b.startDate.split('/');
+                const aDate = new Date(`${aMonth}/01/${aYear}`);
+                const bDate = new Date(`${bMonth}/01/${bYear}`);
+                return bDate.getTime() - aDate.getTime();
+              })
+              .map((job) => (
+                <VerticalTimelineElement
+                  key={job._id}
+                  className="vertical-timeline-element--work text-black"
+                  dateClassName="text-white"
+                  date={job.workDates}
+                  icon={<FcWorkflow />}
+                  iconClassName="bg-blue-200"
+                >
+                  <h4 className="font-semibold">{job.company}</h4>
+                  <p className="italic">{job.workDates}</p>
+                  <p>{job.description}</p>
+                </VerticalTimelineElement>
+              ))}
         </VerticalTimeline>
       </motion.div>
     </JobWrapper>
