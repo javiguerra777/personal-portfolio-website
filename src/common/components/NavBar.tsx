@@ -66,10 +66,10 @@ const NavBar: FC = () => {
       </div>
       <button
         type="button"
-        className="bg-white p-2.5 mr-5 rounded-full hover:bg-zinc-500"
+        className="bg-white p-2.5 mr-5 rounded text-black hover:bg-zinc-500 hover:text-white border-2 border-black"
         onClick={toggleOpenSide}
       >
-        <GiHamburgerMenu color="black" size={25} />
+        <GiHamburgerMenu size={25} />
       </button>
       <SideBar />
     </NavBarWrapper>

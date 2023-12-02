@@ -1,10 +1,7 @@
 import React, { FC, useCallback } from 'react';
 import styled from 'styled-components';
-import {
-  AiOutlineClose,
-  AiFillCaretDown,
-  AiFillCaretUp,
-} from 'react-icons/ai';
+import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import { NavLink, useLocation } from 'react-router-dom';
 import DownloadCV from './DownloadCV';
@@ -16,7 +13,7 @@ import {
 } from '../../app/store/SideBarSlice';
 
 const SideWrapper = styled(motion.div)`
-  width: 150px;
+  width: 200px;
   height: 100vh;
   position: fixed;
   right: 0;
@@ -50,17 +47,16 @@ const SideBar: FC = () => {
       variants={variants}
     >
       <div className="flex flex-col mt-5 items-center w-full">
-        <div className="flex flex-row">
-          <p className="text-xl">Navigation</p>
+        <div className="w-full">
           <button
             type="button"
             onClick={toggleOpenSide}
-            className="p-0 ml-2 hover:bg-red-600 hover:text-white rounded"
+            className="p-2.5 hover:bg-zinc-500 hover:text-white rounded border-2 border-black ml-2"
           >
-            <AiOutlineClose size={25} />
+            <GiHamburgerMenu size={25} />
           </button>
         </div>
-        <div className="flex flex-col mt-5 px-3 w-full">
+        <div className="flex flex-col px-3 w-full mt-3">
           <NavLink
             to="/personal-portfolio-website"
             className={`${
@@ -101,7 +97,7 @@ const SideBar: FC = () => {
           </NavLink>
           <button
             type="button"
-            className="p-1 flex flex-row"
+            className="p-1 flex flex-row hover:bg-zinc-400 hover:text-white"
             onClick={toggleIsOpen}
           >
             Read More
