@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import {
@@ -6,7 +6,8 @@ import {
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import { FcWorkflow } from 'react-icons/fc';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import { toast } from 'react-toastify';
 import SectionTitle from '../../common/style/SectionTitle';
 import { JOBS_QUERY } from './services/JobsQuery';
 
@@ -30,6 +31,14 @@ interface JobsData {
 }
 const Jobs: FC = () => {
   const { loading, error, data } = useQuery<JobsData>(JOBS_QUERY);
+  const toastError = useCallback(() => {
+    if (error) {
+      toast.error(error.message);
+    }
+  }, [error]);
+  useEffect(() => {
+    toastError();
+  }, [toastError]);
   if (loading) return <p>Loading...</p>;
   return (
     <JobWrapper>
