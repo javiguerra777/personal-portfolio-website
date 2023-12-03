@@ -58,6 +58,20 @@ REACT_APP_EMAIL_PUBLIC_KEY=''
 ```
 <p align="left">(<a href="#top">back to top</a>)</p>
 
+## Usage
+
+This section provides a quick overview of how to use the portfolio client.
+
+1. **Navigation**: Use the navigation bar at the top of the page to navigate between different sections of the portfolio. The sections include Home, About, Projects, and Contact.
+
+2. **Projects**: In the Projects section, you can view a list of my projects. Click on a project to see more details, including the technologies used and links to the live site and the source code.
+
+3. **Contact**: In the Contact section, you can find my contact information and a form to send me a message. Fill out the form and click Submit to send me a message.
+
+Remember, this is a portfolio website, so feel free to explore and learn more about me and my work!
+
+<p align="left">(<a href="#top">back to top</a>)</p>
+
 ## License
 
 This project is licensed under the MIT License:

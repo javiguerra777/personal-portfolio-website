@@ -72,5 +72,5 @@ Javier Guerra - javier.guerra1001@gmail.com
 
 Project link: https://github.com/javiguerra777/personal-portfolio-website
 
-Project Demo: https://javiguerra777.github.io/personal-portfolio-website/
+<!-- Project Demo: https://javiguerra777.github.io/personal-portfolio-website/ -->
 <p align="left">(<a href="#top">back to top</a>)</p>
