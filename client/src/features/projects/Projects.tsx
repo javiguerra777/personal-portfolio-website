@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import SectionTitle from '../../common/style/SectionTitle';
 import Project from './components/Project';
 import { GET_PROJECTS } from './services/GetProjects.service';
+import UseDisplayApolloError from '../../common/hooks/UseDisplayApolloError';
 
 const ProjectWrapper = styled.div`
   width: 100%;
@@ -34,6 +35,7 @@ interface ProjectData {
 const Projects: FC = () => {
   const { loading, error, data } =
     useQuery<ProjectData>(GET_PROJECTS);
+  UseDisplayApolloError(error);
   if (loading) return <p>Loading...</p>;
   return (
     <ProjectWrapper>

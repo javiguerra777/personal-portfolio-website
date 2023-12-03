@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  useState,
-  useMemo,
-  useCallback,
-  useEffect,
-} from 'react';
+import React, { FC, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { wrap } from 'popmotion';
 import {
@@ -12,7 +6,6 @@ import {
   BsChevronCompactRight,
 } from 'react-icons/bs';
 import { nanoid } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
 import { useQuery } from '@apollo/client';
 import SectionTitle from '../../../common/style/SectionTitle';
 import {
@@ -25,6 +18,7 @@ import {
   swipeConfidenceThreshold,
 } from '../constants/carouselConstants';
 import { GET_CAROUSEL_IMAGES } from '../services/getCarouselImages';
+import UseDisplayApolloError from '../../../common/hooks/UseDisplayApolloError';
 
 interface Image {
   public_id: string;
@@ -49,14 +43,7 @@ const MoreAbout: FC = () => {
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
-  const displayToastError = useCallback(() => {
-    if (error) {
-      toast.error(error.message);
-    }
-  }, [error]);
-  useEffect(() => {
-    displayToastError();
-  }, [displayToastError]);
+  UseDisplayApolloError(error);
   if (loading) return <p>Loading...</p>;
   return (
     <MoreAboutWrapper>

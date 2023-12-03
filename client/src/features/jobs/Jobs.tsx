@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useCallback } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import {
@@ -7,9 +7,9 @@ import {
 } from 'react-vertical-timeline-component';
 import { FcWorkflow } from 'react-icons/fc';
 import { useQuery } from '@apollo/client';
-import { toast } from 'react-toastify';
 import SectionTitle from '../../common/style/SectionTitle';
 import { JOBS_QUERY } from './services/JobsQuery';
+import UseDisplayApolloError from '../../common/hooks/UseDisplayApolloError';
 
 const JobWrapper = styled.div`
   width: 100%;
@@ -31,14 +31,7 @@ interface JobsData {
 }
 const Jobs: FC = () => {
   const { loading, error, data } = useQuery<JobsData>(JOBS_QUERY);
-  const toastError = useCallback(() => {
-    if (error) {
-      toast.error(error.message);
-    }
-  }, [error]);
-  useEffect(() => {
-    toastError();
-  }, [toastError]);
+  UseDisplayApolloError(error);
   if (loading) return <p>Loading...</p>;
   return (
     <JobWrapper>
