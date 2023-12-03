@@ -3,6 +3,7 @@ const { ApolloServer, gql, ApolloError } = require('apollo-server');
 const cloudinary = require('cloudinary');
 const mongoose = require('mongoose');
 const JobModel = require('./schemas/Job');
+const ProjectModel = require('./schemas/Project');
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -23,6 +24,14 @@ const typeDefs = gql`
     endDate: String
     description: String
   }
+  type Project {
+    _id: ID
+    name: String
+    deployedLink: String
+    description: String
+    image: String
+    link: String
+  }
   type File {
     public_id: String
     format: String
@@ -34,6 +43,7 @@ const typeDefs = gql`
     jobs: [Job]
     filesInCarouselImages: [File]!
     resumeFile: [File]!
+    projects: [Project]
   }
 `;
 const resolvers = {
@@ -64,6 +74,14 @@ const resolvers = {
         throw new ApolloError('Failed to fetch resume')
       }
     },
+    projects: async () => {
+      try {
+        return await ProjectModel.find();
+      } catch (err) {
+        console.error(err);
+        throw new ApolloError('Failed to fetch projects');
+      }
+    }
   }
 };
 const server = new ApolloServer({ typeDefs, resolvers });
