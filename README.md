@@ -1,3 +1,48 @@
+# Portfolio
+
+This is my portfolio, which includes both the client and server side code.
+
+## Table of Contents
+
+1. [About The Project](#about-the-project)
+2. [Built With](#built-with)
+3. [Getting Started](#getting-started)
+   - [Prerequisites](#prerequisites)
+   - [Installation](#installation)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Contact](#contact)
+
+## About The Project
+
+This portfolio showcases my skills and projects. The client side is built with React and the server side is built with Node.js, Apollo Server, and MongoDB.
+
+## Built With
+
+- Client: React
+- Server: Node.js, Apollo Server, MongoDB
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- MongoDB
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+2. Install NPM packages for both client and server
+    ```sh
+    cd client
+    npm install
+    cd ../server
+    npm install
+    ```
 ## Contributing
 If you have a suggestion that could improve this project, please fork the repo and create a pull request. You can simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thank you!
 
