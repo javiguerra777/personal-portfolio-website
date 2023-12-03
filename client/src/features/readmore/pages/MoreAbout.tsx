@@ -1,4 +1,10 @@
-import React, { FC, useState, useMemo } from 'react';
+import React, {
+  FC,
+  useState,
+  useMemo,
+  useCallback,
+  useEffect,
+} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { wrap } from 'popmotion';
 import {
@@ -6,39 +12,52 @@ import {
   BsChevronCompactRight,
 } from 'react-icons/bs';
 import { nanoid } from '@reduxjs/toolkit';
-import { images } from '../constants/carouselimages';
+import { toast } from 'react-toastify';
+import { useQuery } from '@apollo/client';
 import SectionTitle from '../../../common/style/SectionTitle';
 import {
   MoreAboutCarouselWrapper,
   MoreAboutWrapper,
 } from '../styles/MoreAboutStyles';
+import {
+  variants,
+  swipePower,
+  swipeConfidenceThreshold,
+} from '../constants/carouselConstants';
+import { GET_CAROUSEL_IMAGES } from '../services/getCarouselImages';
 
-const variants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? 1000 : -1000,
-    opacity: 0,
-  }),
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => ({
-    zIndex: 0,
-    x: direction < 0 ? 1000 : -1000,
-    opacity: 0,
-  }),
-};
-const swipeConfidenceThreshold = 10000;
-const swipePower = (offset: number, velocity: number) =>
-  Math.abs(offset) * velocity;
+interface Image {
+  public_id: string;
+  url: string;
+  secure_url: string;
+  format: string;
+  version: number;
+}
+interface CarouselImages {
+  filesInCarouselImages: Image[];
+}
 const MoreAbout: FC = () => {
+  const { data, loading, error } = useQuery<CarouselImages>(
+    GET_CAROUSEL_IMAGES,
+  );
   const [[page, direction], setPage] = useState([0, 0]);
   const iconSize = useMemo(() => 50, []);
-  const imageIndex = wrap(0, images.length, page);
+  let imageIndex = 0;
+  if (data !== undefined) {
+    imageIndex = wrap(0, data.filesInCarouselImages.length, page);
+  }
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
+  const displayToastError = useCallback(() => {
+    if (error) {
+      toast.error(error.message);
+    }
+  }, [error]);
+  useEffect(() => {
+    displayToastError();
+  }, [displayToastError]);
+  if (loading) return <p>Loading...</p>;
   return (
     <MoreAboutWrapper>
       <motion.div
@@ -48,60 +67,62 @@ const MoreAbout: FC = () => {
         viewport={{ once: true }}
       >
         <SectionTitle>More About Me</SectionTitle>
-        <MoreAboutCarouselWrapper>
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.img
-              className="image"
-              key={page}
-              src={images[imageIndex]}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: 'spring', stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 },
-              }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={1}
-              onDragEnd={(e, { offset, velocity }) => {
-                const swipe = swipePower(offset.x, velocity.x);
+        {data !== undefined && (
+          <MoreAboutCarouselWrapper>
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.img
+                className="image"
+                key={page}
+                src={data.filesInCarouselImages[imageIndex].url}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: 'spring', stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 },
+                }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={1}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe = swipePower(offset.x, velocity.x);
 
-                if (swipe < -swipeConfidenceThreshold) {
-                  paginate(1);
-                } else if (swipe > swipeConfidenceThreshold) {
-                  paginate(-1);
-                }
-              }}
-            />
-          </AnimatePresence>
-          <div className="pagination-container rounded">
-            {images.map((img, idx) => (
-              <div
-                key={nanoid()}
-                className={`dot ${
-                  idx === imageIndex ? 'active-dot' : 'bg-white'
-                }`}
+                  if (swipe < -swipeConfidenceThreshold) {
+                    paginate(1);
+                  } else if (swipe > swipeConfidenceThreshold) {
+                    paginate(-1);
+                  }
+                }}
               />
-            ))}
-          </div>
-          <button
-            type="button"
-            className="left"
-            onClick={() => paginate(-1)}
-          >
-            <BsChevronCompactLeft size={iconSize} />
-          </button>
-          <button
-            type="button"
-            className="right"
-            onClick={() => paginate(1)}
-          >
-            <BsChevronCompactRight size={iconSize} />
-          </button>
-        </MoreAboutCarouselWrapper>
+            </AnimatePresence>
+            <div className="pagination-container rounded">
+              {data.filesInCarouselImages.map((img, idx) => (
+                <div
+                  key={nanoid()}
+                  className={`dot ${
+                    idx === imageIndex ? 'active-dot' : 'bg-white'
+                  }`}
+                />
+              ))}
+            </div>
+            <button
+              type="button"
+              className="left"
+              onClick={() => paginate(-1)}
+            >
+              <BsChevronCompactLeft size={iconSize} />
+            </button>
+            <button
+              type="button"
+              className="right"
+              onClick={() => paginate(1)}
+            >
+              <BsChevronCompactRight size={iconSize} />
+            </button>
+          </MoreAboutCarouselWrapper>
+        )}
         <div className="description-container">
           <h3 className="text-2xl font-semibold">Personal Life</h3>
           <p className="mt-2">

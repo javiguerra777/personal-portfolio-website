@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
-import Selfie from '../../../assets/selfie.jpg';
 
 const AboutWrapper = styled(motion.div)`
   width: 100%;
@@ -22,7 +21,10 @@ const About: FC = () => (
     </h2>
     <div className="pt-10 pb-20 px-4 flex flex-col md:flex-row inter">
       <div className="w-full flex flex-row items-center justify-center p-2">
-        <img src={Selfie} alt="selfie" />
+        <img
+          src="https://res.cloudinary.com/ddvhrwrrg/image/upload/v1701578802/portfolio_files/images/selfie_wsbvyw.jpg"
+          alt="selfie"
+        />
       </div>
       <div className="w-full md:w-90 p-1">
         <p className="mb-4 font-semibold text-lg">
