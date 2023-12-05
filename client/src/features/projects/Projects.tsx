@@ -2,12 +2,11 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { nanoid } from '@reduxjs/toolkit';
 import { motion } from 'framer-motion';
-import { useQuery } from '@apollo/client';
 import SectionTitle from '../../common/style/SectionTitle';
 import Project from './components/Project';
-import { GET_PROJECTS } from './services/GetProjects.service';
-import UseDisplayApolloError from '../../common/hooks/UseDisplayApolloError';
+import UseDisplayServerError from '../../common/hooks/UseDisplayServerError';
 import LoadingData from '../../common/components/LoadingData';
+import { useGetProjectsQuery } from './services/ProjectsApi';
 
 const ProjectWrapper = styled.div`
   width: 100%;
@@ -22,22 +21,11 @@ const ProjectsWrapper = styled.div`
   font-family: 'Inter';
   width: 100%;
 `;
-interface ProjectType {
-  _id: string;
-  name: string;
-  deployedLink: string;
-  description: string;
-  image: string;
-  link: string;
-}
-interface ProjectData {
-  projects: ProjectType[];
-}
+
 const Projects: FC = () => {
-  const { loading, error, data } =
-    useQuery<ProjectData>(GET_PROJECTS);
-  UseDisplayApolloError(error);
-  if (loading) return <LoadingData text="Loading Projects" />;
+  const { isLoading, error, data } = useGetProjectsQuery();
+  UseDisplayServerError(error);
+  if (isLoading) return <LoadingData text="Loading Projects" />;
   return (
     <ProjectWrapper>
       <motion.div
@@ -49,7 +37,7 @@ const Projects: FC = () => {
         <SectionTitle>Projects</SectionTitle>
         <ProjectsWrapper>
           {data !== undefined &&
-            data.projects.map((project) => (
+            data.map((project) => (
               <Project project={project} key={nanoid()} />
             ))}
         </ProjectsWrapper>

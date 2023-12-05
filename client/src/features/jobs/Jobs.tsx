@@ -6,11 +6,10 @@ import {
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import { FcWorkflow } from 'react-icons/fc';
-import { useQuery } from '@apollo/client';
 import SectionTitle from '../../common/style/SectionTitle';
-import { JOBS_QUERY } from './services/JobsQuery';
-import UseDisplayApolloError from '../../common/hooks/UseDisplayApolloError';
+import UseDisplayServerError from '../../common/hooks/UseDisplayServerError';
 import LoadingData from '../../common/components/LoadingData';
+import { useGetJobsQuery } from './services/JobsApi';
 
 const JobWrapper = styled.div`
   width: 100%;
@@ -18,22 +17,10 @@ const JobWrapper = styled.div`
   flex-grow: 1;
 `;
 
-interface Job {
-  _id: string;
-  company: string;
-  workDates: string;
-  startDate: string;
-  endDate: string;
-  description: string;
-}
-
-interface JobsData {
-  jobs: Job[];
-}
 const Jobs: FC = () => {
-  const { loading, error, data } = useQuery<JobsData>(JOBS_QUERY);
-  UseDisplayApolloError(error);
-  if (loading) return <LoadingData text="Loading Jobs" />;
+  const { isLoading, error, data } = useGetJobsQuery();
+  UseDisplayServerError(error);
+  if (isLoading) return <LoadingData text="Loading Jobs" />;
   return (
     <JobWrapper>
       <motion.div
@@ -45,7 +32,7 @@ const Jobs: FC = () => {
         <SectionTitle>Work History</SectionTitle>
         <VerticalTimeline>
           {data !== undefined &&
-            [...data.jobs]
+            [...data]
               .sort((a, b) => {
                 const [aMonth, aYear] = a.startDate.split('/');
                 const [bMonth, bYear] = b.startDate.split('/');

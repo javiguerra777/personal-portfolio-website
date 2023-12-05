@@ -6,7 +6,6 @@ import {
   BsChevronCompactRight,
 } from 'react-icons/bs';
 import { nanoid } from '@reduxjs/toolkit';
-import { useQuery } from '@apollo/client';
 import SectionTitle from '../../../common/style/SectionTitle';
 import {
   MoreAboutCarouselWrapper,
@@ -17,34 +16,22 @@ import {
   swipePower,
   swipeConfidenceThreshold,
 } from '../constants/carouselConstants';
-import { GET_CAROUSEL_IMAGES } from '../services/getCarouselImages';
-import UseDisplayApolloError from '../../../common/hooks/UseDisplayApolloError';
+import UseDisplayServerError from '../../../common/hooks/UseDisplayServerError';
 import LoadingData from '../../../common/components/LoadingData';
+import { useGetCarousalImagesQuery } from '../../../common/api/FilesApi';
 
-interface Image {
-  public_id: string;
-  url: string;
-  secure_url: string;
-  format: string;
-  version: number;
-}
-interface CarouselImages {
-  filesInCarouselImages: Image[];
-}
 const MoreAbout: FC = () => {
-  const { data, loading, error } = useQuery<CarouselImages>(
-    GET_CAROUSEL_IMAGES,
-  );
+  const { data, isLoading, error } = useGetCarousalImagesQuery();
   const [[page, direction], setPage] = useState([0, 0]);
   const iconSize = useMemo(() => 50, []);
   let imageIndex = 0;
   if (data !== undefined) {
-    imageIndex = wrap(0, data.filesInCarouselImages.length, page);
+    imageIndex = wrap(0, data.length, page);
   }
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
-  UseDisplayApolloError(error);
+  UseDisplayServerError(error);
   return (
     <MoreAboutWrapper>
       <motion.div
@@ -54,7 +41,7 @@ const MoreAbout: FC = () => {
         viewport={{ once: true }}
       >
         <SectionTitle>More About Me</SectionTitle>
-        {loading ? (
+        {isLoading ? (
           <LoadingData text="Loading Images" />
         ) : (
           <>
@@ -64,7 +51,7 @@ const MoreAbout: FC = () => {
                   <motion.img
                     className="image"
                     key={page}
-                    src={data.filesInCarouselImages[imageIndex].url}
+                    src={data[imageIndex].url}
                     custom={direction}
                     variants={variants}
                     initial="enter"
@@ -93,7 +80,7 @@ const MoreAbout: FC = () => {
                   />
                 </AnimatePresence>
                 <div className="pagination-container rounded">
-                  {data.filesInCarouselImages.map((img, idx) => (
+                  {data.map((img, idx) => (
                     <div
                       key={nanoid()}
                       className={`dot ${

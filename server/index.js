@@ -44,13 +44,13 @@ app.get('/api/projects', async (req, res) => {
     res.status(500).send('Failed to fetch projects');
   }
 });
-app.get('/api/files/carousel_images', async (req, res) => {
+app.get('/api/files/carousal_images', async (req, res) => {
   try {
     const { resources } = await cloudinary.v2.api.resources({ type: 'upload', prefix: 'portfolio_files/carousel_images', max_results: 30});
     res.json(resources);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Failed to fetch carousel images');
+    res.status(500).send('Failed to fetch carousal images');
   }
 });
 app.get('/api/files/resume', async (req, res) => {
