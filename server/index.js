@@ -50,7 +50,7 @@ app.get('/api/files/carousal_images', async (req, res) => {
     res.json(resources);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Failed to fetch carousel images');
+    res.status(500).send('Failed to fetch carousal images');
   }
 });
 app.get('/api/files/resume', async (req, res) => {
