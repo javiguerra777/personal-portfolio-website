@@ -1,10 +1,13 @@
 require('dotenv').config();
-const { ApolloServer, gql, ApolloError } = require('apollo-server');
+const express = require('express');
+const cors = require('cors');
 const cloudinary = require('cloudinary');
 const mongoose = require('mongoose');
 const JobModel = require('./schemas/Job');
 const ProjectModel = require('./schemas/Project');
 
+const app = express();
+const port = process.env.PORT || 4000;
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY, 
@@ -15,78 +18,52 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 .then(() => console.log('DB connected'))
 .catch(err => console.error(err));
 
-const typeDefs = gql`
-  type Job {
-    _id: ID
-    company: String
-    workDates: String
-    startDate: String
-    endDate: String
-    description: String
+app.use(express.static('public'));
+app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+app.get('/api/jobs', async (req, res) => {
+  try {
+    const jobs = await JobModel.find();
+    res.json(jobs);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Failed to fetch jobs');
   }
-  type Project {
-    _id: ID
-    name: String
-    deployedLink: String
-    description: String
-    image: String
-    link: String
+});
+app.get('/api/projects', async (req, res) => {
+  try {
+    const projects = await ProjectModel.find();
+    res.json(projects);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Failed to fetch projects');
   }
-  type File {
-    public_id: String
-    format: String
-    version: Int
-    url: String
-    secure_url: String
+});
+app.get('/api/files/carousel_images', async (req, res) => {
+  try {
+    const { resources } = await cloudinary.v2.api.resources({ type: 'upload', prefix: 'portfolio_files/carousel_images', max_results: 30});
+    res.json(resources);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Failed to fetch carousel images');
   }
-  type Query {
-    jobs: [Job]
-    filesInCarouselImages: [File]!
-    resumeFile: [File]!
-    projects: [Project]
+});
+app.get('/api/files/resume', async (req, res) => {
+  try {
+    const { resources } = await cloudinary.v2.api.resources({ type: 'upload', prefix: 'portfolio_files/resume', max_results: 30});
+    res.json(resources);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Failed to fetch resume');
   }
-`;
-const resolvers = {
-  Query: {
-    jobs: async () => {
-      try {
-        return await JobModel.find();
-      } catch (err) {
-        console.error(err);
-        throw new ApolloError('Failed to fetch jobs');
-      }
-    },
-    filesInCarouselImages: async () => {
-      try {
-        const { resources } = await cloudinary.v2.api.resources({ type: 'upload', prefix: 'portfolio_files/carousel_images', max_results: 30});
-        return resources;
-      } catch (err) {
-        console.error(err);
-        throw new ApolloError('Failed to fetch carousel images')
-      }
-    },
-    resumeFile: async() => {
-      try {
-        const { resources } = await cloudinary.v2.api.resources({ type: 'upload', prefix: 'portfolio_files/resume', max_results: 30});
-        return resources;
-      } catch(err) {
-        console.error(err);
-        throw new ApolloError('Failed to fetch resume')
-      }
-    },
-    projects: async () => {
-      try {
-        return await ProjectModel.find();
-      } catch (err) {
-        console.error(err);
-        throw new ApolloError('Failed to fetch projects');
-      }
-    }
-  }
-};
-const server = new ApolloServer({ typeDefs, resolvers });
-server.listen()
-.then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
-})
-.catch(err => console.error(err));
+});
+app.listen(port, () => {
+  console.log(`Server running at port ${process.env.PORT || 4000}`);
+});
+
+module.exports = app;
