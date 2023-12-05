@@ -7,6 +7,7 @@ import SectionTitle from '../../common/style/SectionTitle';
 import Project from './components/Project';
 import { GET_PROJECTS } from './services/GetProjects.service';
 import UseDisplayApolloError from '../../common/hooks/UseDisplayApolloError';
+import LoadingData from '../../common/components/LoadingData';
 
 const ProjectWrapper = styled.div`
   width: 100%;
@@ -36,7 +37,7 @@ const Projects: FC = () => {
   const { loading, error, data } =
     useQuery<ProjectData>(GET_PROJECTS);
   UseDisplayApolloError(error);
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingData text="Loading Projects" />;
   return (
     <ProjectWrapper>
       <motion.div
