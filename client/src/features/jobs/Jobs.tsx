@@ -10,6 +10,7 @@ import { useQuery } from '@apollo/client';
 import SectionTitle from '../../common/style/SectionTitle';
 import { JOBS_QUERY } from './services/JobsQuery';
 import UseDisplayApolloError from '../../common/hooks/UseDisplayApolloError';
+import LoadingData from '../../common/components/LoadingData';
 
 const JobWrapper = styled.div`
   width: 100%;
@@ -32,7 +33,7 @@ interface JobsData {
 const Jobs: FC = () => {
   const { loading, error, data } = useQuery<JobsData>(JOBS_QUERY);
   UseDisplayApolloError(error);
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingData text="Loading Jobs" />;
   return (
     <JobWrapper>
       <motion.div

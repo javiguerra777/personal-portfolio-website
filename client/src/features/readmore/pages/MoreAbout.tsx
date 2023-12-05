@@ -19,6 +19,7 @@ import {
 } from '../constants/carouselConstants';
 import { GET_CAROUSEL_IMAGES } from '../services/getCarouselImages';
 import UseDisplayApolloError from '../../../common/hooks/UseDisplayApolloError';
+import LoadingData from '../../../common/components/LoadingData';
 
 interface Image {
   public_id: string;
@@ -44,7 +45,6 @@ const MoreAbout: FC = () => {
     setPage([page + newDirection, newDirection]);
   };
   UseDisplayApolloError(error);
-  if (loading) return <p>Loading...</p>;
   return (
     <MoreAboutWrapper>
       <motion.div
@@ -54,61 +54,71 @@ const MoreAbout: FC = () => {
         viewport={{ once: true }}
       >
         <SectionTitle>More About Me</SectionTitle>
-        {data !== undefined && (
-          <MoreAboutCarouselWrapper>
-            <AnimatePresence initial={false} custom={direction}>
-              <motion.img
-                className="image"
-                key={page}
-                src={data.filesInCarouselImages[imageIndex].url}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: 'spring', stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 },
-                }}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={1}
-                onDragEnd={(e, { offset, velocity }) => {
-                  const swipe = swipePower(offset.x, velocity.x);
+        {loading ? (
+          <LoadingData text="Loading Images" />
+        ) : (
+          <>
+            {data !== undefined && (
+              <MoreAboutCarouselWrapper>
+                <AnimatePresence initial={false} custom={direction}>
+                  <motion.img
+                    className="image"
+                    key={page}
+                    src={data.filesInCarouselImages[imageIndex].url}
+                    custom={direction}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                      x: {
+                        type: 'spring',
+                        stiffness: 300,
+                        damping: 30,
+                      },
+                      opacity: { duration: 0.2 },
+                    }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={1}
+                    onDragEnd={(e, { offset, velocity }) => {
+                      const swipe = swipePower(offset.x, velocity.x);
 
-                  if (swipe < -swipeConfidenceThreshold) {
-                    paginate(1);
-                  } else if (swipe > swipeConfidenceThreshold) {
-                    paginate(-1);
-                  }
-                }}
-              />
-            </AnimatePresence>
-            <div className="pagination-container rounded">
-              {data.filesInCarouselImages.map((img, idx) => (
-                <div
-                  key={nanoid()}
-                  className={`dot ${
-                    idx === imageIndex ? 'active-dot' : 'bg-white'
-                  }`}
-                />
-              ))}
-            </div>
-            <button
-              type="button"
-              className="left"
-              onClick={() => paginate(-1)}
-            >
-              <BsChevronCompactLeft size={iconSize} />
-            </button>
-            <button
-              type="button"
-              className="right"
-              onClick={() => paginate(1)}
-            >
-              <BsChevronCompactRight size={iconSize} />
-            </button>
-          </MoreAboutCarouselWrapper>
+                      if (swipe < -swipeConfidenceThreshold) {
+                        paginate(1);
+                      } else if (swipe > swipeConfidenceThreshold) {
+                        paginate(-1);
+                      }
+                    }}
+                  />
+                </AnimatePresence>
+                <div className="pagination-container rounded">
+                  {data.filesInCarouselImages.map((img, idx) => (
+                    <div
+                      key={nanoid()}
+                      className={`dot ${
+                        idx === imageIndex ? 'active-dot' : 'bg-white'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  className="left"
+                  onClick={() => paginate(-1)}
+                >
+                  <BsChevronCompactLeft size={iconSize} />
+                </button>
+                <button
+                  type="button"
+                  className="right"
+                  onClick={() => paginate(1)}
+                >
+                  <BsChevronCompactRight size={iconSize} />
+                </button>
+              </MoreAboutCarouselWrapper>
+            )}
+          </>
         )}
         <div className="description-container">
           <h3 className="text-2xl font-semibold">Personal Life</h3>
