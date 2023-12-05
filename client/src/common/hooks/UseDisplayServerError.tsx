@@ -1,10 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { ApolloError } from '@apollo/client';
 
-export default function UseDisplayApolloError(
-  error: ApolloError | undefined,
-) {
+export default function UseDisplayServerError(error: any) {
   const toastError = useCallback(() => {
     if (error) {
       toast.error(error.message, {
