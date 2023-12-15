@@ -62,7 +62,19 @@ If you have a suggestion that could improve this project, please fork the repo a
 <p align="left">(<a href="#top">back to top</a>)</p>
 
 ## Deploying
-TBD steps on how to deploy this fullstack application
+
+This full-stack application consists of a client and a server, each requiring separate steps for deployment.
+
+### Client
+
+1. Navigate to the client directory: `cd client`
+2. Follow the instructions in the client README to deploy
+
+### Server
+
+1. Navigate to the server directory: `cd server`
+2. Follow the instructions in the server README to deploy
+
 <p align="left">(<a href="#top">back to top</a>)</p>
 
 

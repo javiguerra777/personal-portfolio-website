@@ -14,7 +14,8 @@ Welcome to my personal portfolio website repository! This is where I showcase my
      - [Prerequisites](#prerequisites)
      - [Installation](#installation)
   3. [Usage](#usage)
-  4. [License](#license)
+  4. [Deploying](#deploying)
+  5. [License](#license)
 </details>
 
 # About the Project
@@ -69,6 +70,17 @@ This section provides a quick overview of how to use the portfolio client.
 3. **Contact**: In the Contact section, you can find my contact information and a form to send me a message. Fill out the form and click Submit to send me a message.
 
 Remember, this is a portfolio website, so feel free to explore and learn more about me and my work!
+
+<p align="left">(<a href="#top">back to top</a>)</p>
+
+## Deploying
+This website is deployed using GitHub Pages. Here are the steps to deploy it:
+
+1. Commit your changes and push them to the `development` branch of your GitHub repository.
+2. Execute `npm run predeploy` in your terminal to build or compile the application.
+3. After the build process is complete, run `npm run deploy` to deploy the application to GitHub Pages.
+4. Once the deployment is successful, your site should be accessible at `https://<your-github-username>.github.io/<repository-name>/`.
+Please note that it may take a few minutes for the changes to reflect on the live site.
 
 <p align="left">(<a href="#top">back to top</a>)</p>
 

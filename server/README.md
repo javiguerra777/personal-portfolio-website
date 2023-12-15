@@ -11,7 +11,8 @@ This is the server for my portfolio website. It's built with Node.js, Apollo Ser
    - [Prerequisites](#prerequisites)
    - [Installation](#installation)
 4. [Usage](#usage)
-5. [License](#license)
+5. [Deploying](#deploying)
+6. [License](#license)
 
 ## About The Project
 
@@ -67,6 +68,13 @@ To start the server using nodemon, run:
   ```
 Both these commands will start the server on localhost:4000
 <p align="left">(<a href="#top">back to top</a>)</p>
+
+## Deploying
+This server was deployed using Vercel to deploy this server follow the instructions below.
+
+1. Ensure there is a `vercel.json` file and it is configured correctly
+2. Deploy the project with `npm run deploy`
+3. Follow the prompts in the command to deploy the server
 
 ## License
 
